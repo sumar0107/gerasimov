@@ -1,0 +1,17 @@
+.header-logo {
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    padding: rem-calc(4 0);
+  }
+
+  &__ico {
+    margin-right: rem-calc(8);
+  }
+
+  &__lid {
+
+  }
+}

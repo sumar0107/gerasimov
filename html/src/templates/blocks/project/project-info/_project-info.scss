@@ -1,0 +1,39 @@
+.project-info {
+  &__row {
+    @include make-row();
+    @include media-breakpoint-up(md) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__col {
+    &-1 {
+      @include make-col-ready();
+      @include media-breakpoint-up(md) {
+        width: rem-calc(260);
+        min-width: rem-calc(260);
+        flex: 0 0 16.25rem;
+      }
+    }
+
+    &-2 {
+      @include make-col-ready();
+      @include media-breakpoint-up(md) {
+        width: auto;
+        flex: 1 1 auto;
+      }
+    }
+  }
+  &__title {
+    font-size: rem-calc(16);
+    font-weight: 700;
+    line-height: rem-calc(24);
+  }
+
+  &__body{
+    font-size: rem-calc(16);
+    font-weight: 400;
+    line-height: rem-calc(24);
+  }
+}
+

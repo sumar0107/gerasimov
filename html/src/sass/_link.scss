@@ -1,0 +1,34 @@
+a {
+  outline: none;
+  @include transition(color .15s);
+
+  &:hover, &:focus, &.active, &:active {
+    outline: none;
+  }
+
+  &:active {
+    color: $link-hover-color;
+  }
+  &:disabled,&.disabled{
+    color: rgba($black, .5);
+    pointer-events: none;
+  }
+}
+
+.icon {
+  a >& {
+    fill: $link-color;
+    transition: (fill .15s);
+  }
+
+  a:hover >& {
+    fill: $link-hover-color;
+  }
+
+  a:active >& {
+    fill: $link-hover-color;
+  }
+
+
+}
+

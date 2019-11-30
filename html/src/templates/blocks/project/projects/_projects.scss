@@ -1,0 +1,9 @@
+.projects {
+  //@include make-row(60px);
+
+  &__item {
+    //@include make-col-ready(0);
+    width: auto;
+  }
+}
+

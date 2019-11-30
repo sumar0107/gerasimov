@@ -1,0 +1,21 @@
+//include ../swiper-item/swiper-item
+include ../icon-svg/_icon-svg
+mixin swiper-slider()
+  .swiper__wrapper
+    //Slider main container
+    .swiper.swiper-container&attributes(attributes)
+      //Additional required wrapper
+      .swiper-wrapper
+        //Slides
+        block
+
+    // If we need pagination
+    .swiper__pagination.swiper-pagination
+
+    //If we need navigation buttons
+    .swiper__button
+      .swiper__button-item.swiper__button-item_prev.swiper-button-prev.js-swiper-button-prev
+        +icon('arrow-left')
+      .swiper__button-item.swiper__button-item_next.swiper-button-next.js-swiper-button-next
+        +icon('arrow-right')
+

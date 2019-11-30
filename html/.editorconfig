@@ -1,0 +1,24 @@
+# for help go to editorconfig.org
+root = true
+
+# for everithing
+[*]
+
+# you can change this
+indent_style = space
+indent_size = 2
+
+# better not to change
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# for descriptions
+[*.md]
+trim_trailing_whitespace = false
+
+# for package.json and .travis.yml
+[{.travis.yml,package.json}]
+indent_style = space
+indent_size = 2

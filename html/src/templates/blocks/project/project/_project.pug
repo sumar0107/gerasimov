@@ -1,0 +1,21 @@
+include ../../../mixins/tabs/_tabs
+.project
+
+  include ../../gallery/_gallery
+  .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
+    +tabs()(class='mdc-tab-bar__width-full')
+      +tab-item('Информация','true')(class='js-tab active' id='tab-information' data-toggle='tab' aria-controls='tab-c-information' data-target='#tab-c-information')
+      +tab-item('Коллектив','')(class='js-tab' id='tab-team' data-toggle='tab' aria-controls='tab-c-team' data-target='#tab-c-team')
+  .mdc-tab-container.tab-content
+    .mdc-tab-container__item(id='tab-c-information' role='tabpanel' class='fade show active' aria-labelledby='tab-information')
+      include ../project-info/_project-info-1
+    .mdc-tab-container__item(id='tab-c-team' role='tabpanel' class='fade' aria-labelledby='tab-team')
+      include ../project-info/_project-info-2
+
+  div(class="collapse" id="collapseExample")
+    div(class="card card-body")
+      | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+
+  br
+  br
+  include ../project-description/_project-description

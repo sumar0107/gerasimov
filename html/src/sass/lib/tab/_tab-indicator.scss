@@ -1,0 +1,74 @@
+.mdc-tab-indicator {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+
+  &__content {
+    transform-origin: left;
+    opacity: 0;
+
+    .mdc-tab-indicator & {
+      transition: 250ms transform cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mdc-tab-indicator--active & {
+      opacity: 1;
+    }
+
+    .mdc-tab-indicator--no-transition & {
+      transition: none;
+    }
+
+    .mdc-tab-indicator--fade & {
+      transition: 150ms opacity linear;
+    }
+
+    .mdc-tab-indicator--active.mdc-tab-indicator--fade & {
+      transition-delay: 100ms;
+    }
+
+    &--underline {
+      align-self: flex-end;
+      box-sizing: border-box;
+      width: 100%;
+      border-top-style: solid;
+    }
+
+    &--icon {
+      align-self: center;
+      margin: 0 auto;
+    }
+  }
+
+  .mdc-tab-indicator__content {
+    &--underline {
+      border-color: $black;
+    }
+
+    &--icon {
+      color: $black;
+    }
+
+    &--underline {
+      border-top-width: 2px;
+    }
+
+    &--icon {
+      height: 34px;
+      font-size: 34px;
+    }
+  }
+}
+
+
+
+
+
+
+

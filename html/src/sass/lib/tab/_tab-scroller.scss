@@ -1,0 +1,65 @@
+.mdc-tab-scroller {
+  overflow-y: hidden;
+
+  &__test {
+    position: absolute;
+    top: -9999px;
+    width: 100px;
+    height: 100px;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__scroll-area {
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &--scroll {
+      overflow-x: scroll;
+    }
+  }
+
+  &__scroll-content {
+    position: relative;
+    display: flex;
+    flex: 1 0 auto;
+    -webkit-transform: none;
+    transform: none;
+    will-change: transform;
+
+    .mdc-tab-scroller.mdc-tab-scroller--animating & {
+      transition: 250ms transform cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mdc-tab-scroller--align-start & {
+      justify-content: flex-start;
+    }
+
+    .mdc-tab-scroller--align-end & {
+      justify-content: flex-end;
+    }
+
+    .mdc-tab-scroller--align-center & {
+      justify-content: center;
+    }
+
+    .mdc-tab-scroller--animating & {
+      -webkit-overflow-scrolling: auto;
+    }
+  }
+}
+
+
+
+
+
+
+

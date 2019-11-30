@@ -1,0 +1,21 @@
+mixin tabs()
+  div(class="mdc-tab-bar" role="tablist")&attributes(attributes)
+    div(class="mdc-tab-scroller")
+      div(class="mdc-tab-scroller__scroll-area")
+        div(class="mdc-tab-scroller__scroll-content")
+          block
+mixin tab-item(text, selected)
+  if(selected !== '')
+    button(class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0")&attributes(attributes)
+      span(class="mdc-tab__content")
+        span(class="mdc-tab__text-label")=text
+      span(class="mdc-tab-indicator mdc-tab-indicator--active")
+        span(class="mdc-tab-indicator__content mdc-tab-indicator__content--underline")
+      span(class="mdc-tab__ripple")
+  else
+    button(class="mdc-tab" role="tab" aria-selected="false" tabindex="0")&attributes(attributes)
+      span(class="mdc-tab__content")
+        span(class="mdc-tab__text-label")=text
+      span(class="mdc-tab-indicator")
+        span(class="mdc-tab-indicator__content mdc-tab-indicator__content--underline")
+      span(class="mdc-tab__ripple")

@@ -1,0 +1,10 @@
+mixin main-menu-li(link,text)
+  li(class='main-menu__list-item')
+    a(href=link class='main-menu__list-link')&attributes(attributes)=text
+    block
+
+nav.main-menu
+  ul.main-menu__list
+    +main-menu-li('./training.html', 'Проекты')(class='active')
+    +main-menu-li('./training.html', 'О компании')(class='')
+    +main-menu-li('./training.html', 'Публикации')(class='')

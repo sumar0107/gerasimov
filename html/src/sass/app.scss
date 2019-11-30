@@ -1,0 +1,29 @@
+// done by riverco.de
+@import 'helpers/index';
+//@import 'generated/sprite-svg';
+@import 'generated/index';
+@import 'lib/index';
+@import 'global';
+@import 'fonts';
+@import 'link';
+//@import '../templates/layout/main/main';
+@import '../templates/layout/**/*';
+@import '../templates/includes/**/*';
+@import '../templates/blocks/**/*';
+@import '../templates/mixins/**/*';
+
+.element-item {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  padding: 10px;
+  background: #888;
+  color: #262524;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}

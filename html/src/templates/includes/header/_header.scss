@@ -1,0 +1,26 @@
+.header {
+  position: relative;
+  padding: rem-calc(35 0);
+  z-index: 2;
+
+  &__row {
+    @include make-row();
+    background-color: $white;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  &__col {
+
+
+    &-logo {
+      @include make-col-ready();
+      width: auto;
+    }
+
+    &-menu {
+      @include make-col-ready();
+      width: auto;
+    }
+  }
+}

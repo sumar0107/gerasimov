@@ -1,0 +1,27 @@
+extends ../layout/main/_main
+
+block title
+  title Deasign.ru
+
+block body
+  -var bodyClasses = 'no-logo'
+
+append preload
+  if locals.production
+
+  else
+
+
+block content
+  .container
+    include ../blocks/project/project/_project
+
+
+
+append scripts
+  //-.dlaverstki(style='display: none;display: block;position: absolute;top: 0px; left: 50%;transform: translateX(-50%);width: 1200px;z-index: 5000;opacity: .6;')
+    img(src='./assets/img/test/about.png')
+  //-.dlaverstki(style='display: none;display: block;position: absolute;top: 13px; left: 50%;transform: translateX(-50%);width: 1440px;z-index: 5000;opacity: .6;')
+    img(src='./assets/img/test/Desktop2.png')
+
+

@@ -1,0 +1,243 @@
+$black:             #000000;
+$white:             #ffffff;
+$orange:            #cf5916;
+$red:               #ff0000;
+
+$footer-height: 642;
+$footer-height-sm: 474;
+
+$font-size-base:              1rem;
+
+$body-bg:             $white;
+$body-color:          $black;
+
+$roboto: 'Roboto', sans-serif;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $black;
+$link-decoration:                         none;
+$link-hover-color:                        $orange;
+$link-hover-decoration:                   none;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15% !default;
+
+// stylelint-disable-next-line scss/dollar-variable-default
+/*$theme-colors: (
+  "primary": $limeade,
+);*/
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  xssm: 30rem, //-420
+  sm: 48rem, //-768
+  md: 62rem, //-992
+  lg: 75rem, //-1200
+  xl: 90rem //-1440
+);
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 33.75rem,
+  md: 45rem,
+  lg: 60rem,
+  xl: 83.75rem
+) ;
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:      10;
+$grid-gutter-width: 60px;
+
+$font-family-base:      $roboto;
+$headings-font-family:  $roboto;
+
+$border-radius:               0;
+$border-radius-lg:            0;
+$border-radius-sm:            0;
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+$input-btn-font-size:     1rem;
+$input-btn-font-family:   $roboto;
+$input-btn-padding-x:     1.75rem;
+$input-btn-padding-y:     0.4375rem;
+$input-btn-focus-width:       .0rem ;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+$btn-padding-y:               0.9375rem ;
+$btn-padding-x:               2.25rem;
+$btn-font-size:               $input-btn-font-size;
+$btn-font-size:               1.5rem;
+$btn-line-height:             1.5rem;
+
+$btn-padding-y-sm:            0.5625rem;
+$btn-padding-x-sm:            1.5625rem;
+$btn-font-size-sm:            1.5rem;
+$btn-line-height-sm:          1.5rem;
+
+$btn-padding-y-lg:            0.5625rem;
+$btn-padding-x-lg:            1.875rem;
+$btn-font-size-lg:            1.5rem;
+$btn-line-height-lg:          3rem;
+
+$btn-border-width:            3px;
+$btn-border-width-sm:         2px;
+// Allows for customizing button radius independently from global border radius
+
+
+// Forms
+
+$label-margin-bottom:                   .5rem !default;
+
+$input-padding-x:                       0.625rem;
+$input-padding-y:                       0.5625rem;
+$input-font-family:                     $roboto;
+$input-font-size:                       1.125rem;
+$input-font-weight:                     400;
+$input-line-height:                     1.5rem;
+
+$input-padding-y-sm:                    0.5rem;
+$input-padding-x-sm:                    0.5625rem;
+$input-font-size-sm:                    0.875rem;
+$input-line-height-sm:                  1.25rem;
+
+$input-padding-y-lg:                    0.5625rem;
+$input-padding-x-lg:                    0.5625rem;
+$input-font-size-lg:                    1.5rem;
+$input-line-height-lg:                  3rem;
+
+$input-btn-padding-y-lg:      .5rem !default;
+$input-btn-padding-x-lg:      1rem !default;
+//$input-btn-font-size-lg:      $font-size-lg !default;
+$input-btn-line-height-lg:    1.5rem;
+
+$input-bg:                              $white;
+//$input-disabled-bg:                     $gray-200 ;
+
+$input-color:                           $black;
+$input-border-color:                    $black;
+$input-border-width:                    3px;
+$input-border-width-sm:                 2px;
+//$input-box-shadow:                      inset 0 1px 1px rgba($black, .075) !default;
+
+$input-border-radius:                   $border-radius;
+$input-border-radius-lg:                $border-radius-lg;
+$input-border-radius-sm:                $border-radius-sm;
+
+$input-focus-bg:                        $input-bg;
+$input-focus-border-color:              $orange;
+//$input-focus-color:                     $input-color !default;
+//$input-focus-width:                     $input-btn-focus-width !default;
+//$input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
+
+$input-placeholder-color:               #84a6cc;
+$input-plaintext-color:                 $body-color;
+
+$input-height-border:                   $input-border-width * 2 ;
+$input-height-border-sm:                $input-border-width-sm * 2 ;
+
+$input-height-inner:                    calc(#{$input-line-height * 1} + #{$input-padding-y * 2});
+$input-height-inner-half:               calc(#{$input-line-height * .5} + #{$input-padding-y});
+$input-height-inner-quarter:            calc(#{$input-line-height * .25} + #{$input-padding-y / 2});
+
+$input-height:                          calc(#{$input-line-height * 1} + #{$input-padding-y * 2} + #{$input-height-border});
+$input-height-sm:                       calc(#{$input-line-height-sm * 1} + #{$input-padding-y-sm * 2} + #{$input-height-border-sm});
+$input-height-lg:                       calc(#{$input-line-height-lg * 1} + #{$input-padding-y-lg * 2} + #{$input-height-border});
+
+
+
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding:          1.25rem;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+//$dropdown-min-width:                10rem !default;
+$dropdown-padding-y:                0;
+$dropdown-spacer:                   -3px;
+$dropdown-spacer-sm:                -2px;
+//$dropdown-font-size:                $font-size-base !default;
+$dropdown-color:                    $input-color;
+$dropdown-bg:                       $input-bg;
+$dropdown-border-color:             $input-border-color;
+//$dropdown-border-radius:            $border-radius !default;
+$dropdown-border-width:             $input-border-width;
+//$dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
+//$dropdown-divider-bg:               $gray-200 !default;
+//$dropdown-divider-margin-y:         $nav-divider-margin-y !default;
+//$dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175) !default;
+
+$dropdown-link-color:               rgba($black,.8);
+$dropdown-link-hover-color:         $black;
+$dropdown-link-hover-bg:            rgba($orange,.2);
+
+$dropdown-link-active-color:        $black;
+$dropdown-link-active-bg:           $white;
+
+$dropdown-link-disabled-color:      rgba($black,.2);
+
+$dropdown-item-padding-y:           0.625rem;
+$dropdown-item-padding-x:           0.625rem;
+
+//$dropdown-header-color:             $gray-600 !default;
+
+
+// Badges
+
+$badge-font-size:                   .875rem;
+$badge-font-weight:                 normal;
+$badge-padding-y:                   .3125rem;
+$badge-padding-x:                   .3125rem;
+$badge-border-radius:               $border-radius;
+
+//$badge-transition:                  $btn-transition !default;
+//$badge-focus-width:                 $input-btn-focus-width !default;
+
+$badge-pill-padding-x:              .6em !default;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$badge-pill-border-radius:          10rem !default;
+
+
+
+// Tooltips
+
+$tooltip-font-size:                 18px;
+$tooltip-max-width:                 296px;
+$tooltip-color:                     $black;
+$tooltip-bg:                        $white;
+$tooltip-border-radius:             $border-radius !default;
+$tooltip-opacity:                   1;
+$tooltip-padding-y:                 .5rem !default;
+$tooltip-padding-x:                 .5rem !default;
+$tooltip-margin:                    0.1875rem;
+
+$tooltip-arrow-width:               12px;
+$tooltip-arrow-height:              7px;
+$tooltip-arrow-border-width:        16px;
+$tooltip-arrow-border-height:       9px;
+$tooltip-arrow-color:               $tooltip-bg !default;
+$tooltip-arrow-border-color:        $tooltip-color;

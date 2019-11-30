@@ -1,0 +1,26 @@
+.footer-soc {
+  margin-bottom: rem-calc(20);
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &-item {
+
+    }
+
+    &-link {
+      font-size: rem-calc(48);
+      line-height: rem-calc(60);
+      font-weight: normal;
+      font-style: italic;
+      text-transform: uppercase;
+
+      @include media-breakpoint-up(md) {
+        font-size: rem-calc(60);
+        line-height: rem-calc(72);
+      }
+    }
+  }
+}

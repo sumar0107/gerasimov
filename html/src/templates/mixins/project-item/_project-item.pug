@@ -1,0 +1,6 @@
+mixin project-item(href,src,caption)
+  a.project-item(href=href)&attributes(attributes)
+    .project-item__img
+      .project-item__img-inner
+        img(src=src)
+    .project-item__caption=caption

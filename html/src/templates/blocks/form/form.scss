@@ -1,0 +1,301 @@
+.form-control {
+  @include media-breakpoint-down(sm) {
+    height: $input-height-sm;
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $input-font-size-sm;
+    line-height: $input-line-height-sm;
+    border-width: $input-border-width-sm;
+  }
+
+  .input-group-lg > & {
+
+    &:not(textarea) {
+
+      @include media-breakpoint-down(sm) {
+        height: $input-height-sm;
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        font-size: $input-font-size-sm;
+        line-height: $input-line-height-sm;
+        border-width: $input-border-width-sm;
+      }
+    }
+  }
+}
+
+.input-group-append {
+  > .btn {
+    @include media-breakpoint-down(sm) {
+      padding: rem-calc(8);
+    }
+
+    .input-group-lg > & {
+      @include media-breakpoint-down(sm) {
+        padding: rem-calc(8);
+      }
+    }
+  }
+}
+
+// The dropdown menu
+.dropdown-menu {
+  padding: rem-calc(5);
+  @include border($black);
+  box-shadow: 0 10px 30px rgba(32, 32, 32, 0.4);
+  margin: $dropdown-spacer-sm 0 0;
+  @include media-breakpoint-up(md) {
+    margin: $dropdown-spacer 0 0;
+  }
+
+  .dropup & {
+    margin-bottom: $dropdown-spacer-sm;
+    @include media-breakpoint-up(md) {
+      margin-bottom: $dropdown-spacer;
+    }
+  }
+
+  .dropright & {
+    margin-left: $dropdown-spacer-sm;
+    @include media-breakpoint-up(md) {
+      margin-left: $dropdown-spacer;
+    }
+  }
+
+  .dropleft & {
+    margin-right: $dropdown-spacer-sm;
+    @include media-breakpoint-up(md) {
+      margin-right: $dropdown-spacer;
+    }
+  }
+}
+
+.dropdown-toggle {
+
+  &:after,
+  &:before {
+    display: block;
+    left: auto;
+    margin-left: 0;
+    vertical-align: inherit;
+    right: rem-calc(24);
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-width: rem-calc(10);
+    margin-right: rem-calc(-10);
+  }
+
+  &:before {
+    border-width: rem-calc(12);
+    margin-right: rem-calc(-12);
+  }
+
+  &:after {
+    top: 50%;
+    margin-top: rem-calc(-6);
+    border-color: transparent;
+    border-top-color: $white;
+  }
+
+  &:before {
+    top: 50%;
+    margin-top: rem-calc(-6);
+    border-color: transparent;
+    border-top-color: $orange;
+  }
+
+  @include hover {
+    &:before {
+      border-top-color: $orange;
+    }
+  }
+
+  &.active,
+  &:active {
+    &:before {
+      border-top-color: $orange;
+    }
+  }
+
+
+  .dropup & {
+    &:before {
+      top: auto;
+      bottom: 50%;
+      margin-top: 0;
+      margin-bottom: rem-calc(-6);
+      border-color: transparent;
+      border-bottom-color: $orange;
+    }
+
+    &:after {
+      display: block;
+      margin-left: 0;
+      vertical-align: inherit;
+      border-width: rem-calc(10);
+      top: auto;
+      bottom: 50%;
+      margin-top: 0;
+      margin-bottom: rem-calc(-6);
+      border-color: transparent;
+      border-bottom-color: $white;
+    }
+
+    @include hover {
+      &:before {
+        border-bottom-color: $orange;
+      }
+    }
+
+    &.active,
+    &:active {
+      &:before {
+        border-bottom-color: $orange;
+      }
+    }
+  }
+
+  .dropdown.show & {
+    &:after {
+      top: auto;
+      bottom: 50%;
+      margin-top: 0;
+      margin-bottom: rem-calc(-6);
+      border-color: transparent;
+      border-bottom-color: $orange;
+    }
+
+    &:before {
+      top: auto;
+      bottom: 50%;
+      margin-top: 0;
+      margin-bottom: rem-calc(-6);
+      border-color: transparent;
+      border-bottom-color: $orange;
+    }
+
+    @include hover {
+      &:before {
+        border-bottom-color: $orange;
+      }
+    }
+
+    &.active,
+    &:active {
+      &:before {
+        border-bottom-color: $orange;
+      }
+    }
+  }
+
+  .dropdown.show.dropup & {
+    &:before {
+      top: 50%;
+      bottom: auto;
+      margin-top: rem-calc(-6);
+      margin-bottom: 0;
+      border-color: transparent;
+      border-top-color: $orange;
+    }
+
+    &:after {
+      display: block;
+      margin-left: 0;
+      vertical-align: inherit;
+      border-width: rem-calc(10);
+      border-style: solid;
+      top: 50%;
+      bottom: auto;
+      margin-top: rem-calc(-6);
+      margin-bottom: 0;
+      border-color: transparent;
+      border-top-color: $orange;
+    }
+
+    @include hover {
+      &:before {
+        border-top-color: $orange;
+      }
+    }
+
+    &.active,
+    &:active {
+      &:before {
+        border-top-color: $orange;
+      }
+    }
+  }
+}
+
+.dropdown-item {
+  font-size: rem-calc(18);
+  line-height: rem-calc(24);
+  padding: rem-calc(15 15);
+  padding-right: rem-calc(25);
+  @include transition(color .2s);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+
+  .check-mark {
+    order: 2;
+  }
+
+  .text {
+    order: 1;
+  }
+
+  @include hover-focus {
+    font-style: normal;
+  }
+
+  &.active,
+  &:active {
+    font-style: normal;
+  }
+
+  &:active {
+    background-color: rgba($orange, .2);
+  }
+
+  &.default {
+    font-weight: 700;
+
+    &.active,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+// Dropdown text
+.dropdown-item-text {
+  font-style: italic;
+}
+
+label{
+  .is-invalid &{
+    color: red;
+  }
+}
+input {
+  &[type="file"] {
+    +label{
+      margin-bottom: 0;
+    }
+  }
+}
+.js-custom-text{
+  display: block;
+  font-size: rem-calc(12);
+  line-height: rem-calc(18);
+  font-style: normal;
+  color: $black;
+  text-transform: none;
+}

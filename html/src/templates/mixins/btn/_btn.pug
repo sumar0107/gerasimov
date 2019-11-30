@@ -1,0 +1,9 @@
+mixin btn(type, text)
+  if (type == 'button')
+    button(type=type class="btn")&attributes(attributes)= text
+  else if (type == 'submit')
+    button(type=type class="btn")&attributes(attributes)= text
+  else if (type == 'link')
+    a(href="#" role="button" class="btn")&attributes(attributes)= text
+  else if (type == 'div')
+    div(class="btn")&attributes(attributes)= text

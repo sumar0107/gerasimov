@@ -1,0 +1,41 @@
+.mdc-tab-bar {
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid rgba($black, .2);
+
+  &__width-full {
+    width: 100%;
+  }
+
+  &__wrapper {
+
+    &_center {
+      justify-content: center;
+    }
+
+    &_left {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.mdc-tab {
+  height: rem-calc(40);
+
+  &--stacked {
+    height: rem-calc(72);
+  }
+}
+
+
+.mdc-tab-container {
+  > .mdc-tab-container__item {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}

@@ -1,0 +1,7 @@
+mixin footer-soc-list-item(text,src)
+  li.footer-soc__list-item
+    a(href=src).footer-soc__list-link=text
+.footer-soc
+  ul.footer-soc__list
+    +footer-soc-list-item('Facebook','#')
+    +footer-soc-list-item('Twitter','#')

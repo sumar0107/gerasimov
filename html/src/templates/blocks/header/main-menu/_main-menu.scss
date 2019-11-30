@@ -1,0 +1,39 @@
+.main-menu {
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: flex-end;
+
+    &-item {
+      display: block;
+      padding: rem-calc(5 25);
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    &-link {
+      display: block;
+      color: $black;
+      font-size: rem-calc(14);
+      line-height: rem-calc(16);
+      padding: rem-calc(7 0 5);
+      text-transform: uppercase;
+      border-bottom: 2px solid transparent;
+      @include transition(color .15s, border-color .15s);
+
+      &.active {
+        border-color: $black;
+      }
+    }
+  }
+}
