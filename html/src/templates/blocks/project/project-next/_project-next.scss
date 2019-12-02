@@ -1,0 +1,26 @@
+.project-next {
+  @include make-row();
+  margin-bottom: rem-calc(60);
+  @include media-breakpoint-up(md) {
+    flex-wrap: nowrap;
+  }
+
+  &__labet {
+    @include make-col-ready();
+    @include media-breakpoint-up(md) {
+      width: rem-calc(260);
+      min-width: rem-calc(260);
+      flex: 0 0 16.25rem;
+    }
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+    color: rgba($black, .5);
+  }
+
+  &__btn{
+    @include make-col-ready();
+    @include media-breakpoint-up(md) {
+      @include make-col(4);
+    }
+  }
+}

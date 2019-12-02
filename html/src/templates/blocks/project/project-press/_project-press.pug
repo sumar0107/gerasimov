@@ -1,0 +1,9 @@
+mixin project-press()
+  .project-press
+    block
+
+mixin project-press-item(date,title,link)
+  .project-press-item
+    .project-press-item__date=date
+    .project-press-item__title=title
+    a.project-press-item__link(href='#')=link

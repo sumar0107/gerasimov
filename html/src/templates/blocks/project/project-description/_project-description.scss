@@ -2,6 +2,7 @@
 
   &__row {
     @include make-row();
+    margin-bottom: rem-calc(60);
     @include media-breakpoint-up(md) {
       flex-wrap: nowrap;
     }
@@ -27,10 +28,9 @@
   }
 
   &__title {
-    font-size: rem-calc(14);
-    line-height: rem-calc(24);
-    font-weight: 400;
-    text-transform: uppercase;
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+    font-weight: 700;
   }
 }
 

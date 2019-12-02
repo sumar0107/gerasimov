@@ -1,25 +1,47 @@
 .footer-soc {
-  margin-bottom: rem-calc(20);
 
   &__list {
     padding: 0;
     margin: 0;
     list-style: none;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
 
     &-item {
-
+      &:not(:first-child){
+        margin-left: rem-calc(40);
+      }
     }
 
     &-link {
-      font-size: rem-calc(48);
-      line-height: rem-calc(60);
-      font-weight: normal;
-      font-style: italic;
-      text-transform: uppercase;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      width: rem-calc(20);
+      height: rem-calc(20);
 
-      @include media-breakpoint-up(md) {
-        font-size: rem-calc(60);
-        line-height: rem-calc(72);
+      .icon {
+        display: block;
+        width: rem-calc(18);
+        height: rem-calc(16);
+
+        &-fb {
+          width: rem-calc(18);
+          height: rem-calc(16);
+        }
+
+        &-vk {
+          width: rem-calc(20);
+          height: rem-calc(16);
+        }
+
+        &-ig {
+          width: rem-calc(15);
+          height: rem-calc(16);
+        }
       }
     }
   }

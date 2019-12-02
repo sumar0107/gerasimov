@@ -1,19 +1,20 @@
 .btn {
+  display: inline-flex;
+  font-size: rem-calc(14);
+  line-height: rem-calc(16);
+  padding: rem-calc(0 0 6 0);
   text-transform: uppercase;
-  font-style: italic;
-  border-width: $btn-border-width-sm;
+  border: none;
+  border-bottom: $btn-border-width solid;
   cursor: pointer;
+  text-align: left;
   @include transition(color .15s, background-color .15s, border-color .15s);
 
-  @include media-breakpoint-down(sm) {
-    font-size: rem-calc(18);
-    line-height: rem-calc(20);
+  @include hover {
+    border-bottom-color: transparent;
   }
-  @include media-breakpoint-up(md) {
-    border-width: $btn-border-width;
-  }
-  @include media-breakpoint-down(sm) {
-    padding: rem-calc(8);
+  @include active {
+    border-bottom-color: transparent;
   }
 
   &-width-full {
@@ -26,80 +27,7 @@
     }
   }
 
-  &-outline {
-    /*&-green {
-      @include button-outline-variant($limeade, $color-hover: $fuchsia, $active-background: rgba($fuchsia, 0), $active-border: $purple-pizzazz);
-
-      .icon {
-        fill: $limeade;
-      }
-
-      @include hover {
-        background-color: transparent;
-        border-color: $fuchsia;
-        .icon {
-          fill: $fuchsia;
-        }
-
-      }
-
-      &:not(:disabled):not(.disabled):active,
-      &:not(:disabled):not(.disabled).active,
-      .show > &.dropdown-toggle {
-        color: $purple-pizzazz;
-        background-color: transparent;
-        border-color: $purple-pizzazz;
-
-        .icon {
-          fill: $purple-pizzazz;
-        }
-      }
-    }*/
-
-
-
-    &-primary {
-      //@include button-outline-variant($limeade, $white, $limeade, $limeade);
-
-      @include media-breakpoint-down(sm) {
-        font-size: rem-calc(18);
-        line-height: rem-calc(24);
-        padding: rem-calc(8 26 4);
-        border-width: 2px;
-      }
-    }
-  }
-
-  /*&-green {
-    @include button-variant($limeade, $limeade, $hover-background: $fuchsia, $hover-border: $fuchsia, $active-background: $purple-pizzazz, $active-border: $purple-pizzazz);
-    color: $black;
-
-    .icon {
-      fill: $black;
-    }
-
-    @include hover {
-      color: $yellow;
-      .icon {
-        fill: $yellow;
-      }
-    }
-
-    &:not(:disabled):not(.disabled):active,
-    &:not(:disabled):not(.disabled).active,
-    .show > &.dropdown-toggle {
-      color: rgba($yellow, .8);
-
-      .icon {
-        fill: rgba($yellow, .8);
-      }
-    }
-  }*/
-
   &-link {
-    padding-left: 0;
-    padding-right: 0;
-    border: none;
     color: $black;
     @include transition(color .15s);
 
@@ -123,17 +51,6 @@
     }
   }
 
-  &-lg {
-    @include media-breakpoint-up(md) {
-      padding-left: rem-calc(30);
-      padding-right: rem-calc(30);
-    }
-  }
-
-  &-sm {
-    font-size: rem-calc(18);
-  }
-
   &-icon {
     display: inline-flex;
     align-items: center;
@@ -154,32 +71,15 @@
       }
 
       &-arrow {
-        &-left, &-right {
-          width: rem-calc(58);
-          height: rem-calc(32);
-
-          @include media-breakpoint-up(md) {
-            width: rem-calc(56);
-            height: rem-calc(30);
-          }
+        &--left, &--right {
+          width: rem-calc(9);
+          height: rem-calc(14);
         }
 
         &-top, &-bottom {
-          width: rem-calc(12);
-          height: rem-calc(20);
-          margin-top: rem-calc(-4);
-
-          @include media-breakpoint-up(md) {
-            width: rem-calc(16);
-            height: rem-calc(28);
-            margin-top: rem-calc(-4);
-          }
+          width: rem-calc(14);
+          height: rem-calc(9);
         }
-      }
-
-      &-repeat {
-        width: rem-calc(18);
-        height: rem-calc(18);
       }
     }
 
@@ -197,147 +97,29 @@
         }
       }
     }
-
-    &_mobile {
-      span {
-        display: none;
-        @include media-breakpoint-up(md) {
-          display: block;
-        }
-      }
-
-      .icon {
-        display: block;
-        margin: 0;
-        @include media-breakpoint-up(md) {
-          display: none;
-        }
-      }
-    }
-
   }
 }
 
-.btn-group {
-  // Prevent double borders when buttons are next to each other
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) {
-    margin-left: -$btn-border-width-sm;
-    @include media-breakpoint-up(md) {
-      margin-left: -$btn-border-width;
-    }
+.js-read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  fill: $black;
+
+  span {
+    display: block;
+    margin-right: rem-calc(5);
   }
 
-  &.btn-group-32 {
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    //align-items: center;
-
-    > .btn {
-      margin-left: 0;
-      &:not(:first-child){
-        margin-top: -$btn-border-width-sm;
-      }
-    }
-    @include media-breakpoint-up(sm) {
-      > .btn {
-        max-width: 51%;
-        flex: 1 1 50%;
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        &:nth-child(n){
-          margin-left: 0;
-          margin-top: 0;
-        }
-        &:nth-child(2n) {
-          margin-left: -$btn-border-width-sm;
-        }
-
-        &:nth-child(3),
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(6),
-        &:nth-child(7),
-        &:nth-child(8),
-        &:nth-child(9) {
-          margin-top: -$btn-border-width-sm;
-        }
-      }
-    }
-
-    @include media-breakpoint-up(md) {
-      > .btn {
-        max-width: 51%;
-        flex: 1 1 50%;
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        &:nth-child(n){
-          margin-left: 0;
-          margin-top: 0;
-        }
-        &:nth-child(2n) {
-          margin-left: -$btn-border-width;
-        }
-
-        &:nth-child(3),
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(6),
-        &:nth-child(7),
-        &:nth-child(8),
-        &:nth-child(9) {
-          margin-top: -$btn-border-width;
-        }
-      }
-    }
-
-    @include media-breakpoint-up(lg) {
-      > .btn {
-        max-width: 34%;
-        flex: 1 1 33.33333%;
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-
-        &:nth-child(n){
-          margin-left: 0;
-          margin-top: 0;
-        }
-
-        &:nth-child(2),
-        &:nth-child(3),
-        &:nth-child(5),
-        &:nth-child(6),
-        &:nth-child(8),
-        &:nth-child(9) {
-          margin-left: -$btn-border-width;
-        }
-
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(6),
-        &:nth-child(7),
-        &:nth-child(8),
-        &:nth-child(9) {
-          margin-top: -$btn-border-width;
-        }
-      }
-    }
+  .icon {
+    width: rem-calc(14);
+    height: rem-calc(9);
   }
-}
 
-.btn-group-vertical {
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) {
-    margin-top: -$btn-border-width-sm;
-    @include media-breakpoint-up(md) {
-      margin-top: -$btn-border-width;
+  &.open {
+    .icon {
+      transform: rotate(180deg);
     }
   }
 }

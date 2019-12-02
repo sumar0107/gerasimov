@@ -1,3 +1,38 @@
 .footer {
+  padding-bottom: rem-calc(25);
+  padding-top: rem-calc(25);
+  line-height: rem-calc(20);
+  @include media-breakpoint-up(sm) {
+    margin-top: rem-calc(-$footer-height-sm);
+  }
+  @include media-breakpoint-up(md) {
+    margin-top: rem-calc(-$footer-height);
+  }
 
+  &__row {
+    @include make-row();
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+  &__col {
+    @include make-col-ready();
+    @include media-breakpoint-up(md) {
+      @include make-col(4, 12)
+    }
+  }
+
+  &__search-btn {
+    font-size: rem-calc(14);
+    line-height: rem-calc(16);
+    text-transform: uppercase;
+  }
+
+  &__copy {
+    font-size: rem-calc(16);
+    line-height: rem-calc(20);
+    text-align: center;
+    color: rgba($black, .5);
+  }
 }

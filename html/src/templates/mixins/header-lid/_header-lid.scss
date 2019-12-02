@@ -1,0 +1,24 @@
+.header-lid {
+  padding-bottom: 20px;
+  background-color: $white;
+  z-index: 10;
+  width: 100%;
+  min-width: rem-calc(320);
+  position: absolute;
+  left: 0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.0);
+  @include transition(box-shadow .15);
+
+  &__substrate {
+    @include media-breakpoint-up(md) {
+      height: rem-calc(54);
+      margin-bottom: rem-calc(21);
+    }
+  }
+
+  &.head-effect {
+    top: 103px;
+    position: fixed;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+}

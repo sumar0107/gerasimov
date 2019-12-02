@@ -100,79 +100,14 @@
     }
   }
 
-  &_front-slider {
-    font-size: rem-calc(18);
-    line-height: rem-calc(20);
-    font-weight: normal;
-    margin-bottom: 0;
-    @include media-breakpoint-up(md) {
-      font-size: rem-calc(48);
-      line-height: rem-calc(48);
-    }
-  }
-
-  &__lid {
+  &_page{
     color: $black;
-    font-size: rem-calc(16);
-    line-height: rem-calc(20);
-    margin-bottom: rem-calc(20);
-
-    @include media-breakpoint-up(md) {
-      font-size: rem-calc(24);
-      line-height: rem-calc(24);
-      margin-bottom: rem-calc(48);
-    }
-
-    &_big {
-      font-size: rem-calc(16);
-      line-height: rem-calc(20);
-      @include media-breakpoint-up(md) {
-        font-size: rem-calc(36);
-        line-height: rem-calc(48);
-      }
-    }
-
-    &_small {
-      font-size: rem-calc(16);
-      line-height: rem-calc(20);
-      @include media-breakpoint-up(md) {
-        font-size: rem-calc(24);
-        line-height: rem-calc(24);
-      }
-    }
-  }
-
-  &_flex {
-
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: space-between;
-
-    span {
-      order: 0;
-    }
-
-    .icon {
-      order: 2;
-
-      &-repeat-2 {
-        min-width: rem-calc(20);
-        width: rem-calc(20);
-        height: rem-calc(20);
-        @include media-breakpoint-up(md) {
-          min-width: rem-calc(45);
-          width: rem-calc(45);
-          height: rem-calc(45);
-        }
-      }
-    }
-  }
-}
-
-.mb-48 {
-  margin-bottom: rem-calc(20);
-  @include media-breakpoint-up(md) {
-    margin-bottom: rem-calc(48);
+    font-size: rem-calc(14);
+    line-height: rem-calc(16);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding: rem-calc(12 0);
   }
 }

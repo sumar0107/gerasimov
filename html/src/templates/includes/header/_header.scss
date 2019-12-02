@@ -1,7 +1,18 @@
 .header {
-  position: relative;
+  background-color: $white;
+  position: fixed;
   padding: rem-calc(35 0);
-  z-index: 2;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-width: rem-calc(320);
+
+  &__substrate{
+    @include media-breakpoint-up(md){
+      height: rem-calc(110);
+    }
+  }
 
   &__row {
     @include make-row();

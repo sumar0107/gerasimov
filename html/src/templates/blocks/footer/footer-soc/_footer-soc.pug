@@ -1,7 +1,10 @@
-mixin footer-soc-list-item(text,src)
+include ../../../mixins/icon-svg/_icon-svg
+mixin footer-soc-list-item(icon,src)
   li.footer-soc__list-item
-    a(href=src).footer-soc__list-link=text
+    a(href=src).footer-soc__list-link
+     +icon(icon,'')
 .footer-soc
   ul.footer-soc__list
-    +footer-soc-list-item('Facebook','#')
-    +footer-soc-list-item('Twitter','#')
+    +footer-soc-list-item('fb','#')
+    +footer-soc-list-item('vk','#')
+    +footer-soc-list-item('ig','#')

@@ -23,7 +23,7 @@ const projectGrid = () => {
   // bind filter button click
   const filterBtns = [...document.querySelectorAll('.js-filters-btn')];
   filterBtns.forEach(item => {
-    item.addEventListener('click', (e) => {
+    item.addEventListener('click', () => {
       const filterValue = item.getAttribute('data-filter');
       iso.arrange({filter: filterValue});
     })

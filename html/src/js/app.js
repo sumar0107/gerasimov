@@ -1,20 +1,21 @@
 import objectFitImages from "object-fit-images"
 import {polyfill} from "smoothscroll-polyfill"
-import $ from 'jquery'
-import Tab from './lib/tab' // Modal
+import Tab from './lib/tab'
 import onElementHeightChange from "./lib/onElementHeightChange"
 import sayHello from "./lib/sayHello"
 import gallery from "../templates/blocks/gallery/gallery";
 import initTabs from "./lib/tabs-material";
 import projectGrid from "./lib/projects"
+import headerFixTop from "../templates/includes/header/header";
+import readMore from "./lib/read-more";
 
 
 // kick off the polyfill!
 polyfill();
 objectFitImages();
 
-
-sayHello();
+headerFixTop();
+readMore();
 
 gallery();
 initTabs();
@@ -37,6 +38,3 @@ window.addEventListener('resize', () => {
 onElementHeightChange(document.body, () => {
   innitFunc();
 });
-console.log(Tab) // Tabs
-
-console.log($.fn.tab)

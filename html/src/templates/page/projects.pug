@@ -14,15 +14,15 @@ append preload
 
 block content
   include ../mixins/tabs/_tabs
+  include ../mixins/header-lid/_header-lid
+  +header-lid
+    .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
+      +tabs()
+        +tab-item('Все','true')(class='js-filters-btn' data-filter='*')
+        +tab-item('жилые','')(class='js-filters-btn'  data-filter='.category-residential')
+        +tab-item('общественные','')(class='js-filters-btn'  data-filter='.category-public')
+        +tab-item('градостроительство','')(class='js-filters-btn'  data-filter='.category-urban-planning')
   .container
-    +tabs()
-      +tab-item('Все','true')(class='js-filters-btn' data-filter='*')
-      +tab-item('жилые','')(class='js-filters-btn'  data-filter='.category-residential')
-      +tab-item('общественные','')(class='js-filters-btn'  data-filter='.category-public')
-      +tab-item('градостроительство','')(class='js-filters-btn'  data-filter='.category-urban-planning')
-    br
-    br
-    br
     include ../blocks/project/projects/_projects
 
 

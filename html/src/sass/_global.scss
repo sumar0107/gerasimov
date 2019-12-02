@@ -24,7 +24,7 @@ body {
 
   &-full {
     @include make-container();
-    max-width: rem-calc(1920);
+    max-width: rem-calc(1700);
     z-index: 2;
     position: relative;
   }
