@@ -10,8 +10,11 @@
     justify-content: flex-end;
 
     &-item {
-      &:not(:first-child){
-        margin-left: rem-calc(40);
+      &:not(:first-child) {
+        margin-left: rem-calc(20);
+        @include media-breakpoint-up(sm) {
+          margin-left: rem-calc(40);
+        }
       }
     }
 
@@ -20,8 +23,12 @@
       align-content: center;
       align-items: center;
       justify-content: center;
-      width: rem-calc(20);
-      height: rem-calc(20);
+      width: rem-calc(16);
+      height: rem-calc(16);
+      @include media-breakpoint-up(sm) {
+        width: rem-calc(20);
+        height: rem-calc(20);
+      }
 
       .icon {
         display: block;
@@ -29,18 +36,30 @@
         height: rem-calc(16);
 
         &-fb {
-          width: rem-calc(18);
-          height: rem-calc(16);
+          width: rem-calc(14);
+          height: rem-calc(13);
+          @include media-breakpoint-up(sm) {
+            width: rem-calc(18);
+            height: rem-calc(16);
+          }
         }
 
         &-vk {
-          width: rem-calc(20);
-          height: rem-calc(16);
+          width: rem-calc(15);
+          height: rem-calc(13);
+          @include media-breakpoint-up(sm) {
+            width: rem-calc(20);
+            height: rem-calc(16);
+          }
         }
 
         &-ig {
-          width: rem-calc(15);
-          height: rem-calc(16);
+          width: rem-calc(12);
+          height: rem-calc(13);
+          @include media-breakpoint-up(sm) {
+            width: rem-calc(15);
+            height: rem-calc(16);
+          }
         }
       }
     }

@@ -9,9 +9,21 @@
 
   &__ico {
     margin-right: rem-calc(8);
+    min-width: rem-calc(26);
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
   }
 
   &__lid {
-
+    @include media-breakpoint-only(xs){
+      max-width: rem-calc(200);
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
   }
 }

@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import classie from 'classie';
-import {WizSlider} from "../../mixins/swiper/swiper";
 
 function createListItem(el, src, index) {
   el.insertAdjacentHTML('beforeend', `
@@ -23,7 +22,7 @@ class Gallery {
     this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev');
     this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next');
     this.DOM.btnFullscreen = this.DOM.wrapper.querySelector('.js-swiper-button-fullscreen');
-    this.DOM.btnListOpen = this.DOM.wrapper.querySelector('.js-swiper-button-list-open');
+    this.DOM.btnlistShow = this.DOM.wrapper.querySelector('.js-swiper-button-list-open');
     this.DOM.btnListClose = this.DOM.wrapper.querySelector('.js-swiper-button-list-close');
     this.DOM.pagination = this.DOM.wrapper.querySelector('.js-swiper-pagination');
     this.DOM.images = [...this.DOM.wrapper.querySelectorAll('.swiper-item img')];
@@ -35,49 +34,48 @@ class Gallery {
   }
 
   list() {
-    console.log(this.DOM.images);
-    const {listRow} = this.DOM
+    const {listRow} = this.DOM;
     this.DOM.images.forEach((item, index) => {
       createListItem(listRow, item.getAttribute('src'), index)
     })
   }
 
-  listOpen() {
+  listShow() {
     if (this.DOM.list.closest('.delay')) {
-      this.DOM.list.classList.remove('delay')
+      classie.removeClass(this.DOM.list, 'delay')
     }
-    document.documentElement.classList.add('list-view')
-    this.DOM.list.classList.remove('close')
-    this.DOM.list.classList.add('open')
+    classie.addClass(document.documentElement, 'list-view');
+    classie.removeClass(this.DOM.list, 'close');
+    classie.addClass(this.DOM.list, 'open');
   }
 
-  listСlose() {
-    this.DOM.list.classList.remove('open')
-    this.DOM.list.classList.add('close')
-    document.documentElement.classList.remove('list-view')
+  listHide() {
+    classie.removeClass(this.DOM.list, 'open');
+    classie.addClass(this.DOM.list, 'close');
+    classie.removeClass(document.documentElement, 'list-view');
   }
 
   init() {
-    this.list()
+    this.list();
     this.slider = new Swiper(this.DOM.el, this.sliderOptions());
-    const link = [...document.querySelectorAll('.gallery-list__link')]
+    const link = [...document.querySelectorAll('.gallery-list__link')];
     link.forEach(item => {
       item.addEventListener('click', (e) => {
-        e.preventDefault()
-        const btn = e.target.closest('.gallery-list__link')
+        e.preventDefault();
+        const btn = e.target.closest('.gallery-list__link');
         if (btn) {
           this.slider.slideTo(btn.getAttribute('data-index'), 0);
-          this.listСlose()
+          this.listHide();
         }
       })
-    })
-    this.DOM.btnListOpen.addEventListener('click', (e) => {
-      e.preventDefault()
-      this.listOpen()
-    })
+    });
+    this.DOM.btnlistShow.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.listShow();
+    });
     this.DOM.btnListClose.addEventListener('click', (e) => {
-      e.preventDefault()
-      this.listСlose()
+      e.preventDefault();
+      this.listHide();
     })
   }
 
@@ -93,7 +91,10 @@ class Gallery {
       // },
       autoHeight: true,
       loop: false,
-      // effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      effect: 'fade',
       pagination: {
         el: `.js-swiper-pagination-${this.counter}`,
         type: 'fraction',
@@ -112,7 +113,7 @@ const gallery = () => {
     if (document.querySelector('.js-gallery')) {
       [...document.querySelectorAll('.js-gallery')].forEach((item, index) => {
         const slider = new Gallery(item, index);
-        slider.init()
+        slider.init();
       });
     }
   });

@@ -8,6 +8,7 @@ import initTabs from "./lib/tabs-material";
 import projectGrid from "./lib/projects"
 import headerFixTop from "../templates/includes/header/header";
 import readMore from "./lib/read-more";
+import frontSlider from "../templates/blocks/front/front";
 
 
 // kick off the polyfill!
@@ -16,7 +17,7 @@ objectFitImages();
 
 headerFixTop();
 readMore();
-
+frontSlider();
 gallery();
 initTabs();
 if (document.querySelector('.js-grid-projects')) {

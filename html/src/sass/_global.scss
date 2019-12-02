@@ -15,18 +15,28 @@ body {
 }
 
 .container {
-  max-width: rem-calc(1320);
+  max-width: rem-calc(1440);
+  padding-left: 20px;
+  padding-right: 20px;
 
-  @include media-breakpoint-up(md) {
-    padding-left: rem-calc(30);
-    padding-right: rem-calc(30);
+  @include media-breakpoint-up(sm) {
+    padding-left: rem-calc(90);
+    padding-right: rem-calc(90);
   }
 
   &-full {
     @include make-container();
-    max-width: rem-calc(1700);
+    max-width: rem-calc(1840);
     z-index: 2;
     position: relative;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include media-breakpoint-up(sm) {
+      padding-left: rem-calc(90);
+      padding-right: rem-calc(90);
+    }
   }
 
   &-midle {

@@ -3,8 +3,8 @@ $white:             #ffffff;
 $orange:            #cf5916;
 $red:               #ff0000;
 
-$footer-height: 70;
-$footer-height-sm: 70;
+$footer-height: 110;
+$footer-height-sm: 110;
 
 $font-size-base:              1rem;
 
@@ -37,11 +37,10 @@ $emphasized-link-hover-darken-percentage: 15% !default;
 
 $grid-breakpoints: (
   xs: 0,
-  xssm: 30rem, //-420
   sm: 48rem, //-768
-  md: 62rem, //-992
-  lg: 75rem, //-1200
-  xl: 90rem //-1440
+  md: 64rem, //-1024
+  lg: 90rem, //-1440
+  xl: 115rem //-1840
 );
 
 // Grid containers

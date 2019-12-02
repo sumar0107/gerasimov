@@ -37,9 +37,12 @@
       width: rem-calc(60);
       height: 100%;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(sm) {
         width: rem-calc(90);
-        left: rem-calc(-15);
+        left: 0;
+      }
+      @include media-breakpoint-up(xl) {
+        left: rem-calc(52);
       }
 
       .gallery & {
@@ -57,10 +60,12 @@
       top: 0;
       width: rem-calc(60);
       height: 100%;
-
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(sm) {
         width: rem-calc(90);
-        right: rem-calc(-15);
+        right: 0;
+      }
+      @include media-breakpoint-up(xl) {
+        right: rem-calc(52);
       }
 
       .gallery & {

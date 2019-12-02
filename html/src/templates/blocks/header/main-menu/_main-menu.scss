@@ -1,4 +1,9 @@
 .main-menu {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+
   &__list {
     padding: 0;
     margin: 0;

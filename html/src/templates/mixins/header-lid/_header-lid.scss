@@ -10,10 +10,8 @@
   @include transition(box-shadow .15);
 
   &__substrate {
-    @include media-breakpoint-up(md) {
-      height: rem-calc(54);
-      margin-bottom: rem-calc(21);
-    }
+    height: rem-calc(54);
+    margin-bottom: rem-calc(21);
   }
 
   &.head-effect {

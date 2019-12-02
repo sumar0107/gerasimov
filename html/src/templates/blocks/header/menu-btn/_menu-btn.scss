@@ -1,0 +1,28 @@
+.menu-btn {
+  display: inline-flex;
+  font-size: rem-calc(11);
+  line-height: rem-calc(13);
+  text-transform: uppercase;
+  color: $black;
+  height: rem-calc(34);
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  @include media-breakpoint-up(sm){
+    font-size: rem-calc(14);
+    line-height: rem-calc(16);
+    height: rem-calc(40);
+  }
+
+  &__wrapper {
+    align-items: flex-start;
+    align-content: center;
+    justify-content: flex-end;
+    display: flex;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
+
