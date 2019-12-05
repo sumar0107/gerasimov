@@ -12,6 +12,9 @@ const headerFixTop = () => {
   }
 
   if (headerLid) {
+    document.addEventListener('DOMContentLoaded', () => {
+      elFixTop(headerLid)
+    });
     window.addEventListener('scroll', () => {
       elFixTop(headerLid)
     })

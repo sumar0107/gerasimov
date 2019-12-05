@@ -1,16 +1,11 @@
 include ../../../mixins/icon-svg/_icon-svg
+include ../../../mixins/page-el/_page-el
 include ../project-press/_project-press
-mixin project-description-item(title)
-  .project-description__row
-    .project-description__col-1
-      .project-description__title=title
-    .project-description__col-2
-      .project-description__body
-        block
+
 
 
 .project-description
-  +project-description-item('Описание')
+  +page-el('Описание')
     .wysiwyg
       p Жилой комплекс располагается на Петровском острове, на берегу реки Малая Нева, в непосредственной близости от исторической застройки Петроградской стороны и Васильевского острова.
       p #[strong Проект условно разбит на 3 очереди:]
@@ -21,19 +16,19 @@ mixin project-description-item(title)
       a(href='#read-more-block').js-read-more-btn
         span Читать дальше
         +icon('arrow-down','')
-  +project-description-item('Пресса о проекте')
+  +page-el('Пресса о проекте')
     +project-press
       +project-press-item('27.02.2019','Воля к разнообразию','Читать на сайте archi.ru')
       +project-press-item('10.10.2018','Я работаю в «Невской ратуше»','Читать на сайте the-village.ru')
       //-+project-press-item('10.10.2018','Я работаю в «Невской ратуше»','Читать на сайте the-village.ru')
 
-  +project-description-item('Награды проекта')
+  +page-el('Награды проекта')
     .wysiwyg
       p Диплом международного фестиваля «Зодчество» в номинации «Архитектурные произведения 2016-2018 г. Постройки. Жилые многоквартирные здания».
       p Диплом проекта «Качественная архитектура» 2018 «За творческий вклад в создание качественной российской архитектуры».
       p Диплом победителя первого архитектурно-дизайнерского конкурса «Золотой Трезини» в номинации «Лучший проект жилого комплекса премиум- или бизнес- класса» в категории «Архитектура как искусство.
       p Серебряный знак международного фестиваля «Зодчество». Архитектурные произведения 2016-2018 г. Проекты. Жилые многоквартирные здания.
       p Бронзовый диплом смотра Санкт- #[br] Петербургского союза архитекторов России «Архитектон» #[br] в номинации «Проекты» — «Здание или комплекс с преимущественно жилой функцией».
-  +project-description-item()
+  +page-el()
     include ../project-next/_project-next
 

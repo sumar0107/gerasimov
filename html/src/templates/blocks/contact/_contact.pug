@@ -1,0 +1,23 @@
+mixin contact-item(title)
+  .contact__row
+    .contact__col-1
+      .contact__title=title
+    .contact__col-2
+      .contact__body
+        block
+.contact
+  .contact__text
+    +contact-item('Адрес:')
+      | г. Санкт-Петербург, Лесной пр., д. 19, корп. 4
+    +contact-item('Телефон:')
+      | +7 (812) 600-90-60
+    +contact-item('Факс:')
+      | +7 (812) 600-90-61
+    +contact-item('E-mail:')
+      | public@egp.spb.ru
+    +contact-item('Соцсети:')
+      .contact__soc VK
+      .contact__soc FB
+
+  .contact__map
+    include ../map/_map

@@ -11,7 +11,10 @@
   &__row {
     @include make-row();
     margin-bottom: rem-calc(6);
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-only(xs) {
+      @include make-row(0px);
+    }
+    @include media-breakpoint-up(sm) {
       flex-wrap: nowrap;
     }
   }
@@ -19,6 +22,15 @@
   &__col {
     &-1 {
       @include make-col-ready();
+      @include media-breakpoint-only(xs) {
+        width: auto;
+        min-width: auto;
+        flex: 0 0 auto;
+        padding: rem-calc(0 10 0 0);
+      }
+      @include media-breakpoint-up(sm) {
+        @include make-col(5)
+      }
       @include media-breakpoint-up(md) {
         width: rem-calc(264);
         min-width: rem-calc(264);
@@ -28,6 +40,15 @@
 
     &-2 {
       @include make-col-ready();
+      @include media-breakpoint-only(xs) {
+        width: auto;
+        min-width: auto;
+        flex: 1 1 auto;
+        padding: rem-calc(0 0 0 0);
+      }
+      @include media-breakpoint-up(sm) {
+        @include make-col(5)
+      }
       @include media-breakpoint-up(md) {
         width: auto;
         flex: 1 1 auto;
@@ -49,16 +70,20 @@
 
   &__text {
     @include make-col-ready();
+    margin-bottom: rem-calc(60);
     @include media-breakpoint-up(md) {
       width: rem-calc(528);
       min-width: rem-calc(528);
       flex: 0 0 33rem;
+      margin-bottom: 0;
     }
   }
 
   &__map {
     @include make-col-ready();
+    height: rem-calc(280);
     @include media-breakpoint-up(md) {
+      height: auto;
       width: auto;
       flex: 1 1 auto;
     }

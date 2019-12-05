@@ -17,7 +17,6 @@
       font-size: rem-calc(11);
       line-height: rem-calc(20);
       font-weight: 500;
-      text-transform: uppercase;
       margin-top: rem-calc(20);
       @include media-breakpoint-up(md) {
         font-size: rem-calc(18);
@@ -56,18 +55,10 @@
   }
 
   h3, .h3 {
-    font-size: rem-calc(18);
-    line-height: rem-calc(20);
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-bottom: rem-calc(20);
-
-    @include media-breakpoint-up(md) {
-      font-size: rem-calc(36);
-      line-height: rem-calc(48);
-      font-weight: normal;
-      margin-bottom: rem-calc(24);
-    }
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+    font-weight: 700;
+    margin-bottom: rem-calc(15);
   }
 
   h4, .h4 {

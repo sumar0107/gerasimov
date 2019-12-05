@@ -1,11 +1,11 @@
 .btn {
   display: inline-flex;
-  font-size: rem-calc(14);
-  line-height: rem-calc(16);
-  padding: rem-calc(0 0 6 0);
+  font-size: rem-calc(16);
+  line-height: rem-calc(25);
   text-transform: uppercase;
   border: none;
   border-bottom: $btn-border-width solid;
+  padding: 0;
   cursor: pointer;
   text-align: left;
   @include transition(color .15s, background-color .15s, border-color .15s);
@@ -15,6 +15,20 @@
   }
   @include active {
     border-bottom-color: transparent;
+  }
+
+  &-not-upper {
+    text-transform: none;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+
+  &-small {
+    font-size: rem-calc(14);
+    line-height: rem-calc(16);
+    padding: rem-calc(0 0 6 0);
   }
 
   &-width-full {

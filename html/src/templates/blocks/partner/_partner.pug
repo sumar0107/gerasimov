@@ -1,0 +1,52 @@
+include ../../mixins/swiper-item/_swiper-item
+include ../../mixins/person/_person
+include ../../mixins/icon-svg/_icon-svg
+mixin partner-swiper-item(src)
+  .swiper-item
+    .swiper-item__img
+      img(src=src)
+
+.partner
+  .swiper__wrapper
+    //Slider main container
+    .swiper.swiper-container.js-partner
+      //Additional required wrapper
+      .swiper-wrapper
+        //Slides
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-1.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-2.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-3.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-4.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-2.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-3.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-1.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-1.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-2.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-3.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-4.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-2.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-3.png','')
+        .swiper-slide
+          +partner-swiper-item('./assets/img/partner/partner-1.png','')
+
+    //If we need navigation buttons
+    .swiper__button
+      .swiper__button-left
+        .swiper__button-item.swiper__button-item_prev.js-swiper-button-prev
+          +icon('arrow-left')
+      .swiper__button-right
+        .swiper__button-item.swiper__button-item_next.js-swiper-button-next
+          +icon('arrow-right')

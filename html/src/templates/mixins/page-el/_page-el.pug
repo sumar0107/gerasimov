@@ -1,0 +1,7 @@
+mixin page-el(title)
+  .page-el__row&attributes(attributes)
+    .page-el__col-1
+      h2.page-el__title=title
+    .page-el__col-2
+      .page-el__body
+        block

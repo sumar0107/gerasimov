@@ -17,7 +17,7 @@ block content
   include ../mixins/header-lid/_header-lid
   +header-lid
     .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
-      +tabs()
+      +tabs()(class='js-mdc-tab-bar')
         +tab-item('Все','true')(class='js-filters-btn' data-filter='*')
         +tab-item('жилые','')(class='js-filters-btn'  data-filter='.category-residential')
         +tab-item('общественные','')(class='js-filters-btn'  data-filter='.category-public')

@@ -1,0 +1,33 @@
+.award {
+  margin-bottom: rem-calc(15);
+  &__body {
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+    @include media-breakpoint-up(sm) {
+      font-size: rem-calc(16);
+      line-height: rem-calc(25);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+    border-bottom: $btn-border-width solid;
+    @include transition(color .15s, background-color .15s, border-color .15s);
+    @include media-breakpoint-up(sm) {
+      font-size: rem-calc(16);
+      line-height: rem-calc(25);
+    }
+    @include hover {
+      border-bottom-color: transparent;
+    }
+    @include active {
+      border-bottom-color: transparent;
+    }
+  }
+}
+

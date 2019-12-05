@@ -1,0 +1,68 @@
+.contact {
+  @include make-row();
+  margin-bottom: rem-calc(6);
+  @include media-breakpoint-up(md) {
+    flex-wrap: nowrap;
+  }
+
+  &__title {
+    font-size: rem-calc(16);
+    line-height: rem-calc(24);
+    color: rgba($black, .5);
+  }
+
+  &__body {
+    font-size: rem-calc(16);
+    font-weight: 400;
+    line-height: rem-calc(24);
+  }
+
+  &__text {
+    @include make-col-ready();
+    margin-bottom: rem-calc(30);
+    @include media-breakpoint-up(md) {
+      @include make-col(4);
+      margin-bottom: 0;
+    }
+  }
+
+  &__row {
+    @include make-row(0px);
+    margin-bottom: rem-calc(6);
+    @include media-breakpoint-up(md) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__col {
+    &-1 {
+    }
+
+    &-2 {
+      padding-left: rem-calc(10);
+    }
+  }
+
+  &__map {
+    @include make-col-ready();
+
+    @include media-breakpoint-down(sm) {
+      height: rem-calc(220);
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include media-breakpoint-up(md) {
+      @include make-col(6)
+    }
+  }
+
+  &__soc {
+    text-transform: uppercase;
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: rem-calc(10);
+    }
+  }
+}
+

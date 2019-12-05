@@ -4,7 +4,7 @@ include ../../../mixins/tabs/_tabs
   .container
     .project-info__wrapper
       .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_left
-        +tabs()(class='mdc-tab-bar__width-full')
+        +tabs()(class='mdc-tab-bar__width-full js-mdc-tab-bar')
           +tab-item('Информация','true')(class='js-tab active' id='tab-information' data-toggle='tab' aria-controls='tab-c-information' data-target='#tab-c-information')
           +tab-item('Коллектив','')(class='js-tab' id='tab-team' data-toggle='tab' aria-controls='tab-c-team' data-target='#tab-c-team')
       .mdc-tab-container.tab-content

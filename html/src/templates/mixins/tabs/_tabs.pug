@@ -19,3 +19,18 @@ mixin tab-item(text, selected)
       span(class="mdc-tab-indicator")
         span(class="mdc-tab-indicator__content mdc-tab-indicator__content--underline")
       span(class="mdc-tab__ripple")
+mixin tab-item-link(text, selected)
+  if(selected !== '')
+    a(class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0")&attributes(attributes)
+      span(class="mdc-tab__content")
+        span(class="mdc-tab__text-label")=text
+      span(class="mdc-tab-indicator mdc-tab-indicator--active")
+        span(class="mdc-tab-indicator__content mdc-tab-indicator__content--underline")
+      span(class="mdc-tab__ripple")
+  else
+    a(class="mdc-tab" role="tab" aria-selected="false" tabindex="0")&attributes(attributes)
+      span(class="mdc-tab__content")
+        span(class="mdc-tab__text-label")=text
+      span(class="mdc-tab-indicator")
+        span(class="mdc-tab-indicator__content mdc-tab-indicator__content--underline")
+      span(class="mdc-tab__ripple")

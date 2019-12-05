@@ -1,0 +1,37 @@
+.page-el {
+
+  &__row {
+    @include make-row();
+    margin-bottom: rem-calc(60);
+    @include media-breakpoint-up(md) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__col {
+    &-1 {
+      @include make-col-ready();
+      @include media-breakpoint-up(md) {
+        width: rem-calc(260);
+        min-width: rem-calc(260);
+        flex: 0 0 16.25rem;
+      }
+    }
+
+    &-2 {
+      @include make-col-ready();
+      @include media-breakpoint-up(md) {
+        width: auto;
+        flex: 1 1 auto;
+        max-width: calc(100% - 16.25rem);
+      }
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+    font-weight: 700;
+  }
+}
+

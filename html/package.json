@@ -103,7 +103,8 @@
     "requirejs": "^2.3.6",
     "smoothscroll-polyfill": "^0.4.4",
     "svgxuse": "^1.2.6",
-    "swiper": "^4.5.0"
+    "swiper": "^4.5.0",
+    "waypoints": "^4.0.1"
   },
   "husky": {
     "hooks": {

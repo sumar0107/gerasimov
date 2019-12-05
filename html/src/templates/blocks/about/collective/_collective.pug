@@ -1,0 +1,17 @@
+include ../../../mixins/tabs/_tabs
+.collective#collective
+  .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_left
+    +tabs()(class='mdc-tab-bar__width-full js-mdc-tab-bar')
+      +tab-item('партнеры','true')(class='js-tab active' id='tab-partners' data-toggle='tab' aria-controls='tab-c-partners' data-target='#tab-c-partners')
+      +tab-item('руководители','')(class='js-tab' id='tab-executives' data-toggle='tab' aria-controls='tab-c-executives' data-target='#tab-c-executives')
+      +tab-item('сотрудники','')(class='js-tab js-person-list-btn' id='tab-staff' data-toggle='tab' aria-controls='tab-c-staff' data-target='#tab-c-staff')
+  .mdc-tab-container.tab-content
+    .mdc-tab-container__item(id='tab-c-partners' role='tabpanel' class='fade show active' aria-labelledby='tab-partners')
+      .collective__tab-container
+        include ../../person-list/_person-list-1
+    .mdc-tab-container__item(id='tab-c-executives' role='tabpanel' class='fade' aria-labelledby='tab-executives')
+      .collective__tab-container
+        include ../../person-list/_person-list-2
+    .mdc-tab-container__item(id='tab-c-staff' role='tabpanel' class='fade' aria-labelledby='tab-staff')
+      .collective__tab-container
+        include ../../person-list/_person-list-swiper
