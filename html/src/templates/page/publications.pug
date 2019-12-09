@@ -1,0 +1,35 @@
+extends ../layout/main/_main
+
+block title
+  title Gerasimov
+
+block body
+  -var bodyClasses = 'no-logo'
+
+append preload
+  if locals.production
+
+  else
+
+
+block content
+  include ../mixins/tabs/_tabs
+  include ../mixins/header-lid/_header-lid
+  include ../mixins/show-more-btn/_show-more-btn
+  +header-lid
+    .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
+      +tabs()(class='js-mdc-tab-bar')
+        +tab-item('Пресса','true')(class='js-filters-btn' data-filter='.category-press')
+        +tab-item('Библиотека','')(class='js-filters-btn'  data-filter='.category-library')
+  .container
+    include ../blocks/publication/publications/_publications
+    +show-more-btn('#','показать ещё')
+
+
+append scripts
+  //-.dlaverstki(style='display: none;display: block;position: absolute;top: 0px; left: 50%;transform: translateX(-50%);width: 1200px;z-index: 5000;opacity: .6;')
+    img(src='./assets/img/test/about.png')
+  //-.dlaverstki(style='display: none;display: block;position: absolute;top: 13px; left: 50%;transform: translateX(-50%);width: 1440px;z-index: 5000;opacity: .6;')
+    img(src='./assets/img/test/Desktop2.png')
+
+

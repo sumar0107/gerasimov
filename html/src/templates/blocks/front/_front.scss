@@ -128,38 +128,47 @@
       &-wrapper {
         padding-left: rem-calc(50);
         padding-right: rem-calc(50);
-        display: block;
+      }
+    }
+  }
+}
+
+.swiper {
+  &__scrollbar {
+    &-wrapper {
+      padding-left: rem-calc(20);
+      padding-right: rem-calc(20);
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      @include media-breakpoint-up(sm) {
+        display: none;
+      }
+    }
+
+    &.swiper-scrollbar {
+      position: relative;
+      height: rem-calc(2);
+      background-color: transparent;
+      border-radius: 0;
+
+      &:after {
+        content: '';
         position: absolute;
         left: 0;
         bottom: 0;
+        z-index: 0;
+        height: rem-calc(1);
         width: 100%;
-        @include media-breakpoint-up(sm) {
-          display: none;
-        }
+        background-color: rgba($black, .2);
       }
+    }
 
-      &.swiper-scrollbar {
-        position: relative;
-        height: rem-calc(2);
-        background-color: transparent;
-        border-radius: 0;
-
-        &:after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          z-index: 0;
-          height: rem-calc(1);
-          width: 100%;
-          background-color: rgba($black, .2);
-        }
-      }
-
-      .swiper-scrollbar-drag {
-        border-radius: 0;
-        background-color: black;
-      }
+    .swiper-scrollbar-drag {
+      border-radius: 0;
+      background-color: black;
     }
   }
 }

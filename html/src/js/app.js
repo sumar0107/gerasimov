@@ -2,16 +2,16 @@ import objectFitImages from "object-fit-images"
 import {polyfill} from "smoothscroll-polyfill"
 import Tab from './lib/tab'
 import onElementHeightChange from "./lib/onElementHeightChange"
-import sayHello from "./lib/sayHello"
 import gallery from "../templates/blocks/gallery/gallery";
 import materialTabs from "./lib/material-tabs";
-import projectGrid from "./lib/projects"
+import Grid from "./lib/grid"
 import headerFixTop from "../templates/includes/header/header";
 import readMore from "./lib/read-more";
 import frontSlider from "../templates/blocks/front/front";
-import scrollLink from "./lib/scroll-link";
 import personList from "../templates/blocks/person-list/person-list";
 import partner from "../templates/blocks/partner/partner";
+import gridFilterInit from "./lib/grid-filter";
+import ScrollLink from "./lib/scroll-link";
 
 
 // kick off the polyfill!
@@ -27,10 +27,22 @@ personList();
 partner();
 
 if (document.querySelector('.js-scroll-link')) {
-  scrollLink();
+  const scrollLink = new ScrollLink()
+  scrollLink.init()
 }
-if (document.querySelector('.js-grid-projects')) {
-  projectGrid();
+if (document.querySelector('.js-grid-projects .projects__item')) {
+  const grid = new Grid('.js-grid-projects', '.js-grid-projects-item', '.projects__item');
+  if (document.querySelector('[data-filter]')) {
+    grid.filter(document.querySelector('.mdc-tab--active').getAttribute('data-filter'))
+    gridFilterInit('[data-filter]', grid.getIso());
+  }
+}
+if (document.querySelector('.js-grid-publications .publications__item')) {
+  const grid = new Grid('.js-grid-publications', '.js-grid-publications-item', '.publications__item');
+  if (document.querySelector('[data-filter]')) {
+    grid.filter(document.querySelector('.mdc-tab--active').getAttribute('data-filter'))
+    gridFilterInit('[data-filter]', grid.getIso());
+  }
 }
 
 

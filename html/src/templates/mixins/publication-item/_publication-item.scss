@@ -1,0 +1,51 @@
+.publication-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  @include media-breakpoint-up(sm) {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__img {
+    display: block;
+    position: relative;
+    margin-bottom: rem-calc(16);
+    margin-left: -20px;
+    margin-right: -20px;
+    @media (min-width: 33.75rem) {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+
+    }
+  }
+
+  &__date {
+    font-size: rem-calc(16);
+    line-height: rem-calc(20);
+    margin-bottom: rem-calc(7);
+  }
+
+  &__title {
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+    margin-bottom: rem-calc(10);
+  }
+
+  &__caption {
+    font-size: rem-calc(13);
+    line-height: rem-calc(20);
+    margin-bottom: rem-calc(10);
+  }
+
+  &__link {
+
+  }
+}

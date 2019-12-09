@@ -38,7 +38,7 @@ export class WizSlider {
           slidesPerGroup: 2,
           spaceBetween: this.sliderSpaceBetweenXs
         },
-        480: {
+        540: {
           slidesPerView: 1,
           slidesPerGroup: 1,
           spaceBetween: this.sliderSpaceBetweenXs

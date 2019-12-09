@@ -80,17 +80,18 @@
       margin-left: rem-calc(15);
 
       &-search {
-        width: rem-calc(18);
-        height: rem-calc(18);
+        width: rem-calc(50);
+        height: rem-calc(50);
+        margin-left: 0;
       }
 
       &-arrow {
-        &--left, &--right {
+        &-left, &-right {
           width: rem-calc(9);
           height: rem-calc(14);
         }
 
-        &-top, &-bottom {
+        &-top, &-bottom, &-down {
           width: rem-calc(14);
           height: rem-calc(9);
         }
@@ -110,6 +111,18 @@
           margin-left: auto;
         }
       }
+    }
+  }
+
+  &-search {
+    width: rem-calc(50);
+    height: rem-calc(50);
+
+    @include hover {
+      border-color: $black;
+    }
+    @include active {
+      border-color: $black;
     }
   }
 }

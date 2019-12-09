@@ -63,4 +63,51 @@
       line-height: rem-calc(20);
     }
   }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+
+    &-item {
+      padding-left: rem-calc(20);
+      padding-right: rem-calc(20);
+      position: relative;
+      @include media-breakpoint-up(sm) {
+        padding-left: rem-calc(40);
+        padding-right: rem-calc(40);
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:not(:first-child) {
+        &:after {
+          content: '|';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: rem-calc(2);
+          height: rem-calc(16);
+          font-size: rem-calc(11);
+          line-height: rem-calc(16);
+          transform: translateX(-50%);
+          @include media-breakpoint-up(sm) {
+            width: rem-calc(4);
+            height: rem-calc(20);
+            font-size: rem-calc(14);
+            line-height: rem-calc(20);
+          }
+        }
+      }
+    }
+  }
 }

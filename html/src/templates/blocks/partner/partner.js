@@ -9,8 +9,10 @@ class Partner {
     this.DOM.wrapper = this.DOM.el.closest('.swiper__wrapper');
     this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev');
     this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next');
-    classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`);
-    classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`);
+    this.DOM.scrollbar = this.DOM.wrapper.querySelector('.js-swiper-scrollbar');
+    classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-partner-${this.counter}`);
+    classie.addClass(this.DOM.btnNext, `js-swiper-button-next-partner-${this.counter}`);
+    classie.addClass(this.DOM.scrollbar, `js-swiper-scrollbar-partner-${this.counter}`);
   }
 
   init() {
@@ -29,11 +31,15 @@ class Partner {
       autoHeight: false,
       loop: true,
       navigation: {
-        nextEl: `.js-swiper-button-next-${this.counter}`,
-        prevEl: `.js-swiper-button-prev-${this.counter}`
+        nextEl: `.js-swiper-button-next-partner-${this.counter}`,
+        prevEl: `.js-swiper-button-prev-partner-${this.counter}`
+      },
+      scrollbar: {
+        el: `.js-swiper-scrollbar-partner-${this.counter}`,
+        hide: false,
       },
       breakpoints: {
-        480: {
+        540: {
           slidesPerView: 2,
         },
         768: {

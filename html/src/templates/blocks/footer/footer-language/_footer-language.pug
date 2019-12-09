@@ -1,0 +1,8 @@
+include ../../../mixins/icon-svg/_icon-svg
+mixin footer-language-list-item(text,src)
+  li.footer-language__list-item
+    a(href=src).footer-language__list-link
+     span=text
+.footer-language
+  ul.footer-language__list
+    +footer-language-list-item('EN','#')

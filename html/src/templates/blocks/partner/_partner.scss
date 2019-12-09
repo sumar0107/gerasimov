@@ -4,12 +4,21 @@
     padding-right: rem-calc(10);
     margin-left: rem-calc(-10);
     margin-right: rem-calc(-10);
+    padding-bottom: rem-calc(10);
 
-    @include media-breakpoint-up(sm){
+    @include media-breakpoint-up(sm) {
       padding-left: rem-calc(0);
       padding-right: rem-calc(60);
       margin-left: rem-calc(-30);
       margin-right: rem-calc(-90);
+      padding-bottom: 0;
+    }
+  }
+
+  .swiper__button {
+    display: none;
+    @include media-breakpoint-up(sm) {
+      display: block;
     }
   }
 
@@ -35,7 +44,7 @@
     align-content: center;
     justify-content: center;
     padding: rem-calc(0 10);
-    @include media-breakpoint-up(sm){
+    @include media-breakpoint-up(sm) {
       padding: rem-calc(0 30);
     }
 

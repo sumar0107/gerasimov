@@ -1,0 +1,39 @@
+.footer-language {
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+
+    &-item {
+      &:not(:first-child) {
+        margin-left: rem-calc(20);
+        @include media-breakpoint-up(sm) {
+          margin-left: rem-calc(40);
+        }
+      }
+    }
+
+    &-link {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      width: rem-calc(16);
+      height: rem-calc(16);
+      font-size: rem-calc(11);
+      line-height: rem-calc(16);
+      text-transform: uppercase;
+      @include media-breakpoint-up(sm) {
+        width: rem-calc(20);
+        height: rem-calc(20);
+        font-size: rem-calc(14);
+        line-height: rem-calc(20);
+      }
+    }
+  }
+}

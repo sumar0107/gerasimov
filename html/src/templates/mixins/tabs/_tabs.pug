@@ -2,7 +2,7 @@ mixin tabs()
   div(class="mdc-tab-bar" role="tablist")&attributes(attributes)
     div(class="mdc-tab-scroller")
       div(class="mdc-tab-scroller__scroll-area")
-        div(class="mdc-tab-scroller__scroll-content")
+        div(class="mdc-tab-scroller__scroll-content nav-list-group")
           block
 mixin tab-item(text, selected)
   if(selected !== '')

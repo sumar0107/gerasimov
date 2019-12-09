@@ -1,0 +1,10 @@
+include ../../../mixins/page-el/_page-el
+.search
+  .container
+    .search__form
+      include ../search-form/_search-form
+    .search__result
+      +page-el('Проекты')
+        include ../../project/projects/_projects-search
+      +page-el('Публикации')
+        include ../../publication/publications/_publications-search

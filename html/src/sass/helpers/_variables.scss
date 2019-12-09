@@ -106,11 +106,11 @@ $btn-border-width-sm:         2px;
 $label-margin-bottom:                   .5rem !default;
 
 $input-padding-x:                       0.625rem;
-$input-padding-y:                       0.5625rem;
+$input-padding-y:                       1rem;
 $input-font-family:                     $roboto;
-$input-font-size:                       1.125rem;
+$input-font-size:                       1rem;
 $input-font-weight:                     400;
-$input-line-height:                     1.5rem;
+$input-line-height:                     1rem;
 
 $input-padding-y-sm:                    0.5rem;
 $input-padding-x-sm:                    0.5625rem;
@@ -132,7 +132,7 @@ $input-bg:                              $white;
 
 $input-color:                           $black;
 $input-border-color:                    $black;
-$input-border-width:                    3px;
+$input-border-width:                    1px;
 $input-border-width-sm:                 2px;
 //$input-box-shadow:                      inset 0 1px 1px rgba($black, .075) !default;
 
@@ -141,12 +141,12 @@ $input-border-radius-lg:                $border-radius-lg;
 $input-border-radius-sm:                $border-radius-sm;
 
 $input-focus-bg:                        $input-bg;
-$input-focus-border-color:              $orange;
+$input-focus-border-color:              $black;
 //$input-focus-color:                     $input-color !default;
 //$input-focus-width:                     $input-btn-focus-width !default;
 //$input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
 
-$input-placeholder-color:               #84a6cc;
+$input-placeholder-color:               rgba($black, .5);
 $input-plaintext-color:                 $body-color;
 
 $input-height-border:                   $input-border-width * 2 ;

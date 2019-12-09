@@ -3,8 +3,11 @@ import MaterialTabsClass from "./material-tabs-class";
 
 const materialTabs = () => {
   if (document.querySelector('.js-mdc-tab-bar')) {
-    const tab = new MaterialTabsClass('.js-mdc-tab-bar');
-    tab.init();
+    const tabs = [...document.querySelectorAll('.js-mdc-tab-bar')];
+    tabs.forEach(item => {
+      const tab = new MaterialTabsClass(item);
+      tab.init();
+    })
   }
 };
 

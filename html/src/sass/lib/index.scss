@@ -7,3 +7,16 @@
 @import "./tab/tab-indicator";
 //@import "../../../node_modules/@material/tab/dist/mdc.tab";
 @import "./tab/tab";
+
+//@import "../../../node_modules/@material/list/dist/mdc.list";
+@import "./select/list";
+//@import "../../../node_modules/@material/menu-surface/dist/mdc.menu-surface";
+@import "./select/menu-surface";
+//@import "../../../node_modules/@material/menu/dist/mdc.menu";
+@import "./select/menu";
+//@import "../../../node_modules/@material/select/dist/mdc.select";
+@import "./select/select";
+
+.demo-width-class {
+  width: auto;
+}

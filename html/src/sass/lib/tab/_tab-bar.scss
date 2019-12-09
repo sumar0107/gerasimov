@@ -5,12 +5,30 @@
   justify-content: flex-start;
   border-bottom: 1px solid rgba($black, .2);
 
+
   &__width-full {
     width: 100%;
   }
 
   &__wrapper {
     display: flex;
+
+    .mdc-tab-bar {
+      display: none;
+      @media (min-width: 33.75rem) {
+        display: inline-flex;
+      }
+    }
+
+    .mdc-select {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      @media (min-width: 33.75rem) {
+        display: none;
+      }
+    }
+
     &_center {
       justify-content: center;
     }

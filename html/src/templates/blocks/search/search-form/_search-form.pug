@@ -1,0 +1,8 @@
+include ../../../mixins/icon-svg/_icon-svg
+form.search-form
+  .form-group
+    .input-group
+      input(type="text" class="form-control" placeholder="Поиск")
+      .input-group-append
+        button(class="btn btn-icon btn-search " type="submit")
+          +icon('search','')

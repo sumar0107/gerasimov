@@ -1,0 +1,11 @@
+.vacancy {
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem-calc(20);
+      @include media-breakpoint-up(sm) {
+        margin-bottom: rem-calc(40);
+      }
+    }
+  }
+}
+

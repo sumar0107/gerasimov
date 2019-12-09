@@ -1,0 +1,16 @@
+mixin publication-item(type,href,src,date,title,caption,link)
+  .publication-item&attributes(attributes)
+    if(type === 'img')
+      a(href=href).publication-item__img
+        img(src=src)
+    else if(type === 'video')
+      a(href=href).publication-item__img
+        img(src=src)
+    if(date !== '')
+      .publication-item__caption=date
+    .publication-item__title=title
+    if(caption !== '')
+      .publication-item__caption=caption
+    .publication-item__link
+      a(href=href).btn
+        span=link

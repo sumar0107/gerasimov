@@ -1,13 +1,30 @@
 include ../../mixins/person/_person
+include ../../mixins/icon-svg/_icon-svg
 .person-list
-  .person-list__row
-    .person-list__col
-      +person('#','https://via.placeholder.com/204x280','Евгений Герасимов','руководитель мастерской')
-    .person-list__col
-      +person('#','https://via.placeholder.com/204x280','Зоя Петрова','главный архитектор проектов')
-    .person-list__col
-      +person('#','https://via.placeholder.com/204x280','Виктор Хиврич','главный архитектор проектов')
-    .person-list__col
-      +person('#','https://via.placeholder.com/204x280','Карен Смирнов','главный архитектор проектов')
-    .person-list__col
-      +person('#','https://via.placeholder.com/204x280','Татьяна Комалдинова','главный архитектор проектов')
+  .swiper__wrapper.opacity
+    //Slider main container
+    .swiper.swiper-container.js-person-list.swiper-mobile
+      //Additional required wrapper
+      .swiper-wrapper.person-list__row
+        //Slides
+        .swiper-slide.person-list__col
+          +person('#','https://via.placeholder.com/204x280','Евгений Герасимов','руководитель мастерской')
+        .swiper-slide.person-list__col
+          +person('#','https://via.placeholder.com/204x280','Зоя Петрова','главный архитектор проектов')
+        .swiper-slide.person-list__col
+          +person('#','https://via.placeholder.com/204x280','Виктор Хиврич','главный архитектор проектов')
+        .swiper-slide.person-list__col
+          +person('#','https://via.placeholder.com/204x280','Карен Смирнов','главный архитектор проектов')
+        .swiper-slide.person-list__col
+          +person('#','https://via.placeholder.com/204x280','Татьяна Комалдинова','главный архитектор проектов')
+    //If we need navigation buttons
+    .swiper__button
+      .swiper__button-left
+        .swiper__button-item.swiper__button-item_prev.js-swiper-button-prev
+          +icon('arrow-left')
+      .swiper__button-right
+        .swiper__button-item.swiper__button-item_next.js-swiper-button-next
+          +icon('arrow-right')
+    //Add Scrollbar
+    .swiper__scrollbar-wrapper
+      .swiper__scrollbar.swiper-scrollbar.js-swiper-scrollbar

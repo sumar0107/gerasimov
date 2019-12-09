@@ -22,6 +22,18 @@ block content
         +tab-item('жилые','')(class='js-filters-btn'  data-filter='.category-residential')
         +tab-item('общественные','')(class='js-filters-btn'  data-filter='.category-public')
         +tab-item('градостроительство','')(class='js-filters-btn'  data-filter='.category-urban-planning')
+
+    //-.mdc-select
+      .mdc-select__anchor.demo-width-class
+        i.mdc-select__dropdown-icon
+        .mdc-select__selected-text
+        span.mdc-floating-label
+        .mdc-line-ripple
+      .mdc-select__menu.mdc-menu.mdc-menu-surface.demo-width-class
+        ul.mdc-list
+          li.mdc-list-item.mdc-list-item--selected(data-value="grains" aria-selected="true") Bread, Cereal, Rice, and Pasta
+          li.mdc-list-item(class="mdc-list-item" data-value="vegetables") Vegetables
+          li.mdc-list-item(class="mdc-list-item" data-value="fruit") Fruit
   .container
     include ../blocks/project/projects/_projects
 

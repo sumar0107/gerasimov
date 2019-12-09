@@ -1,39 +1,16 @@
 .form-control {
-  @include media-breakpoint-down(sm) {
-    height: $input-height-sm;
-    padding: $input-padding-y-sm $input-padding-x-sm;
-    font-size: $input-font-size-sm;
-    line-height: $input-line-height-sm;
-    border-width: $input-border-width-sm;
-  }
-
-  .input-group-lg > & {
-
-    &:not(textarea) {
-
-      @include media-breakpoint-down(sm) {
-        height: $input-height-sm;
-        padding: $input-padding-y-sm $input-padding-x-sm;
-        font-size: $input-font-size-sm;
-        line-height: $input-line-height-sm;
-        border-width: $input-border-width-sm;
-      }
-    }
+  border-left-color: $white !important;
+  border-right-color: $white !important;
+  border-top-color: $white !important;
+}
+.form-group{
+  margin-bottom: rem-calc(12);
+  @include media-breakpoint-up(sm){
+    margin-bottom: rem-calc(32);
   }
 }
-
 .input-group-append {
-  > .btn {
-    @include media-breakpoint-down(sm) {
-      padding: rem-calc(8);
-    }
 
-    .input-group-lg > & {
-      @include media-breakpoint-down(sm) {
-        padding: rem-calc(8);
-      }
-    }
-  }
 }
 
 // The dropdown menu

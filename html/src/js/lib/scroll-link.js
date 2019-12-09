@@ -2,66 +2,108 @@ import {TweenLite} from "gsap/TweenLite";
 import 'waypoints/lib/jquery.waypoints';
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import MaterialTabsClass from "./material-tabs-class";
+import enquire from 'enquire.js/dist/enquire';
 
+export default class ScrollLink {
+  constructor() {
+    this.tabEl = document.querySelector('.js-mdc-tab-bar-scroll')
+    this.wpOffset = 168
+  }
 
-const scrollLink = () => {
-  const tab = new MaterialTabsClass('.js-mdc-tab-bar-scroll');
-  tab.init();
-  // eslint-disable-next-line no-use-before-define
-  const links = tab.returnTab().tabList_.map((item) => {
-    return item.root_
-  });
-  const els = links.map((item, index) => {
-    let el = document.querySelector(`${item.getAttribute('href')}`)
-    el.setAttribute('data-index', index);
-    return el
-  });
-  const wpOffset = 168;
-
-  // down
-  $(els).waypoint(function (direction) {
-    if (direction === 'down' && !document.body.closest('.scrolling')) {
-      tab.returnTab().activateTab(+this.element.dataset.index);
-    }
-  }, {
-    offset: wpOffset
-  });
-
-  // up
-  $(els).waypoint(function (direction) {
-    if (direction === 'up' && !document.body.closest('.scrolling')) {
-      tab.returnTab().activateTab(+this.element.dataset.index);
-    }
-  }, {
-    offset: -wpOffset
-  });
-  links.forEach((item, index) => {
-    item.addEventListener('click', (event) => {
-      event.preventDefault();
-      document.body.classList.add('scrolling')
-      TweenLite.to(window, 1, {
-        scrollTo: {
-          y: $(event.target.closest('.js-scroll-link')).attr('href'),
-          offsetY: wpOffset,
-          autoKill: false
-        },
-        onComplete() {
-          tab.returnTab().activateTab(+index);
-          document.body.classList.remove('scrolling')
-        }
-      });
+  init() {
+    this.initTab()
+    this.links = this.tab.getTab().tabList_.map((item) => {
+      return item.root_
     })
-  })
+    this.els = this.links.map((item, index) => {
+      let el = document.querySelector(`${item.getAttribute('href')}`)
+      el.setAttribute('data-index', index);
+      return el
+    });
+    this.eventTabs()
+    this.eventSelect()
+    this.wayPointDown()
+    this.wayPointUp()
+  }
 
+  eventTabs() {
 
-  // Promise resolves once menu is open
-  // var openPromise = myMenu.open();
-  // menuHamburger.addEventListener('click', () => {
-  //   myMenu.toggle()
-  // })
-};
+    const self = this
+    this.links.forEach((item, index) => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.body.classList.add('scrolling')
+        self.animation($(event.target.closest('.js-scroll-link')).attr('href'), self.wpOffset, self.tab, index, false)
+      })
+    })
+  }
 
-export default scrollLink;
+  eventSelect() {
+    const self = this
+    enquire.register('(max-width: 33.75rem)', {
+      match() {
+        if (self.tab.getSelect()) {
+          self.selectLi = [...self.tab.getSelect().menuElement_.querySelectorAll('.mdc-list-item')]
+          self.selectLi.forEach((item, index) => {
+            item.addEventListener('click', (event) => {
+              event.preventDefault();
+              document.body.classList.add('scrolling')
+              self.animation($(event.target.closest('.mdc-list-item')).attr('href'), self.wpOffset, self.tab, event.target.closest('.mdc-list-item').dataset.value, true)
+            })
+          })
+        }
+      }
+    });
+  }
 
+  initTab() {
+    this.tab = new MaterialTabsClass(this.tabEl)
+    this.tab.init()
+  }
 
+  animation(y, offsetY, tab, index, select) {
+    TweenLite.to(window, 1, {
+      scrollTo: {
+        y,
+        offsetY,
+        autoKill: false
+      },
+      onComplete() {
+        if (select) {
+          tab.getSelect().value = index
+        } else {
+          tab.getTab().activateTab(+index);
+        }
+        document.body.classList.remove('scrolling')
+      }
+    });
+  }
 
+  wayPointDown() {
+    const self = this
+    $(self.els).waypoint(function (direction) {
+      self.wayPoint(direction === 'down', self.tab, this.element.dataset.index)
+    }, {
+      offset: self.wpOffset
+    });
+  }
+
+  wayPointUp() {
+    const self = this
+    $(self.els).waypoint(function (direction) {
+      self.wayPoint(direction === 'up', self.tab, this.element.dataset.index)
+    }, {
+      offset: -self.wpOffset
+    });
+  }
+
+  wayPoint(directionInner, tab, index) {
+    if (directionInner && !document.body.closest('.scrolling')) {
+      if (tab.getSelect()) {
+        tab.getSelect().value = index
+      } else {
+        tab.getTab().activateTab(+index);
+      }
+    }
+  }
+}

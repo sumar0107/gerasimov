@@ -39,7 +39,7 @@ const ClassName = {
 
 const Selector = {
   DROPDOWN              : '.dropdown',
-  NAV_LIST_GROUP        : '.mdc-tab-scroller__scroll-content',
+  NAV_LIST_GROUP        : '.nav-list-group',
   ACTIVE                : '.active',
   ACTIVE_UL             : '.active',
   DATA_TOGGLE           : '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',

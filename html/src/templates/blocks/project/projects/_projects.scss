@@ -1,9 +1,41 @@
 .projects {
-  //@include make-row(60px);
+  @include make-row(40px);
+  @include media-breakpoint-up(sm) {
+    @include make-row();
+  }
 
   &__item {
-    //@include make-col-ready(0);
-    width: auto;
+    @include make-col-ready(40px);
+    @include make-col(10);
+    padding-bottom: rem-calc(40);
+    @media (min-width: 33.75rem) {
+      @include make-col(5);
+    }
+    @include media-breakpoint-up(sm) {
+      @include make-col-ready();
+      padding-bottom: rem-calc(50);
+    }
+    @include media-breakpoint-up(md) {
+      @include make-col(4, 12);
+    }
+    @include media-breakpoint-up(lg) {
+      @include make-col(3, 12);
+    }
+    @include media-breakpoint-up(xl) {
+      @include make-col(2);
+    }
+
+    &_search {
+      @include media-breakpoint-up(md) {
+        @include make-col(5);
+      }
+      @include media-breakpoint-up(lg) {
+        @include make-col(4, 12);
+      }
+      @include media-breakpoint-up(xl) {
+        @include make-col(2, 8);
+      }
+    }
   }
 }
 

@@ -1,0 +1,14 @@
+.show-more-btn {
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: rem-calc(20 0);
+    @include media-breakpoint-up(sm) {
+      padding: rem-calc(50 0);
+    }
+  }
+}

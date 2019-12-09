@@ -1,2 +1,8 @@
+include ../../mixins/icon-svg/_icon-svg
 .page-404
-  .container-full
+  .container
+    .page-404__inner
+      p Страница не найдена
+      a(href='./').btn.btn-icon.btn-small
+        span Перейти на главную страницу
+        +icon('arrow-right','')
