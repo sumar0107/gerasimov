@@ -1,4 +1,7 @@
 .person-list {
+  @include media-breakpoint-up(sm) {
+    margin-top: rem-calc(-30);
+  }
   .swiper__wrapper {
     padding: rem-calc(0 0 10 0);
     margin: rem-calc(0 -20);
@@ -58,7 +61,7 @@
 
   &__row {
     @media (min-width: 33.75rem) {
-      @include make-row(20px);
+      //@include make-row(20px);
       width: auto;
     }
     @include media-breakpoint-up(sm) {
@@ -72,21 +75,20 @@
     padding-top: rem-calc(10);
     padding-bottom: rem-calc(10);
     @media (min-width: 33.75rem) {
-      @include make-col-ready(20px);
-      @include make-col(5);
-      padding-top: 0;
-      padding-bottom: 0;
+      @include make-col-ready(0px);
+      padding-top: rem-calc(10);
+      padding-bottom: rem-calc(10);
     }
     @include media-breakpoint-up(sm) {
       @include make-col-ready();
       @include make-col(4, 12);
-      margin-top: rem-calc(30);
-      margin-bottom: rem-calc(30);
+      padding-top: rem-calc(30);
+      padding-bottom: rem-calc(30);
     }
     @include media-breakpoint-up(md) {
       @include make-col(3, 12);
-      margin-top: 0;
-      margin-bottom: rem-calc(24);
+      padding-top: rem-calc(30);
+      padding-bottom: rem-calc(30);
     }
     @include media-breakpoint-up(lg) {
       @include make-col(2);
@@ -99,7 +101,7 @@
     padding-bottom: rem-calc(10);
     max-width: rem-calc(152);
     @media (min-width: 33.75rem) {
-      @include make-col-ready(20px);
+      //@include make-col-ready(20px);
     }
     @include media-breakpoint-up(sm) {
       @include make-col-ready();

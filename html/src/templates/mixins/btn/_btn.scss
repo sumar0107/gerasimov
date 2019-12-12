@@ -11,10 +11,12 @@
   @include transition(color .15s, background-color .15s, border-color .15s);
 
   @include hover {
-    border-bottom-color: transparent;
+    color: $link-hover-color;
+    border-bottom-color: $link-hover-color;
   }
   @include active {
-    border-bottom-color: transparent;
+    color: $link-hover-color;
+    border-bottom-color: $link-hover-color;
   }
 
   &-not-upper {
@@ -51,16 +53,16 @@
     }
 
     @include hover {
-      color: $orange;
+      color: $link-hover-color;
       .icon {
-        fill: $orange;
+        fill: $link-hover-color;
       }
     }
 
     @include active {
-      color: $orange;
+      color: $link-hover-color;
       .icon {
-        fill: $orange;
+        fill: $link-hover-color;
       }
     }
   }
@@ -78,6 +80,7 @@
     .icon {
       order: 2;
       margin-left: rem-calc(15);
+      @include transition(color .15s, fill .15s, background-color .15s, border-color .15s);
 
       &-search {
         width: rem-calc(50);
@@ -95,6 +98,21 @@
           width: rem-calc(14);
           height: rem-calc(9);
         }
+      }
+    }
+
+
+    @include hover {
+      color: $link-hover-color;
+      .icon {
+        fill: $link-hover-color;
+      }
+    }
+
+    @include active {
+      color: $link-hover-color;
+      .icon {
+        fill: $link-hover-color;
       }
     }
 
@@ -132,10 +150,12 @@
   align-items: center;
   align-content: center;
   justify-content: center;
+  text-transform: uppercase;
   fill: $black;
 
   span {
     display: block;
+    font-weight: bold;
     margin-right: rem-calc(5);
   }
 

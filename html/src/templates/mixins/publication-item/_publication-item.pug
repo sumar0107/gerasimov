@@ -12,5 +12,5 @@ mixin publication-item(type,href,src,date,title,caption,link)
     if(caption !== '')
       .publication-item__caption=caption
     .publication-item__link
-      a(href=href).btn
+      a(href=href).btn.btn-bold
         span=link

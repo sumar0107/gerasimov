@@ -29,7 +29,7 @@ class Partner {
       slidesPerView: 4,
       spaceBetween: 0,
       autoHeight: false,
-      loop: true,
+      loop: false,
       navigation: {
         nextEl: `.js-swiper-button-next-partner-${this.counter}`,
         prevEl: `.js-swiper-button-prev-partner-${this.counter}`

@@ -1,6 +1,7 @@
 mixin person(link,src,title,position)
   .person&attributes(attributes)
-    a(href=link).person__link
+    //-a(href=link).person__link
+    .person__link
       .person__img
         img(src=src)
       .person__title=title

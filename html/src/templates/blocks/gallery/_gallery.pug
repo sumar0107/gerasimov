@@ -10,7 +10,7 @@ include ../../mixins/icon-svg/_icon-svg
           .swiper-wrapper
             //Slides
             .swiper-slide
-              +swiper-item('img','https://via.placeholder.com/940x620','At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.')
+              +swiper-item('img','https://via.placeholder.com/588x800','At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.')
             .swiper-slide
               +swiper-item('img','https://via.placeholder.com/1056x620','1 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.')
             .swiper-slide
@@ -51,12 +51,12 @@ include ../../mixins/icon-svg/_icon-svg
       //If we need navigation buttons
       .swiper__button
         .swiper__button-left
+          .swiper__button-item.swiper__button-item_dummy
           .swiper__button-item.swiper__button-item_prev.js-swiper-button-prev
             +icon('arrow-left')
           .swiper__button-item.swiper__button-item_dummy
-          .swiper__button-item.swiper__button-item_dummy
-          .swiper__button-item.swiper__button-item_dummy
         .swiper__button-right
+          .swiper__button-item.swiper__button-item_dummy
           .swiper__button-item.swiper__button-item_next.js-swiper-button-next
             +icon('arrow-right')
           .swiper__button-item.swiper__button-item_pagination
@@ -65,6 +65,9 @@ include ../../mixins/icon-svg/_icon-svg
             +icon('fullscreen')
           .swiper__button-item.swiper__button-item_list.js-swiper-button-list-open
             +icon('list')
+      //Add Scrollbar
+      .swiper__scrollbar-wrapper
+        .swiper__scrollbar.swiper-scrollbar.js-swiper-scrollbar
       .gallery-list.js-gallery-list.delay
         .gallery-list__inner
           .gallery-list__close.js-swiper-button-list-close

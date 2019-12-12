@@ -38,6 +38,10 @@
 
       &.active {
         border-color: $black;
+
+        &:hover {
+          border-color: $link-hover-color
+        }
       }
     }
   }

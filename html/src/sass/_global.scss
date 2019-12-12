@@ -49,3 +49,19 @@ body {
     }
   }
 }
+
+.read-more-mobile {
+  @include media-breakpoint-only(xs) {
+    display: none;
+  }
+  @include media-breakpoint-up(sm){
+    display: block !important;
+  }
+
+  ~ .js-read-more-btn {
+    display: none;
+    @include media-breakpoint-only(xs) {
+      display: inline-flex;
+    }
+  }
+}

@@ -20,14 +20,14 @@ export default class MaterialTabsClass {
 
     enquire.register('(max-width: 33.75rem)', {
       setup() {
-        console.log('setup');
+        // console.log('setup');
       },
       match() {
-        console.log('window < 540');
+        // console.log('window < 540');
         initSelect()
       },
       unmatch() {
-        console.log('window > 540');
+        // console.log('window > 540');
         destroyedSelect()
       }
     });
@@ -60,7 +60,7 @@ export default class MaterialTabsClass {
     const select = `<div class="mdc-select">
               <div class="mdc-select__anchor">
                 <svg class="mdc-select__dropdown-icon icon icon-arrow-down ">
-                  <use xlink:href="./assets/img/sprite.svg#icon-arrow-down"></use>
+                  <use xlink:href="/themes/egp/img/sprite.svg#icon-arrow-down"></use>
                 </svg>
                 <div class="mdc-select__selected-text"></div>
               </div>

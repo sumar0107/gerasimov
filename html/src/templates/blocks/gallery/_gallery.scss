@@ -1,6 +1,6 @@
 .gallery {
-  margin-bottom: rem-calc(90);
-  @include media-breakpoint-up(md) {
+  margin-bottom: rem-calc(50);
+  @include media-breakpoint-up(sm) {
     margin-bottom: rem-calc(90);
   }
 
@@ -9,6 +9,14 @@
     margin-left: 0;
     margin-right: 0;
     padding: 0;
+  }
+
+  .swiper {
+    opacity: 0;
+
+    &.swiper-container-initialized {
+      opacity: 1;
+    }
   }
 
   .container-full {
@@ -22,17 +30,26 @@
   }
 
   .container {
-    @include media-breakpoint-only(xs) {
-      padding-left: 0;
-      padding-right: 0;
-    }
+    //@include media-breakpoint-only(xs) {
+    //  padding-left: 0;
+    //  padding-right: 0;
+    //}
   }
 
   .swiper-item {
     &__img {
       position: relative;
       width: 100%;
-      height: rem-calc(620);
+      height: rem-calc(224);
+      @media (min-width: 33.75rem) {
+        height: rem-calc(320);
+      }
+      @include media-breakpoint-up(sm) {
+        height: rem-calc(800);
+      }
+      @include media-breakpoint-up(md) {
+        height: rem-calc(620);
+      }
 
       &-inner {
         position: absolute;
@@ -42,14 +59,18 @@
         height: 100%;
 
         img {
-          object-fit: contain;
+          object-fit: cover;
           width: 100%;
           height: 100%;
           display: block;
+          @include media-breakpoint-up(sm) {
+            object-fit: contain;
+          }
         }
       }
     }
   }
+
   .swiper__button {
     display: none;
     @include media-breakpoint-up(sm) {
@@ -72,6 +93,7 @@
   z-index: -1;
   height: 100%;
   width: 100%;
+  min-width: rem-calc(320);
   top: 0;
   right: 0;
   bottom: 0;
@@ -79,7 +101,10 @@
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
-  padding: rem-calc(60);
+  padding: rem-calc(20);
+  @include media-breakpoint-up(sm) {
+    padding: rem-calc(60);
+  }
 
   &.delay {
     display: none
@@ -108,9 +133,19 @@
     will-change: opacity;
     transition: opacity .48s ease-out;
     background-color: $white;
-    padding: rem-calc(38 30);
+    padding: rem-calc(20 20);
     min-height: 100%;
     position: relative;
+    @include media-breakpoint-up(sm) {
+      padding: rem-calc(38 30);
+    }
+
+    .container {
+      @include media-breakpoint-down(md) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
 
   &__close {
@@ -121,10 +156,15 @@
     width: rem-calc(50);
     height: rem-calc(50);
     position: absolute;
-    right: rem-calc(20);
-    top: rem-calc(20);
+    right: rem-calc(0);
+    top: rem-calc(0);
     z-index: 2;
     cursor: pointer;
+
+    @include media-breakpoint-up(sm) {
+      right: rem-calc(20);
+      top: rem-calc(20);
+    }
 
     .icon {
       width: rem-calc(14);
@@ -134,19 +174,34 @@
   }
 
   &__row {
-    @include make-row();
+    @include make-row(20px);
+    @media (min-width: 33.75rem) {
+      @include make-row(40px);
+    }
+    @include media-breakpoint-up(sm) {
+      @include make-row();
+    }
   }
 
   &__item {
-    @include make-col-ready();
-    padding-top: rem-calc(42);
-    padding-bottom: rem-calc(42);
-    @include make-col(2);
+    @include make-col-ready(20px);
+    @include make-col(5);
+    padding-top: rem-calc(10);
+    padding-bottom: rem-calc(10);
+    @media (min-width: 33.75rem) {
+      @include make-col-ready(40px);
+      @include make-col(4, 12);
+      padding-top: rem-calc(20);
+      padding-bottom: rem-calc(20);
+    }
     @include media-breakpoint-up(sm) {
-      @include make-col(5)
+      @include make-col-ready();
+      padding-top: rem-calc(42);
+      padding-bottom: rem-calc(42);
+      @include make-col(4, 12)
     }
     @include media-breakpoint-up(md) {
-      @include make-col(4, 12)
+      @include make-col(3, 12)
     }
     @include media-breakpoint-up(lg) {
       @include make-col(2)

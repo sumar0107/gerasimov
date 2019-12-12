@@ -83,19 +83,19 @@
     top: 50%;
     margin-top: rem-calc(-6);
     border-color: transparent;
-    border-top-color: $orange;
+    border-top-color: $link-hover-color;
   }
 
   @include hover {
     &:before {
-      border-top-color: $orange;
+      border-top-color: $link-hover-color;
     }
   }
 
   &.active,
   &:active {
     &:before {
-      border-top-color: $orange;
+      border-top-color: $link-hover-color;
     }
   }
 
@@ -107,7 +107,7 @@
       margin-top: 0;
       margin-bottom: rem-calc(-6);
       border-color: transparent;
-      border-bottom-color: $orange;
+      border-bottom-color: $link-hover-color;
     }
 
     &:after {
@@ -125,14 +125,14 @@
 
     @include hover {
       &:before {
-        border-bottom-color: $orange;
+        border-bottom-color: $link-hover-color;
       }
     }
 
     &.active,
     &:active {
       &:before {
-        border-bottom-color: $orange;
+        border-bottom-color: $link-hover-color;
       }
     }
   }
@@ -144,7 +144,7 @@
       margin-top: 0;
       margin-bottom: rem-calc(-6);
       border-color: transparent;
-      border-bottom-color: $orange;
+      border-bottom-color: $link-hover-color;
     }
 
     &:before {
@@ -153,19 +153,19 @@
       margin-top: 0;
       margin-bottom: rem-calc(-6);
       border-color: transparent;
-      border-bottom-color: $orange;
+      border-bottom-color: $link-hover-color;
     }
 
     @include hover {
       &:before {
-        border-bottom-color: $orange;
+        border-bottom-color: $link-hover-color;
       }
     }
 
     &.active,
     &:active {
       &:before {
-        border-bottom-color: $orange;
+        border-bottom-color: $link-hover-color;
       }
     }
   }
@@ -177,7 +177,7 @@
       margin-top: rem-calc(-6);
       margin-bottom: 0;
       border-color: transparent;
-      border-top-color: $orange;
+      border-top-color: $link-hover-color;
     }
 
     &:after {
@@ -191,19 +191,19 @@
       margin-top: rem-calc(-6);
       margin-bottom: 0;
       border-color: transparent;
-      border-top-color: $orange;
+      border-top-color: $link-hover-color;
     }
 
     @include hover {
       &:before {
-        border-top-color: $orange;
+        border-top-color: $link-hover-color;
       }
     }
 
     &.active,
     &:active {
       &:before {
-        border-top-color: $orange;
+        border-top-color: $link-hover-color;
       }
     }
   }
@@ -238,7 +238,7 @@
   }
 
   &:active {
-    background-color: rgba($orange, .2);
+    background-color: rgba($link-hover-color, .2);
   }
 
   &.default {

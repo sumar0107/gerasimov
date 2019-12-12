@@ -23,10 +23,10 @@
       line-height: rem-calc(25);
     }
     @include hover {
-      border-bottom-color: transparent;
+      //border-bottom-color: $link-hover-color;
     }
     @include active {
-      border-bottom-color: transparent;
+      //border-bottom-color: $link-hover-color;
     }
   }
 }

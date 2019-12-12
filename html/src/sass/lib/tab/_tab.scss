@@ -48,15 +48,23 @@
   * {
     outline: none !important;
   }
+  @include hover {
+    color: $link-hover-color;
+    .mdc-tab__icon {
+      fill: $link-hover-color;
+    }
+  }
+
+  @include active {
+    color: $link-hover-color;
+    .mdc-tab__icon {
+      fill: $link-hover-color;
+    }
+  }
 }
 
 .mdc-tab .mdc-tab__text-label {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.mdc-tab .mdc-tab__icon {
-  color: rgba(0, 0, 0, 0.54);
-  fill: currentColor;
+  //color: $black;
 }
 
 .mdc-tab::-moz-focus-inner {

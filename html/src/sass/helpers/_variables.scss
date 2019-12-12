@@ -20,7 +20,7 @@ $roboto: 'Roboto', sans-serif;
 
 $link-color:                              $black;
 $link-decoration:                         none;
-$link-hover-color:                        $orange;
+$link-hover-color:                        rgba($black, .5);
 $link-hover-decoration:                   none;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;

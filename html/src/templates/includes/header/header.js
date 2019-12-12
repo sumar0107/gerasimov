@@ -1,6 +1,6 @@
 const headerFixTop = () => {
   const sticky = 7
-  const header = document.querySelector('header.header')
+  // const header = document.querySelector('header.header')
   const headerLid = document.querySelector('.header-lid')
 
   function elFixTop(el) {

@@ -32,17 +32,13 @@ if (document.querySelector('.js-scroll-link')) {
 }
 if (document.querySelector('.js-grid-projects .projects__item')) {
   const grid = new Grid('.js-grid-projects', '.js-grid-projects-item', '.projects__item');
-  if (document.querySelector('[data-filter]')) {
-    grid.filter(document.querySelector('.mdc-tab--active').getAttribute('data-filter'))
-    gridFilterInit('[data-filter]', grid.getIso());
-  }
+  const filter = !!(document.querySelector('[data-filter]'))
+  grid.init(filter)
 }
 if (document.querySelector('.js-grid-publications .publications__item')) {
   const grid = new Grid('.js-grid-publications', '.js-grid-publications-item', '.publications__item');
-  if (document.querySelector('[data-filter]')) {
-    grid.filter(document.querySelector('.mdc-tab--active').getAttribute('data-filter'))
-    gridFilterInit('[data-filter]', grid.getIso());
-  }
+  const filter = !!(document.querySelector('[data-filter]'))
+  grid.init(filter)
 }
 
 

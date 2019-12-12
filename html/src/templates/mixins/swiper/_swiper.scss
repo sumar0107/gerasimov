@@ -48,8 +48,13 @@
       .gallery & {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        height: rem-calc(620);
+        justify-content: center;
+        @include media-breakpoint-up(sm) {
+          height: rem-calc(800);
+        }
+        @include media-breakpoint-up(md) {
+          height: rem-calc(620);
+        }
       }
     }
 
@@ -71,8 +76,13 @@
       .gallery & {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        height: rem-calc(620);
+        justify-content: center;
+        @include media-breakpoint-up(sm) {
+          height: rem-calc(800);
+        }
+        @include media-breakpoint-up(md) {
+          height: rem-calc(620);
+        }
       }
     }
 
@@ -104,6 +114,15 @@
 
       &[aria-disabled='true'] {
         fill: rgba($black, .5);
+      }
+
+      &_dummy {
+        width: rem-calc(60);
+        height: rem-calc(180);
+        @include media-breakpoint-up(md) {
+          width: rem-calc(90);
+          height: rem-calc(270);
+        }
       }
 
       &_next {

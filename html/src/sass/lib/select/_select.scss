@@ -302,12 +302,23 @@
   background-color: transparent;
 }
 
-.mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text {
-  color: rgba(0, 0, 0, 0.87);
+.mdc-select:not(.mdc-select--disabled) {
+  .mdc-select__selected-text {
+    color: $black;
+  }
+
+  .mdc-select__anchor {
+    &:hover {
+      .mdc-select__selected-text {
+        color: $link-hover-color;
+      }
+    }
+  }
 }
 
+
 .mdc-select:not(.mdc-select--disabled) .mdc-floating-label {
-  color: rgba(0, 0, 0, 0.6);
+  color: $black;
 }
 
 .mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text {
@@ -429,7 +440,7 @@
 
 
 .mdc-select--activated .mdc-select__dropdown-icon {
-  transform: rotate(180deg) ;
+  transform: rotate(180deg);
   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

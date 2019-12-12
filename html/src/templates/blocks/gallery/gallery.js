@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import classie from 'classie';
+import imagesLoaded from "imagesloaded";
 
 function createListItem(el, src, index) {
   el.insertAdjacentHTML('beforeend', `
@@ -14,6 +15,61 @@ function createListItem(el, src, index) {
                                 </div>`);
 }
 
+function isFullScreen() {
+  if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+    classie.addClass(document.body, "slideshow-open")
+    return true;
+  }
+  classie.removeClass(document.body, "slideshow-open")
+  return false
+}
+
+function closeFullScreen(el) {
+  if (el.exitFullscreen) {
+    el.exitFullscreen();
+  } else if (el.webkitExitFullscreen) {
+    el.webkitExitFullscreen();
+  } else if (el.mozCancelFullScreen) {
+    el.mozCancelFullScreen();
+  } else if (el.msExitFullscreen) {
+    el.msExitFullscreen();
+  }
+}
+
+function openFullScreen(el) {
+  if (el.requestFullscreen) {
+    el.requestFullscreen();
+  } else if (el.webkitRequestFullscreen) {
+    el.webkitRequestFullscreen();
+  } else if (el.mozRequestFullScreen) {
+    el.mozRequestFullScreen();
+  } else if (el.msRequestFullscreen) {
+    el.msRequestFullscreen();
+  }
+}
+
+function debounce(...args) {
+  const [fn, delay, immediate] = args
+  let timeout;
+  return () => {
+    const elem = this;
+    const originalArguments = args;
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      timeout = null;
+      if (!immediate) {
+        fn.apply(elem, originalArguments);
+      }
+    }, delay);
+    if (callNow) {
+      fn.apply(elem, originalArguments);
+    }
+  };
+}
+
+let respond;
+
 class Gallery {
   constructor(el, counter) {
     this.counter = counter;
@@ -25,12 +81,14 @@ class Gallery {
     this.DOM.btnlistShow = this.DOM.wrapper.querySelector('.js-swiper-button-list-open');
     this.DOM.btnListClose = this.DOM.wrapper.querySelector('.js-swiper-button-list-close');
     this.DOM.pagination = this.DOM.wrapper.querySelector('.js-swiper-pagination');
+    this.DOM.scrollbar = this.DOM.wrapper.querySelector('.js-swiper-scrollbar');
     this.DOM.images = [...this.DOM.wrapper.querySelectorAll('.swiper-item img')];
     this.DOM.list = this.DOM.wrapper.querySelector('.js-gallery-list');
     this.DOM.listRow = this.DOM.list.querySelector('.gallery-list__row');
-    classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`);
-    classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`);
-    classie.addClass(this.DOM.pagination, `js-swiper-pagination-${this.counter}`);
+    classie.addClass(this.DOM.btnPrev, `js-swiper-gallery-button-prev-${this.counter}`);
+    classie.addClass(this.DOM.btnNext, `js-swiper-gallery-button-next-${this.counter}`);
+    classie.addClass(this.DOM.pagination, `js-swiper-gallery-pagination-${this.counter}`);
+    classie.addClass(this.DOM.scrollbar, `js-swiper-gallery-scrollbar-${this.counter}`);
   }
 
   list() {
@@ -55,6 +113,26 @@ class Gallery {
     classie.removeClass(document.documentElement, 'list-view');
   }
 
+  mouseMoveOn() {
+    const revealUI = () => {
+      if (classie.hasClass(document.body, "hide-project-ui")) {
+        classie.removeClass(document.body, "hide-project-ui");
+      }
+      clearTimeout(respond);
+      respond = setTimeout(() => {
+        if (isFullScreen()) {
+          classie.addClass(document.body, "hide-project-ui");
+        }
+      }, 2500);
+    }
+    this.DOM.el.addEventListener("mousemove", debounce(revealUI, 100));
+  }
+
+  mouseMoveOff() {
+    classie.removeClass(document.body, "hide-project-ui");
+    this.DOM.el.off("mousemove");
+  }
+
   init() {
     this.list();
     this.slider = new Swiper(this.DOM.el, this.sliderOptions());
@@ -77,6 +155,25 @@ class Gallery {
       e.preventDefault();
       this.listHide();
     })
+    this.DOM.btnFullscreen.addEventListener('click', () => {
+      if (isFullScreen()) {
+        closeFullScreen(document);
+        this.mouseMoveOff();
+      } else {
+        openFullScreen(this.DOM.el);
+        this.mouseMoveOn();
+        if (this.DOM.wrapper.dataset.view !== "detail") {
+          this.DOM.wrapper.dataset.view = "detail";
+        }
+      }
+    });
+    document.addEventListener("webkitfullscreenchange mozfullscreenchange fullscreenchange", () => {
+      this.DOM.btnFullscreen.classList.toggle("active");
+      if (!isFullScreen()) {
+        this.mouseMoveOff();
+      }
+    });
+    imagesLoaded(this.slider.el).on('done', () => this.slider.init());
   }
 
   slider() {
@@ -96,13 +193,18 @@ class Gallery {
       },
       effect: 'fade',
       pagination: {
-        el: `.js-swiper-pagination-${this.counter}`,
+        el: `.js-swiper-gallery-pagination-${this.counter}`,
         type: 'fraction',
       },
       navigation: {
-        nextEl: `.js-swiper-button-next-${this.counter}`,
-        prevEl: `.js-swiper-button-prev-${this.counter}`
+        nextEl: `.js-swiper-gallery-button-next-${this.counter}`,
+        prevEl: `.js-swiper-gallery-button-prev-${this.counter}`
       },
+      scrollbar: {
+        el: `.js-swiper-gallery-scrollbar-${this.counter}`,
+        hide: false,
+      },
+      init: false
       // breakpoints: this.sliderBreakpoints(),
     }
   }

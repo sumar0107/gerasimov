@@ -45,7 +45,7 @@
         }
 
         &-vk {
-          width: rem-calc(15);
+          width: rem-calc(16);
           height: rem-calc(13);
           @include media-breakpoint-up(sm) {
             width: rem-calc(20);
@@ -54,10 +54,10 @@
         }
 
         &-ig {
-          width: rem-calc(12);
+          width: rem-calc(11);
           height: rem-calc(13);
           @include media-breakpoint-up(sm) {
-            width: rem-calc(15);
+            width: rem-calc(14);
             height: rem-calc(16);
           }
         }

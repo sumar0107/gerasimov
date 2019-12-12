@@ -15,3 +15,23 @@ mixin swiper-item(type,src,caption)
           p=caption
     else
       block
+mixin swiper-item-mobile-img(type,srcdscp,srcmob,caption)
+  .swiper-item
+    if type == 'video'
+      .swiper-item__video
+        iframe(src=src)&attributes(attributes)
+      if(caption !== '')
+        .swiper-item__caption
+          p=caption
+    else if type == 'img'
+      .swiper-item__img
+        .swiper-item__img-inner
+          img(
+            data-srcdscp=srcdscp
+            data-srcmob=srcmob
+            )&attributes(attributes)
+      if(caption !== '')
+        .swiper-item__caption
+          p=caption
+    else
+      block

@@ -13,7 +13,7 @@ class PersonList {
     classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`);
     classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`);
     classie.addClass(this.DOM.scrollbar, `js-swiper-scrollbar-${this.counter}`);
-    this.breakpoint = window.matchMedia('(min-width: 33.75rem)');
+    this.breakpoint = window.matchMedia('(min-width: 48rem)');
     this.slidesPerColumn = (this.DOM.el.hasAttribute('data-column')) ? this.DOM.el.getAttribute('data-column') : 1;
   }
 
@@ -82,10 +82,11 @@ class PersonList {
         768: {
           slidesPerView: 'auto',
           slidesPerColumn: 1,
-          spaceBetween: 0
+          spaceBetween: 20
         },
         1024: {
           slidesPerView: 3,
+          spaceBetween: 0
         },
         1440: {
           slidesPerView: 4,
@@ -95,35 +96,34 @@ class PersonList {
   }
 }
 
-const personListBtn = (slider) => {
-  const buttonTarget = slider.wrapper().closest('.mdc-tab-container__item').getAttribute('id')
-  const buttons = [...document.querySelectorAll(`[data-target="#${buttonTarget}"]`)]
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      slider.update()
-    })
-  })
+const $personListBtn = (btn, sliders) => {
+  $(btn).on('shown.bs.tab', () => sliders.forEach(item => item.update()))
+}
+
+const slidersFn = () => {
+  return [...document.querySelectorAll('.js-person-list')].map((item, index) => {
+    const slider = new PersonList(item, index);
+    slider.init();
+    return slider
+  });
 }
 const personList = () => {
-  window.addEventListener('load', () => {
-    if (document.querySelector('.js-person-list')) {
-      [...document.querySelectorAll('.js-person-list')].forEach((item, index) => {
-        const slider = new PersonList(item, index);
-        slider.init();
-        if (slider.wrapper().closest('.opacity')) {
-          enquire.register('(max-width: 33.75rem)', {
-            setup() {
-              slider.update()
-              personListBtn(slider)
-            },
-            match() {
-              personListBtn(slider)
-            }
-          })
-        }
-      });
-    }
-  });
+  if (document.querySelector('.js-person-list')) {
+    const sliders = slidersFn()
+    enquire.register('(max-width: 33.75rem)', {
+      setup() {
+        sliders.forEach(item => {
+          if (item.wrapper().closest('.fade') && item.wrapper().closest('.opacity')) {
+            item.update()
+          }
+        })
+        $personListBtn('.mdc-tab-bar [data-toggle="tab"]', sliders)
+      },
+      match() {
+        $personListBtn('.mdc-select [data-toggle="tab"]', sliders)
+      }
+    })
+  }
 };
 
 export default personList;
