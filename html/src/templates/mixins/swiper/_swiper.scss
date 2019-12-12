@@ -185,6 +185,11 @@
         width: rem-calc(18);
         height: rem-calc(18);
       }
+
+      &-close {
+        width: rem-calc(14);
+        height: rem-calc(14);
+      }
     }
   }
 }

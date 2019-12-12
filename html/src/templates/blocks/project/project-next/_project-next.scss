@@ -7,10 +7,12 @@
 
   &__labet {
     @include make-col-ready();
+    margin-bottom: rem-calc(20);
     @include media-breakpoint-up(md) {
       width: rem-calc(260);
       min-width: rem-calc(260);
       flex: 0 0 16.25rem;
+      margin-bottom: 0;
     }
     font-size: rem-calc(16);
     line-height: rem-calc(25);

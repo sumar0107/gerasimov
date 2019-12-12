@@ -1,14 +1,14 @@
 import Swiper from 'swiper';
 import classie from 'classie';
-import imagesLoaded from "imagesloaded";
+import imagesLoaded from 'imagesloaded';
 
 function createListItem(el, src, index) {
   el.insertAdjacentHTML('beforeend', `
-                                <div class="gallery-list__item">
-                                  <a class="gallery-list__link" href="#" data-index="${index}">
-                                      <div class="gallery-list__img">
-                                        <div class="gallery-list__img-inner">
-                                            <img src="${src}" alt="">
+                                <div class='gallery-list__item'>
+                                  <a class='gallery-list__link' href='#' data-index='${index}'>
+                                      <div class='gallery-list__img'>
+                                        <div class='gallery-list__img-inner'>
+                                            <img src='${src}' alt=''>
                                         </div>
                                       </div>
                                   </a>
@@ -17,10 +17,10 @@ function createListItem(el, src, index) {
 
 function isFullScreen() {
   if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-    classie.addClass(document.body, "slideshow-open")
+    classie.addClass(document.body, 'slideshow-open')
     return true;
   }
-  classie.removeClass(document.body, "slideshow-open")
+  classie.removeClass(document.body, 'slideshow-open')
   return false
 }
 
@@ -78,6 +78,7 @@ class Gallery {
     this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev');
     this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next');
     this.DOM.btnFullscreen = this.DOM.wrapper.querySelector('.js-swiper-button-fullscreen');
+    this.DOM.btnFullscreenClose = this.DOM.wrapper.querySelector('.js-swiper-button-fullscreen-close');
     this.DOM.btnlistShow = this.DOM.wrapper.querySelector('.js-swiper-button-list-open');
     this.DOM.btnListClose = this.DOM.wrapper.querySelector('.js-swiper-button-list-close');
     this.DOM.pagination = this.DOM.wrapper.querySelector('.js-swiper-pagination');
@@ -115,22 +116,23 @@ class Gallery {
 
   mouseMoveOn() {
     const revealUI = () => {
-      if (classie.hasClass(document.body, "hide-project-ui")) {
-        classie.removeClass(document.body, "hide-project-ui");
+      if (classie.hasClass(document.body, 'hide-project-ui')) {
+        classie.removeClass(document.body, 'hide-project-ui');
       }
       clearTimeout(respond);
       respond = setTimeout(() => {
         if (isFullScreen()) {
-          classie.addClass(document.body, "hide-project-ui");
+          classie.addClass(document.body, 'hide-project-ui');
         }
       }, 2500);
     }
-    this.DOM.el.addEventListener("mousemove", debounce(revealUI, 100));
+    this.DOM.el.addEventListener('mousemove', debounce(revealUI, 100));
   }
 
   mouseMoveOff() {
-    classie.removeClass(document.body, "hide-project-ui");
-    this.DOM.el.off("mousemove");
+    classie.removeClass(document.body, 'hide-project-ui');
+    $(this.DOM.el).off('mousemove');
+    setTimeout(()=>this.slider.update(),0)
   }
 
   init() {
@@ -156,24 +158,30 @@ class Gallery {
       this.listHide();
     })
     this.DOM.btnFullscreen.addEventListener('click', () => {
-      if (isFullScreen()) {
-        closeFullScreen(document);
-        this.mouseMoveOff();
-      } else {
-        openFullScreen(this.DOM.el);
-        this.mouseMoveOn();
-        if (this.DOM.wrapper.dataset.view !== "detail") {
-          this.DOM.wrapper.dataset.view = "detail";
-        }
-      }
+      this.flClick()
     });
-    document.addEventListener("webkitfullscreenchange mozfullscreenchange fullscreenchange", () => {
-      this.DOM.btnFullscreen.classList.toggle("active");
+    this.DOM.btnFullscreenClose.addEventListener('click', () => {
+      this.flClick()
+    });
+    $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', () => {
+      this.DOM.btnFullscreen.classList.toggle('active');
+      this.DOM.btnFullscreenClose.classList.toggle('active');
+      this.DOM.wrapper.dataset.view = (this.DOM.wrapper.dataset.view === 'detail') ? '' : 'detail';
       if (!isFullScreen()) {
         this.mouseMoveOff();
       }
     });
     imagesLoaded(this.slider.el).on('done', () => this.slider.init());
+  }
+
+  flClick() {
+    if (isFullScreen()) {
+      closeFullScreen(document);
+      this.mouseMoveOff();
+    } else {
+      openFullScreen(this.DOM.wrapper);
+      this.mouseMoveOn();
+    }
   }
 
   slider() {
