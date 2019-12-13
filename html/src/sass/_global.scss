@@ -29,7 +29,6 @@ body {
     max-width: rem-calc(1840);
     z-index: 2;
     position: relative;
-
     padding-left: 20px;
     padding-right: 20px;
 
@@ -41,11 +40,13 @@ body {
 
   &-midle {
     @include make-container();
-    max-width: rem-calc(1040);
-
-    @include media-breakpoint-up(md) {
-      padding-left: rem-calc(30);
-      padding-right: rem-calc(30);
+    max-width: rem-calc(772);
+    padding-left: 20px;
+    padding-right: 20px;
+    @include media-breakpoint-up(sm) {
+      max-width: rem-calc(912);
+      padding-left: rem-calc(90);
+      padding-right: rem-calc(90);
     }
   }
 }

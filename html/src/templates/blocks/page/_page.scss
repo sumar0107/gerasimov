@@ -1,0 +1,109 @@
+.page {
+  &__title {
+    font-weight: bold;
+    font-size: rem-calc(18);
+    line-height: rem-calc(24);
+    text-transform: none;
+    margin-top: 0;
+    margin-bottom: rem-calc(14);
+    @include media-breakpoint-up(sm) {
+      font-size: rem-calc(24);
+      line-height: rem-calc(40);
+    }
+  }
+
+  &__date {
+    font-size: rem-calc(16);
+    line-height: rem-calc(20);
+  }
+
+  &__lid {
+    font-weight: normal;
+    font-size: rem-calc(30);
+    line-height: rem-calc(35);
+    margin-bottom: rem-calc(20);
+    @include media-breakpoint-up(sm) {
+      margin-bottom: rem-calc(50);
+    }
+
+  }
+
+  &__el {
+    margin-bottom: rem-calc(20);
+    @include media-breakpoint-up(sm) {
+      margin-bottom: rem-calc(50);
+    }
+
+    &-img {
+      @include media-breakpoint-up(sm) {
+        @include clearfix();
+      }
+
+      .page__image {
+        @include media-breakpoint-up(sm) {
+          float: right;
+          max-width: 50%;
+          padding: rem-calc(0 0 0 30);
+          margin: rem-calc(0 0 30 30);
+        }
+
+        ~ .wysiwyg {
+          p:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &_first {
+        .page__image {
+          @include media-breakpoint-up(sm) {
+            float: left;
+            max-width: 50%;
+            padding: rem-calc(0 30 0 0);
+            margin: rem-calc(0 30 30 0);
+          }
+        }
+      }
+    }
+  }
+
+  &__top {
+    margin-bottom: rem-calc(20);
+    @include media-breakpoint-up(sm) {
+      margin-bottom: rem-calc(50);
+    }
+  }
+
+  &__image {
+    margin-bottom: rem-calc(40);
+    margin-left: -20px;
+    margin-right: -20px;
+
+    @media (min-width: 33.75rem) {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: rem-calc(50);
+    }
+
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    span {
+      display: block;
+      font-size: rem-calc(16);
+      line-height: rem-calc(20);
+      margin-top: rem-calc(15);
+      padding-left: 20px;
+      padding-right: 20px;
+      @media (min-width: 33.75rem) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
