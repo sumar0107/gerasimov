@@ -1,4 +1,4 @@
-import SuperSlide from "superslide.js/superslide-std";
+import SuperSlide from "superslide.js";
 import classie from "classie";
 
 
