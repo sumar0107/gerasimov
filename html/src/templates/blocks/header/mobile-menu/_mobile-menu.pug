@@ -1,0 +1,10 @@
+mixin mobile-menu-li(link,text,icon)
+  li(class='mobile-menu__list-item')
+    a(href=link class='mobile-menu__list-link js-menu-link')&attributes(attributes)
+      span.mobile-menu__list-text=text
+.mobile-menu__wrapper#menu
+  nav.mobile-menu
+    ul.mobile-menu__list
+      +mobile-menu-li('./projects.html', 'Проекты')(class='active')
+      +mobile-menu-li('./about.html', 'О компании')(class='')
+      +mobile-menu-li('./publications.html', 'Публикации')(class='')

@@ -1,24 +1,26 @@
-mixin vacancy-item
+mixin vacancy-item(title,id)
   .vacancy__item
-    block
+    .vacancy-item
+      h3.vacancy-item__title
+        a(data-toggle="collapse" href='#'+id role='button' aria-expanded='false' aria-controls=id)
+          span=title
+          +icon('arrow-down','')
+      .vacancy-item__body(class="collapse" id=id)
+        block
 .vacancy
-  +vacancy-item
+  +vacancy-item('Инженер-проектировщик КЖ','vacancy-item-1')
     .wysiwyg
-      h3 Инженер-проектировщик КЖ
       p Условия работы: Полный рабочий день в офисе с 9:00 до 18:00. Испытательный срок - 3 месяца. Оклад по итогам собеседования.
       p Обязанности: Разработка разделов стадии П и Р. Выполнение чертежей и расчетов конструкций. Авторский надзор за строительством.
       p Требования к соискателю: Пол не имеет значения. Образование высшее. Опыт работы от 3 лет. Опыт разработки чертежей КЖ. Знание AutoCAD, Autodesk Revit. Уверенный пользователь расчетных комплексов SCAD, Robot. Умение ручного расчета конструкций.
-      p Адрес для резюме:
-        +space
-        a.btn.btn-not-upper.btn-bold job@egp.spb.ru
-  +vacancy-item
+  +vacancy-item('супер Инженер-проектировщик КЖ','vacancy-item-2')
     .wysiwyg
-      h3 супер Инженер-проектировщик КЖ
       p Условия работы: Полный рабочий день в офисе с 9:00 до 18:00. Испытательный срок - 3 месяца. Оклад по итогам собеседования.
       p Обязанности: Разработка разделов стадии П и Р. Выполнение чертежей и расчетов конструкций. Авторский надзор за строительством.
       p Требования к соискателю: Пол не имеет значения. Образование высшее. Опыт работы от 3 лет. Опыт разработки чертежей КЖ. Знание AutoCAD, Autodesk Revit. Уверенный пользователь расчетных комплексов SCAD, Robot. Умение ручного расчета конструкций.
-      p Адрес для резюме:
-        +space
-        a.btn.btn-not-upper.btn-bold job@egp.spb.ru
 
+  .vacancy__addres
+    span Адрес для резюме:
+    +space
+    a.btn.btn-not-upper.btn-bold job@egp.spb.ru
 

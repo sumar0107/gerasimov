@@ -7,5 +7,59 @@
       }
     }
   }
+
+  &__addres {
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+  }
 }
 
+.vacancy-item {
+  &__title {
+    font-weight: bold;
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+
+      &.collapsed {
+        .icon {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    span {
+      display: block;
+      font-weight: bold;
+      margin-right: rem-calc(5);
+    }
+
+    .icon {
+      display: block;
+      width: rem-calc(14);
+      height: rem-calc(9);
+      transform: rotate(180deg);
+    }
+
+
+    @include media-breakpoint-up(sm) {
+      pointer-events: none;
+      .icon {
+        display: none;
+      }
+    }
+  }
+
+  &__body {
+    &.collapse:not(.show) {
+      @include media-breakpoint-up(sm) {
+        display: block;
+      }
+    }
+  }
+}

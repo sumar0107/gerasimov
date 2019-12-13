@@ -2,7 +2,8 @@ include ../../../mixins/icon-svg/_icon-svg
 mixin footer-soc-list-item(icon,src)
   li.footer-soc__list-item
     a(href=src).footer-soc__list-link
-     +icon(icon,'')
+      span=icon
+//-+icon(icon,'')
 .footer-soc
   ul.footer-soc__list
     +footer-soc-list-item('fb','#')

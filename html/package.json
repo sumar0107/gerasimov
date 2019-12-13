@@ -106,7 +106,8 @@
     "smoothscroll-polyfill": "^0.4.4",
     "svgxuse": "^1.2.6",
     "swiper": "^4.5.0",
-    "waypoints": "^4.0.1"
+    "waypoints": "^4.0.1",
+    "superslide.js": "^1.0.0"
   },
   "husky": {
     "hooks": {

@@ -25,9 +25,14 @@
       justify-content: center;
       width: rem-calc(16);
       height: rem-calc(16);
+      font-size: rem-calc(11);
+      line-height: rem-calc(16);
+      text-transform: uppercase;
       @include media-breakpoint-up(sm) {
         width: rem-calc(20);
         height: rem-calc(20);
+        font-size: rem-calc(14);
+        line-height: rem-calc(20);
       }
 
       .icon {

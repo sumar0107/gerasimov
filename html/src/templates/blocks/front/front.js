@@ -21,7 +21,7 @@ class Front {
     this.slider = new Swiper(this.DOM.el, this.sliderOptions());
     this.imgLoad()
     imagesLoaded(this.slider.el).on('done', () => this.slider.init());
-    this.click()
+    // this.click()
   }
 
   slider() {

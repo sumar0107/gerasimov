@@ -134,7 +134,7 @@
       }
 
       &_pagination {
-
+        cursor: inherit;
       }
 
       &_fullscreen {
@@ -182,8 +182,8 @@
       }
 
       &-list {
-        width: rem-calc(18);
-        height: rem-calc(18);
+        width: rem-calc(90);
+        height: rem-calc(90);
       }
 
       &-close {
