@@ -13,7 +13,7 @@ import personList from "../templates/blocks/person-list/person-list";
 import partner from "../templates/blocks/partner/partner";
 import gridFilterInit from "./lib/grid-filter";
 import ScrollLink from "./lib/scroll-link";
-import menu from "../templates/blocks/header/mobile-menu/mobile-menu-collapse";
+import menu from "../templates/blocks/header/mobile-menu/mobile-menu-slide";
 import popup from "../templates/includes/popup/popup";
 
 
