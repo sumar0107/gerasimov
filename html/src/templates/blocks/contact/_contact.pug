@@ -8,8 +8,7 @@ mixin contact-item(title)
 .contact
   .contact__text
     +contact-item('Адрес:')
-      | г. Санкт-Петербург, Лесной пр., д. 19, корп. 4
-    a.btn.btn-not-upper.btn-bold.d-sm-none.d-inline-flex(href='') На карте
+      a(href='#').btn.btn-only-mobile.btn-not-upper.btn-bold г. Санкт-Петербург, Лесной пр., д. 19, корп. 4
     +contact-item('Телефон:')
       | +7 (812) 600-90-60
     +contact-item('Факс:')

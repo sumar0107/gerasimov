@@ -21,6 +21,8 @@ block content
       +tabs()(class='js-mdc-tab-bar')
         +tab-item('Пресса','true')(class='js-filters-btn' data-filter='.category-press')
         +tab-item('Библиотека','')(class='js-filters-btn'  data-filter='.category-library')
+  .mobile-menu__substrate-wrapper
+    .mobile-menu__substrate.collapse
   .container
     include ../blocks/publication/publications/_publications
     +show-more-btn('#','показать ещё')

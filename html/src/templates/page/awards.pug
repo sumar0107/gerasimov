@@ -15,17 +15,11 @@ append preload
 block content
   include ../mixins/tabs/_tabs
   include ../mixins/header-lid/_header-lid
-  +header-lid
-    .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
-      +tabs()(class='js-mdc-tab-bar')
-        +tab-item('Мастерская','true')(class='' href='#workshop')
-        +tab-item('Контакты','')(class='' href='#contacts')
-        +tab-item('КОЛЛЕКТИВ','')(class='' href='')
-        +tab-item('Награды','')(class='' href='#awards')
-        +tab-item('Сотрудничество','')(class='' href='#cooperation')
-        +tab-item('Вакансии','')(class='' href='#job-openings')
-  .container
-    include ../blocks/about/about/_about
+
+  .mobile-menu__substrate-wrapper
+    .mobile-menu__substrate.collapse
+
+  include ../blocks/award-list/_award-list
 
 
 append scripts

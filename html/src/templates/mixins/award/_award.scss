@@ -1,7 +1,7 @@
 .award {
   margin-bottom: rem-calc(15);
   &__body {
-    font-size: rem-calc(16);
+    font-size: rem-calc(14);
     line-height: rem-calc(25);
     @include media-breakpoint-up(sm) {
       font-size: rem-calc(16);
@@ -14,7 +14,7 @@
   }
 
   &__link {
-    font-size: rem-calc(16);
+    font-size: rem-calc(14);
     line-height: rem-calc(25);
     border-bottom: $btn-border-width solid;
     @include transition(color .15s, background-color .15s, border-color .15s);

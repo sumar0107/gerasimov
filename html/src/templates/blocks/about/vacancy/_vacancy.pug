@@ -2,7 +2,7 @@ mixin vacancy-item(title,id)
   .vacancy__item
     .vacancy-item
       h3.vacancy-item__title
-        a(data-toggle="collapse" href='#'+id role='button' aria-expanded='false' aria-controls=id)
+        a(data-toggle="collapse" href='#'+id role='button' aria-expanded='false' aria-controls=id).collapsed
           span=title
           +icon('arrow-down','')
       .vacancy-item__body(class="collapse" id=id)

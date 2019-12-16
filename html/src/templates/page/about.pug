@@ -24,10 +24,12 @@ block content
         +tab-item-link('Награды','')(class='js-scroll-link small-md' href='#awards')
         +tab-item-link('Сотрудничество','')(class='js-scroll-link small-md' href='#cooperation')
         +tab-item-link('Вакансии','')(class='js-scroll-link small-md' href='#job-openings')
+  .mobile-menu__substrate-wrapper
+    .mobile-menu__substrate.collapse
   .container
     include ../blocks/about/about/_about
 
-
+  include ../blocks/award-list/_award-list
 append scripts
   //.dlaverstki(style='display: none;display: block;position: absolute;top: -7px; left: 50%;transform: translateX(-50%);width: 1920px;z-index: 5000;opacity: .6;')
     img(src='./assets/img/test/ProjectPageCollective.png')

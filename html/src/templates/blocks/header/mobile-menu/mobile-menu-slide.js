@@ -3,7 +3,7 @@ import classie from "classie";
 
 
 const menu = () => {
-  console.log(123);
+  console.log('SuperSlide');
   const menuHamburger = document.querySelector('.js-menu-btn');
   const myMenu = new SuperSlide({
     slider: document.getElementById('menu'),

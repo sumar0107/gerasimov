@@ -104,10 +104,10 @@
     "popper.js": "^1.15.0",
     "requirejs": "^2.3.6",
     "smoothscroll-polyfill": "^0.4.4",
+    "superslide.js": "^1.0.0",
     "svgxuse": "^1.2.6",
     "swiper": "^4.5.0",
-    "waypoints": "^4.0.1",
-    "superslide.js": "^1.0.0"
+    "waypoints": "^4.0.1"
   },
   "husky": {
     "hooks": {

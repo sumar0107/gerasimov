@@ -67,6 +67,15 @@
     }
   }
 
+  &-only-mobile {
+    @include media-breakpoint-up(sm) {
+      font-weight: normal;
+      pointer-events: none;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
   &-icon {
     display: inline-flex;
     align-items: center;

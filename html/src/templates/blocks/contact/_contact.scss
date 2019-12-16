@@ -48,12 +48,15 @@
   }
 
   &__map {
+    display: none;
     @include make-col-ready();
-
     @include media-breakpoint-down(sm) {
       height: rem-calc(220);
       padding-left: 0;
       padding-right: 0;
+    }
+    @include media-breakpoint-up(sm) {
+      display: block;
     }
     @include media-breakpoint-up(md) {
       @include make-col(6)

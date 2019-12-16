@@ -25,6 +25,7 @@
       align-items: center;
       align-content: center;
       justify-content: center;
+      border-bottom: 1px solid;
 
       &.collapsed {
         .icon {
@@ -49,6 +50,7 @@
 
     @include media-breakpoint-up(sm) {
       pointer-events: none;
+      border-bottom: none;
       .icon {
         display: none;
       }

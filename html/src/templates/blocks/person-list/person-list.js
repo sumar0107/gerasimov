@@ -9,16 +9,18 @@ class PersonList {
     this.DOM.wrapper = this.DOM.el.closest('.swiper__wrapper');
     this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev');
     this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next');
-    this.DOM.scrollbar = this.DOM.wrapper.querySelector('.js-swiper-scrollbar');
+    this.DOM.btnWrapper = this.DOM.btnNext.closest('.swiper__button-right');
+    this.DOM.imgWrapper = this.DOM.el.querySelector('.person__img-inner');
+    // this.DOM.scrollbar = this.DOM.wrapper.querySelector('.js-swiper-scrollbar');
     classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`);
     classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`);
-    classie.addClass(this.DOM.scrollbar, `js-swiper-scrollbar-${this.counter}`);
+    // classie.addClass(this.DOM.scrollbar, `js-swiper-scrollbar-${this.counter}`);
     this.breakpoint = window.matchMedia('(min-width: 48rem)');
-    this.slidesPerColumn = (this.DOM.el.hasAttribute('data-column')) ? this.DOM.el.getAttribute('data-column') : 1;
+    this.slidesPerColumn = (this.DOM.el.hasAttribute('data-column')) ? +this.DOM.el.getAttribute('data-column') : 1;
   }
 
   init() {
-    if (!this.DOM.el.closest('.swiper-mobile')) {
+    if (!this.DOM.el.closest('.swiper-mobile') && this.slidesPerColumn !== 2) {
       this.slider = new Swiper(this.DOM.el, this.sliderOptions());
     } else {
       this.slider = undefined
@@ -30,7 +32,13 @@ class PersonList {
           if (this.slider !== undefined) {
             this.slider.destroy(true, true);
           }
+          if (this.slidesPerColumn === 2) {
+            return enableSwiper()
+          }
         } else if (this.breakpoint.matches === false) {
+          if (this.slider !== undefined && this.slidesPerColumn === 2) {
+            this.slider.destroy(true, true);
+          }
           return enableSwiper();
         }
         return false;
@@ -38,6 +46,10 @@ class PersonList {
       this.breakpoint.addListener(breakpointChecker);
       breakpointChecker();
     }
+    this.btnHeight()
+    window.addEventListener('resize', () => {
+      this.btnHeight()
+    })
   }
 
   slider() {
@@ -49,6 +61,7 @@ class PersonList {
       if (this.slider) {
         this.slider.update()
       }
+      this.btnHeight()
       classie.removeClass(this.DOM.wrapper, 'opacity');
     }, 200)
   }
@@ -57,11 +70,15 @@ class PersonList {
     return this.DOM.wrapper
   }
 
+  btnHeight() {
+    this.DOM.btnWrapper.style.height = `${this.DOM.imgWrapper.clientHeight}px`
+  }
+
   sliderOptions() {
     return {
       direction: 'horizontal',
       slidesPerView: 5,
-      slidesPerColumn: +this.slidesPerColumn,
+      slidesPerColumn: this.slidesPerColumn,
       spaceBetween: 0,
       autoHeight: false,
       loop: false,
@@ -69,18 +86,18 @@ class PersonList {
         nextEl: `.js-swiper-button-next-${this.counter}`,
         prevEl: `.js-swiper-button-prev-${this.counter}`
       },
-      scrollbar: {
-        el: `.js-swiper-scrollbar-${this.counter}`,
-        hide: false,
-      },
+      // scrollbar: {
+      //   el: `.js-swiper-scrollbar-${this.counter}`,
+      //   hide: false,
+      // },
       breakpoints: {
         540: {
-          slidesPerView: 'auto',
+          slidesPerView: 2,
           slidesPerColumn: 1,
           spaceBetween: 20
         },
         768: {
-          slidesPerView: 'auto',
+          slidesPerView: 3,
           slidesPerColumn: 1,
           spaceBetween: 20
         },
@@ -113,7 +130,7 @@ const personList = () => {
     enquire.register('(max-width: 33.75rem)', {
       setup() {
         sliders.forEach(item => {
-          if (item.wrapper().closest('.fade') && item.wrapper().closest('.opacity')) {
+          if (item.wrapper().closest('.show') && item.wrapper().closest('.opacity')) {
             item.update()
           }
         })

@@ -34,12 +34,15 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: rem-calc(60);
+      width: rem-calc(40);
       height: 100%;
 
       @include media-breakpoint-up(sm) {
-        width: rem-calc(90);
+        width: rem-calc(60);
         left: 0;
+      }
+      @include media-breakpoint-up(sm) {
+        width: rem-calc(90);
       }
       @include media-breakpoint-up(xl) {
         left: rem-calc(52);
@@ -63,11 +66,15 @@
       position: absolute;
       right: 0;
       top: 0;
-      width: rem-calc(60);
+      width: rem-calc(40);
       height: 100%;
       @include media-breakpoint-up(sm) {
-        width: rem-calc(90);
+        width: rem-calc(60);
         right: 0;
+      }
+      @include media-breakpoint-up(md) {
+        width: rem-calc(90);
+
       }
       @include media-breakpoint-up(xl) {
         right: rem-calc(52);
@@ -95,12 +102,18 @@
       outline: none !important;
       cursor: pointer;
       background: none;
-      width: rem-calc(60);
-      height: rem-calc(60);
+      width: rem-calc(40);
+      height: rem-calc(40);
       color: $black;
       font-size: rem-calc(16);
       font-weight: 400;
       line-height: rem-calc(20);
+      background-color: $white;
+      @include media-breakpoint-up(sm) {
+        background-color: transparent;
+        width: rem-calc(60);
+        height: rem-calc(60);
+      }
       @include media-breakpoint-up(md) {
         width: rem-calc(90);
         height: rem-calc(90);

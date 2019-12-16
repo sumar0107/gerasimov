@@ -117,7 +117,7 @@
 }
 
 .gallery-list {
-  background-color: rgba($black, .2);
+  background-color: $white;
   position: fixed;
   z-index: -1;
   height: 100%;
@@ -130,8 +130,12 @@
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
-  padding: rem-calc(20);
+  padding: rem-calc(20 0);
   @include media-breakpoint-up(sm) {
+    padding: rem-calc(0 60);
+  }
+  @include media-breakpoint-up(md) {
+    background-color: rgba($black, .2);
     padding: rem-calc(60);
   }
 
@@ -164,9 +168,11 @@
     background-color: $white;
     padding: rem-calc(20 20);
     min-height: 100%;
-    position: relative;
     @include media-breakpoint-up(sm) {
       padding: rem-calc(38 30);
+    }
+    @include media-breakpoint-up(md) {
+      position: relative;
     }
 
     .container {
@@ -199,6 +205,11 @@
       width: rem-calc(14);
       height: rem-calc(14);
       fill: $black;
+    }
+    &:hover {
+      .icon {
+        fill: rgba($black, .5);
+      }
     }
   }
 

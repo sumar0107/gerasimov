@@ -1,0 +1,9 @@
+.award-list {
+  display: none;
+
+  &__inner {
+    padding: rem-calc(80 0);
+    background-color: $white;
+  }
+}
+

@@ -2,8 +2,9 @@
   @include media-breakpoint-up(sm) {
     margin-top: rem-calc(-30);
   }
+
   .swiper__wrapper {
-    padding: rem-calc(0 0 10 0);
+    padding: rem-calc(0 60 10 20);
     margin: rem-calc(0 -20);
     @include media-breakpoint-up(sm) {
       padding: rem-calc(0 60);
@@ -17,13 +18,18 @@
     .swiper-container {
       padding-left: 30px;
       padding-right: 30px;
+
       ~ .swiper__button {
-        display: none;
+        //display: none;
+        @include media-breakpoint-up(sm) {
+          display: none;
+        }
       }
 
       &.swiper-container-initialized {
         padding-left: 0;
         padding-right: 0;
+
         ~ .swiper__button {
           @include media-breakpoint-up(sm) {
             display: block;
@@ -51,11 +57,20 @@
     }
 
     .swiper__button-left {
+      display: none;
       left: rem-calc(0);
+      @include media-breakpoint-up(sm) {
+        display: flex;
+      }
     }
 
     .swiper__button-right {
       right: rem-calc(0);
+      margin-top: rem-calc(10);
+      @include media-breakpoint-up(sm) {
+        margin-top: rem-calc(0);
+        height: 100% !important;
+      }
     }
   }
 
@@ -71,7 +86,7 @@
 
   &__col {
     @include make-col-ready(0px);
-    max-width: rem-calc(152);
+    //max-width: rem-calc(152);
     padding-top: rem-calc(10);
     padding-bottom: rem-calc(10);
     @media (min-width: 33.75rem) {
@@ -99,7 +114,7 @@
     @include make-col-ready(0px);
     padding-top: rem-calc(10);
     padding-bottom: rem-calc(10);
-    max-width: rem-calc(152);
+    //max-width: rem-calc(152);
     @media (min-width: 33.75rem) {
       //@include make-col-ready(20px);
     }

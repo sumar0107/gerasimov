@@ -17,24 +17,24 @@
       padding-bottom: rem-calc(80);
     }
     @include media-breakpoint-up(md) {
-      @include make-col(5);
+      @include make-col(4, 12);
     }
     @include media-breakpoint-up(lg) {
-      @include make-col(4, 12);
+      @include make-col(3, 12);
     }
     @include media-breakpoint-up(xl) {
-      @include make-col(4, 12);
+      @include make-col(3, 12);
     }
 
-    &_search{
+    &_search {
       @include media-breakpoint-up(md) {
-
+        @include make-col(5);
       }
       @include media-breakpoint-up(lg) {
-
+        @include make-col(4, 12);
       }
       @include media-breakpoint-up(xl) {
-
+        @include make-col(4, 12);
       }
     }
   }

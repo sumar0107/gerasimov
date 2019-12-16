@@ -6,7 +6,7 @@
   font-weight: normal;
 
   @include media-breakpoint-up(md) {
-    font-size: rem-calc(18);
+    font-size: rem-calc(16);
     line-height: rem-calc(25);
   }
 

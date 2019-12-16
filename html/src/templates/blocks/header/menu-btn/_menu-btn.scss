@@ -39,6 +39,27 @@
     }
   }
 
+  &_collapse {
+
+    > span {
+      display: none;
+    }
+
+    .icon {
+      display: block;
+    }
+
+    &.collapsed {
+      > span {
+        display: block;
+      }
+
+      .icon {
+        display: none;
+      }
+    }
+  }
+
   &__wrapper {
     align-items: flex-start;
     align-content: center;

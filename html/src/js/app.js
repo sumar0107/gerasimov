@@ -13,7 +13,8 @@ import personList from "../templates/blocks/person-list/person-list";
 import partner from "../templates/blocks/partner/partner";
 import gridFilterInit from "./lib/grid-filter";
 import ScrollLink from "./lib/scroll-link";
-import menu from "../templates/blocks/header/main-menu/main-menu";
+import menu from "../templates/blocks/header/mobile-menu/mobile-menu-collapse";
+import popup from "../templates/includes/popup/popup";
 
 
 // kick off the polyfill!
@@ -27,6 +28,7 @@ gallery();
 materialTabs();
 personList();
 partner();
+popup()
 
 if (document.querySelector('.js-scroll-link')) {
   const scrollLink = new ScrollLink()

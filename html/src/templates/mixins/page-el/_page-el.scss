@@ -1,16 +1,32 @@
 .page-el {
 
   &__row {
-    @include make-row();
+    @include make-row(40px);
     margin-bottom: rem-calc(60);
+    @include media-breakpoint-up(sm){
+      @include make-row();
+    }
     @include media-breakpoint-up(md) {
       flex-wrap: nowrap;
+    }
+
+    &_award{
+      margin-bottom: rem-calc(10);
+      @include media-breakpoint-up(sm){
+        margin-bottom: rem-calc(30);
+      }
+      @include media-breakpoint-up(md) {
+        margin-bottom: rem-calc(20);
+      }
     }
   }
 
   &__col {
     &-1 {
-      @include make-col-ready();
+      @include make-col-ready(40px);
+      @include media-breakpoint-up(sm){
+        @include make-col-ready();
+      }
       @include media-breakpoint-up(md) {
         width: rem-calc(260);
         min-width: rem-calc(260);
@@ -19,7 +35,10 @@
     }
 
     &-2 {
-      @include make-col-ready();
+      @include make-col-ready(40px);
+      @include media-breakpoint-up(sm){
+        @include make-col-ready();
+      }
       @include media-breakpoint-up(md) {
         width: auto;
         flex: 1 1 auto;
