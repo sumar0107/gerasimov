@@ -60,6 +60,12 @@
     font-size: rem-calc(16);
     line-height: rem-calc(24);
     //color: rgba($black, .5);
+
+    &:after {
+      @include media-breakpoint-down(xs) {
+        content: ':';
+      }
+    }
   }
 
   &__body {
