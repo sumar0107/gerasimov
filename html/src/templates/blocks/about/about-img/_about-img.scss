@@ -1,6 +1,8 @@
 .about-img {
   margin: rem-calc(0 -20 20);
+  display: none;
   @include media-breakpoint-up(sm) {
+    display: block;
     margin: rem-calc(0 0 60);
   }
 

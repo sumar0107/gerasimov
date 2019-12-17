@@ -63,6 +63,16 @@
           width: 100%;
           height: 100%;
           display: block;
+          @include transition(opacity .15s);
+
+          &.swiper-lazy {
+            opacity: 0;
+
+            &.swiper-lazy-loaded {
+              opacity: 1;
+            }
+          }
+
           @include media-breakpoint-up(sm) {
             object-fit: contain;
           }
@@ -86,18 +96,20 @@
     }
 
     &-item {
-      &_fullscreen{
-        @include media-breakpoint-down(md){
+      &_fullscreen {
+        @include media-breakpoint-down(md) {
           opacity: 0;
           pointer-events: none;
         }
       }
-      &_list{
-        @include media-breakpoint-down(md){
+
+      &_list {
+        @include media-breakpoint-down(md) {
           opacity: 0;
           pointer-events: none;
         }
       }
+
       &_fullscreen-close {
         display: none;
         position: absolute;
@@ -206,6 +218,7 @@
       height: rem-calc(14);
       fill: $black;
     }
+
     &:hover {
       .icon {
         fill: rgba($black, .5);

@@ -1,7 +1,7 @@
 .publication-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   align-content: flex-start;
   @include media-breakpoint-up(sm) {
     width: 100%;
@@ -28,24 +28,28 @@
   }
 
   &__date {
+    width: 100%;
     font-size: rem-calc(16);
     line-height: rem-calc(20);
     margin-bottom: rem-calc(7);
   }
 
   &__title {
+    width: 100%;
     font-size: rem-calc(16);
     line-height: rem-calc(25);
     margin-bottom: rem-calc(10);
   }
 
   &__caption {
+    width: 100%;
     font-size: rem-calc(13);
     line-height: rem-calc(20);
     margin-bottom: rem-calc(10);
   }
 
   &__link {
+    width: 100%;
     .btn{
       font-weight: bold;
     }

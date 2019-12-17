@@ -99,6 +99,9 @@
     img {
       display: block;
       max-width: 100%;
+      @include media-breakpoint-down(sm){
+        margin: 0 auto;
+      }
     }
 
     span {

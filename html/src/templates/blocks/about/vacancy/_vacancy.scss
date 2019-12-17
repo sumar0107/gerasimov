@@ -25,11 +25,19 @@
       align-items: center;
       align-content: center;
       justify-content: center;
-      border-bottom: 1px solid;
+      //border-bottom: 1px solid;
 
       &.collapsed {
         .icon {
           transform: rotate(0deg);
+        }
+      }
+
+      @include media-breakpoint-up(sm) {
+        pointer-events: none;
+        //border-bottom: none;
+        .icon {
+          display: none;
         }
       }
     }
@@ -46,18 +54,11 @@
       height: rem-calc(9);
       transform: rotate(180deg);
     }
-
-
-    @include media-breakpoint-up(sm) {
-      pointer-events: none;
-      border-bottom: none;
-      .icon {
-        display: none;
-      }
-    }
   }
 
   &__body {
+    overflow: hidden;
+
     &.collapse:not(.show) {
       @include media-breakpoint-up(sm) {
         display: block;

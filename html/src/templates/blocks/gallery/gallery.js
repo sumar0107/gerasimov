@@ -95,7 +95,8 @@ class Gallery {
   list() {
     const {listRow} = this.DOM;
     this.DOM.images.forEach((item, index) => {
-      createListItem(listRow, item.getAttribute('src'), index)
+      // createListItem(listRow, item.getAttribute('src'), index)
+      createListItem(listRow, item.dataset.src, index)
     })
   }
 
@@ -132,7 +133,7 @@ class Gallery {
   mouseMoveOff() {
     classie.removeClass(document.body, 'hide-project-ui');
     $(this.DOM.el).off('mousemove');
-    setTimeout(()=>this.slider.update(),0)
+    setTimeout(() => this.slider.update(), 0)
   }
 
   init() {
@@ -171,7 +172,8 @@ class Gallery {
         this.mouseMoveOff();
       }
     });
-    imagesLoaded(this.slider.el).on('done', () => this.slider.init());
+    // imagesLoaded(this.slider.el).on('done', () => this.slider.init());
+    this.slider.init()
   }
 
   flClick() {
@@ -200,6 +202,7 @@ class Gallery {
         crossFade: true
       },
       effect: 'fade',
+      lazy: true,
       pagination: {
         el: `.js-swiper-gallery-pagination-${this.counter}`,
         type: 'fraction',

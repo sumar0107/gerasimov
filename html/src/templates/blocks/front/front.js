@@ -20,7 +20,13 @@ class Front {
   init() {
     this.slider = new Swiper(this.DOM.el, this.sliderOptions());
     this.imgLoad()
-    imagesLoaded(this.slider.el).on('done', () => this.slider.init());
+    const self = this
+    imagesLoaded(this.slider.el).on('progress', function () {
+      if (this.progressedCount < 2) {
+        // console.log('progress', this, this.progressedCount)
+        self.slider.init()
+      }
+    });
     // this.click()
   }
 
