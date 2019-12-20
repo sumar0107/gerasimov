@@ -25,7 +25,8 @@ export default class Grid {
       percentPosition: true,
       masonry: {
         // use element for option
-        columnWidth: this.columnWidth
+        columnWidth: this.columnWidth,
+        horizontalOrder: true
       },
       transitionDuration: '0.45s',
       // only opacity for reveal/hide transition
