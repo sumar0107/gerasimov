@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   align-content: center;
+  //background-color: #f2f4f6;
   @include media-breakpoint-up(sm) {
     width: 100%;
     margin: 0 auto;
@@ -49,7 +50,7 @@
     font-weight: 400;
     line-height: rem-calc(20);
     max-height: rem-calc(44);
-    padding-bottom: 4px;
+    height: rem-calc(44);
     overflow: hidden;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -70,13 +71,11 @@
     &:after {
       content: '';
       display: block;
-      position: absolute;
-      left: 50%;
-      bottom: 0;
       width: 100%;
       height: 1px;
       background-color: $black;
-      transform: translateX(-50%);
+      position: relative;
+      margin-top: rem-calc(3);
       @include transition(width .15s);
       @media (min-width: 33.75rem) {
         //width: 0;

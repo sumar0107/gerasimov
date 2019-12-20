@@ -76,6 +76,10 @@
     }
   }
 
+  &-not-border {
+    border-bottom: none;
+  }
+
   &-icon {
     display: inline-flex;
     align-items: center;
@@ -160,7 +164,11 @@
   align-content: center;
   justify-content: center;
   text-transform: uppercase;
+  border-bottom: none;
   fill: $black;
+  .wysiwyg &{
+    border-bottom: none;
+  }
 
   span {
     display: block;

@@ -45,7 +45,7 @@
         height: rem-calc(320);
       }
       @include media-breakpoint-up(sm) {
-        height: rem-calc(800);
+        height: rem-calc(620);
       }
       @include media-breakpoint-up(md) {
         height: rem-calc(620);
@@ -96,6 +96,10 @@
     }
 
     &-item {
+      @include media-breakpoint-up(sm) {
+        width: rem-calc(90);
+        height: rem-calc(90);
+      }
       &_fullscreen {
         @include media-breakpoint-down(md) {
           opacity: 0;
@@ -122,6 +126,18 @@
             width: rem-calc(14);
             height: rem-calc(14);
           }
+        }
+      }
+      &_dummy {
+        width: rem-calc(60);
+        height: rem-calc(180);
+        @include media-breakpoint-up(sm) {
+          width: rem-calc(90);
+          height: rem-calc(270);
+        }
+        @include media-breakpoint-up(md) {
+          width: rem-calc(90);
+          height: rem-calc(270);
         }
       }
     }

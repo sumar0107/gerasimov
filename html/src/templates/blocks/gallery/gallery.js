@@ -203,6 +203,9 @@ class Gallery {
       },
       effect: 'fade',
       lazy: true,
+      keyboard: {
+        enabled: true,
+      },
       pagination: {
         el: `.js-swiper-gallery-pagination-${this.counter}`,
         type: 'fraction',
