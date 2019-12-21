@@ -15,6 +15,7 @@ import gridFilterInit from "./lib/grid-filter";
 import ScrollLink from "./lib/scroll-link";
 import menu from "../templates/blocks/header/mobile-menu/mobile-menu-collapse";
 import popup from "../templates/includes/popup/popup";
+import custom from "./lib/custom";
 
 
 // kick off the polyfill!
@@ -29,7 +30,7 @@ materialTabs();
 personList();
 partner();
 popup()
-
+custom()
 if (document.querySelector('.js-scroll-link')) {
   const scrollLink = new ScrollLink()
   scrollLink.init()
