@@ -15,6 +15,7 @@ append preload
 block content
   include ../mixins/tabs/_tabs
   include ../mixins/header-lid/_header-lid
+  include ../mixins/show-more-btn/_show-more-btn
   +header-lid
     .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
       +tabs()(class='js-mdc-tab-bar')
@@ -38,6 +39,7 @@ block content
     .mobile-menu__substrate.collapse
   .container
     include ../blocks/project/projects/_projects
+    +show-more-btn('#','показать ещё')(class='js-projects-show-more')
 
 
 

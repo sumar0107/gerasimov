@@ -1,13 +1,20 @@
 .header-lid {
-  padding-bottom: 20px;
+  //padding-bottom: 20px;
   background-color: $white;
   z-index: 10;
   width: 100%;
   min-width: rem-calc(320);
-  position: absolute;
+  position: fixed;
   left: 0;
+  top: 110px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.0);
-  @include transition(box-shadow .15);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: rem-calc(60);
+  @include transition(box-shadow 0.15s, padding 0.15s, top 0.15s);
 
   &__substrate {
     height: rem-calc(54);
@@ -18,5 +25,13 @@
     top: 103px;
     position: fixed;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .head-effect-up & {
+    top: 0px;
+    //padding: 7px 0 13px;
+    .mdc-tab-bar__wrapper {
+      margin-top: -3px;
+    }
   }
 }

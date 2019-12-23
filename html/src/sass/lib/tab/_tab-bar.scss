@@ -3,7 +3,10 @@
   align-items: center;
   align-content: center;
   justify-content: flex-start;
-  border-bottom: 1px solid rgba($black, .2);
+  border-bottom: 2px solid rgba($black, .2);
+  .mdc-tab-scroller{
+    margin-bottom: -2px;
+  }
 
 
   &__width-full {
@@ -40,7 +43,7 @@
 }
 
 .mdc-tab {
-  height: rem-calc(40);
+  height: rem-calc(30);
 
   &--stacked {
     height: rem-calc(72);

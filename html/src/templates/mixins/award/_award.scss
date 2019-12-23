@@ -1,7 +1,8 @@
 .award {
   margin-bottom: rem-calc(15);
   &__body {
-    font-size: rem-calc(14);
+    //font-size: rem-calc(14);
+    font-size: rem-calc(16);
     line-height: rem-calc(25);
     @include media-breakpoint-up(sm) {
       font-size: rem-calc(16);
