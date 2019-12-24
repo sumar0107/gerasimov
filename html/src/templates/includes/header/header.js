@@ -6,6 +6,7 @@ const headerFixTop = () => {
   let lastScrollTop = 0;
   const delta = 5;
   const headerHeight = header.clientHeight;
+  const btnMenu = document.querySelector('.js-menu-btn')
 
   function elFixTop(el) {
     if (window.pageYOffset > sticky) {
@@ -27,14 +28,17 @@ const headerFixTop = () => {
   function hasScrolled() {
     const st = $(window).scrollTop();
     // Make scroll more than delta
-    if (Math.abs(lastScrollTop - st) <= delta)
-      return;
+    if (Math.abs(lastScrollTop - st) <= delta){
+      return
+    }
 
     // If scrolled down and past the navbar, add class .nav-up.
     if (st > lastScrollTop && st > headerHeight) {
       // Scroll Down
-      document.body.classList.remove('head-effect-down');
-      document.body.classList.add('head-effect-up');
+      if(btnMenu.closest('.collapsed')){
+        document.body.classList.remove('head-effect-down');
+        document.body.classList.add('head-effect-up');
+      }
     } else if (st + $(window).height() < $(document).height()) {
       // Scroll Up
       document.body.classList.remove('head-effect-up');
