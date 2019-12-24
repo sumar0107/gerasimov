@@ -39,6 +39,11 @@ if (document.querySelector('.js-grid-projects .projects__item')) {
   const grid = new Grid('.js-grid-projects', '.js-grid-projects-item', '.projects__item');
   const filter = !!(document.querySelector('[data-filter]'))
   grid.init(filter)
+  
+  window.addEventListener('projects:append', (event) => {
+  	console.log(event.elements);
+  	grid.appendElements(event.elements);
+  })
 }
 if (document.querySelector('.js-grid-publications .publications__item')) {
   const grid = new Grid('.js-grid-publications', '.js-grid-publications-item', '.publications__item');
@@ -60,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('resize', () => {
   innitFunc();
 });
+
+
 
 onElementHeightChange(document.body, () => {
   innitFunc();

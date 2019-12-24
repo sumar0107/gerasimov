@@ -56,6 +56,13 @@ export default class Grid {
   getIso() {
     return this.iso
   }
+  
+  appendElements(elements) {
+	  this.iso.appended(elements);
+	  this.iso.reloadItems();
+      this.filter(document.querySelector('.mdc-tab--active').getAttribute('data-filter'))
+      gridFilterInit('[data-filter]', this.iso);
+  }
 }
 
 
