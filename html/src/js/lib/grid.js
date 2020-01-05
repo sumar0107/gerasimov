@@ -1,6 +1,6 @@
-import Isotope from 'isotope-layout';
+import Isotope from 'isotope-layout'
 import imagesLoaded from 'imagesloaded'
-import gridFilterInit from "./grid-filter";
+import gridFilterInit from './grid-filter'
 // import cellsByRow from 'isotope-cells-by-row';
 
 export default class Grid {
@@ -40,17 +40,24 @@ export default class Grid {
   }
 
   init(filter) {
-    imagesLoaded(this.el).on('done', () => {
-      this.iso = new Isotope(this.el, this.options());
-      if (filter) {
-        this.filter(document.querySelector('.mdc-tab--active').getAttribute('data-filter'))
-        gridFilterInit('[data-filter]', this.iso);
+
+
+    this.iso = new Isotope(this.el, this.options())
+    if (filter) {
+      this.filter(document.querySelector('.mdc-tab--active').getAttribute('data-filter'))
+      gridFilterInit('[data-filter]', this.iso)
+    }
+    const imgLoad = imagesLoaded(this.el)
+    imgLoad.on( 'progress', function( instance, image ) {
+      if(image.isLoaded){
+        image.img.classList.remove('opacity')
+        console.log(image)
       }
     });
   }
 
   filter(filterValue) {
-    this.iso.arrange({filter: filterValue});
+    this.iso.arrange({filter: filterValue})
   }
 
   getIso() {

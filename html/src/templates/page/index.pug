@@ -14,7 +14,33 @@ append preload
 
 block content
 
-  include ../blocks/front/_front
+  include ../blocks/front/_front-virtual
+  script.
+    var slidersDta = [
+      {
+        desktop: '',
+        // desktop: './assets/img/front/front-1.png',
+        mobile: './assets/img/front/front-1-m.png',
+        href: '#'
+      },
+      {
+        desktop: './assets/img/front/front-2.png',
+        mobile: '',
+        // mobile: './assets/img/front/front-2-m.png',
+        href: '#'
+      },
+      {
+        desktop: '',
+        // desktop: './assets/img/front/front-3.png',
+        mobile: './assets/img/front/front-3-m.png',
+        href: '#'
+      },
+      {
+        desktop: './assets/img/front/front-4.png',
+        mobile: './assets/img/front/front-4-m.png',
+        href: '#'
+      }
+    ]
 
 
 

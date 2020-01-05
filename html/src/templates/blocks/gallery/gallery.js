@@ -216,6 +216,7 @@ class Gallery {
       },
       scrollbar: {
         el: `.js-swiper-gallery-scrollbar-${this.counter}`,
+        draggable: true,
         hide: false,
       },
       init: false

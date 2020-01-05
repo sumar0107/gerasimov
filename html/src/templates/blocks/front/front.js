@@ -1,33 +1,40 @@
-import Swiper from 'swiper';
-import classie from 'classie';
-import imagesLoaded from 'imagesloaded'
+import Swiper from 'swiper'
+import classie from 'classie'
 
+const createEl = (src, href) => {
+  return `<div class='swiper-item'>
+        <a href='${href}'>
+            <div class='swiper-item__img'>
+                <div class='swiper-item__img-inner'>
+                    <img  src='${src}'>
+                </div>
+            </div>
+        </a>
+    </div>`
+}
+const virtualSliders = (md) => {
+  return window.slidersDta.filter(item => item[md] !== '').map(item => createEl(item[md], item.href))
+}
 
 class Front {
   constructor(el, counter) {
-    this.counter = counter;
-    this.DOM = {el};
-    this.DOM.wrapper = this.DOM.el.closest('.swiper__wrapper');
-    this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev');
-    this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next');
-    this.DOM.scrollbar = this.DOM.wrapper.querySelector('.js-swiper-scrollbar');
-    this.breakpoint = window.matchMedia('(min-width: 48rem)');
-    classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`);
-    classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`);
-    classie.addClass(this.DOM.scrollbar, `js-swiper-scrollbar-${this.counter}`);
+    this.counter = counter
+    this.DOM = {el}
+    this.DOM.wrapper = this.DOM.el.closest('.swiper__wrapper')
+    this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev')
+    this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next')
+    this.DOM.scrollbar = this.DOM.wrapper.querySelector('.js-swiper-scrollbar')
+    this.breakpoint = window.matchMedia('(min-width: 48rem)')
+    classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`)
+    classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`)
+    classie.addClass(this.DOM.scrollbar, `js-swiper-scrollbar-${this.counter}`)
   }
 
   init() {
-    this.slider = new Swiper(this.DOM.el, this.sliderOptions());
+    this.slider = new Swiper(this.DOM.el, this.sliderOptions())
     this.imgLoad()
-    const self = this
-    imagesLoaded(this.slider.el).on('progress', function () {
-      if (this.progressedCount < 2) {
-        // console.log('progress', this, this.progressedCount)
-        self.slider.init()
-      }
-    });
-    // this.click()
+
+    this.slider.virtual.update()
   }
 
   slider() {
@@ -42,31 +49,40 @@ class Front {
       } else if (this.breakpoint.matches === false) {
         [...this.slider.slides].forEach(item => item.addEventListener('click', nextSlider, false))
       }
-      return false;
-    };
-    this.breakpoint.addListener(breakpointChecker);
-    breakpointChecker();
+      return false
+    }
+    this.breakpoint.addListener(breakpointChecker)
+    breakpointChecker()
   }
 
   imgLoad() {
-    const imageSrcReplace = (src) => {
-      [...this.slider.el.querySelectorAll('img')].forEach(item => {
-        item.src = item.dataset[src] // eslint-disable-line no-param-reassign
-      })
+    // const imageSrcReplace = (src) => {
+    //   [...this.slider.el.querySelectorAll('img')].forEach(item => {
+    //     item.src = item.dataset[src] // eslint-disable-line no-param-reassign
+    //   })
+    // }
+    const sliderUpdate = (md) => {
+      if (this.slider.virtual.slides) {
+        this.slider.virtual.removeAllSlides()
+      }
+      this.slider.virtual.slides = virtualSliders(md)
       this.slider.update()
     }
 
-
     const breakpointChecker = () => {
       if (this.breakpoint.matches === true) {
-        imageSrcReplace('srcdscp')
+        sliderUpdate('desktop')
+        // imageSrcReplace('srcdscp')
+        this.slider.update()
       } else if (this.breakpoint.matches === false) {
-        imageSrcReplace('srcmob')
+        sliderUpdate('mobile')
+        this.slider.scrollbar.updateSize()
+        // imageSrcReplace('srcmob')
       }
-      return false;
-    };
-    this.breakpoint.addListener(breakpointChecker);
-    breakpointChecker();
+      return false
+    }
+    this.breakpoint.addListener(breakpointChecker)
+    breakpointChecker()
 
   }
 
@@ -77,20 +93,28 @@ class Front {
       //   forceToAxis: true,
       // },
       autoHeight: true,
-      loop: true,
+      loop: false,
       fadeEffect: {
         crossFade: true
       },
       effect: 'fade',
+      keyboard: {
+        enabled: true,
+      },
       navigation: {
         nextEl: `.js-swiper-button-next-${this.counter}`,
         prevEl: `.js-swiper-button-prev-${this.counter}`
       },
+      virtual: {
+        // slides: this.virtualSliders('desktop')
+        cache: false
+      },
       scrollbar: {
         el: `.js-swiper-scrollbar-${this.counter}`,
+        draggable: true,
         hide: false,
       },
-      init: false
+      // init: false
       // breakpoints: this.sliderBreakpoints(),
     }
   }
@@ -100,10 +124,10 @@ const frontSlider = () => {
   window.addEventListener('load', () => {
     if (document.querySelector('.js-front')) {
       [...document.querySelectorAll('.js-front')].forEach((item, index) => {
-        const slider = new Front(item, index);
-        slider.init();
-      });
+        const slider = new Front(item, index)
+        slider.init()
+      })
     }
-  });
-};
-export default frontSlider;
+  })
+}
+export default frontSlider

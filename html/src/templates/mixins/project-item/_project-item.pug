@@ -1,6 +1,6 @@
 mixin project-item(href,src,caption)
   a.project-item(href=href)&attributes(attributes)
     .project-item__img
-      .project-item__img-inner
-        img(src=src)
+      .project-item__img-inner.js-grid-item(style='background-color: blue;')
+        img(src=src class='opacity')
     .project-item__caption=caption

@@ -37,8 +37,14 @@
         object-fit: contain;
         width: 100%;
         display: block;
+        background-color: $white;
+        @include transition(opacity .15s);
         @media (min-width: 33.75rem) {
           height: 100%;
+        }
+
+        &.opacity {
+          opacity: 0;
         }
       }
     }

@@ -1,50 +1,50 @@
-import Swiper from 'swiper';
-import classie from 'classie';
-import enquire from 'enquire.js/dist/enquire';
+import Swiper from 'swiper'
+import classie from 'classie'
+import enquire from 'enquire.js/dist/enquire'
 
 class PersonList {
   constructor(el, counter) {
-    this.counter = counter;
-    this.DOM = {el};
-    this.DOM.wrapper = this.DOM.el.closest('.swiper__wrapper');
-    this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev');
-    this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next');
-    this.DOM.btnWrapper = this.DOM.btnNext.closest('.swiper__button-right');
-    this.DOM.imgWrapper = this.DOM.el.querySelector('.person__img-inner');
+    this.counter = counter
+    this.DOM = {el}
+    this.DOM.wrapper = this.DOM.el.closest('.swiper__wrapper')
+    this.DOM.btnPrev = this.DOM.wrapper.querySelector('.js-swiper-button-prev')
+    this.DOM.btnNext = this.DOM.wrapper.querySelector('.js-swiper-button-next')
+    this.DOM.btnWrapper = this.DOM.btnNext.closest('.swiper__button-right')
+    this.DOM.imgWrapper = this.DOM.el.querySelector('.person__img-inner')
     // this.DOM.scrollbar = this.DOM.wrapper.querySelector('.js-swiper-scrollbar');
-    classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`);
-    classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`);
+    classie.addClass(this.DOM.btnPrev, `js-swiper-button-prev-${this.counter}`)
+    classie.addClass(this.DOM.btnNext, `js-swiper-button-next-${this.counter}`)
     // classie.addClass(this.DOM.scrollbar, `js-swiper-scrollbar-${this.counter}`);
-    this.breakpoint = window.matchMedia('(min-width: 48rem)');
-    this.slidesPerColumn = (this.DOM.el.hasAttribute('data-column')) ? +this.DOM.el.getAttribute('data-column') : 1;
+    this.breakpoint = window.matchMedia('(min-width: 48rem)')
+    this.slidesPerColumn = (this.DOM.el.hasAttribute('data-column')) ? +this.DOM.el.getAttribute('data-column') : 1
   }
 
   init() {
     if (!this.DOM.el.closest('.swiper-mobile') && this.slidesPerColumn !== 2) {
-      this.slider = new Swiper(this.DOM.el, this.sliderOptions());
+      this.slider = new Swiper(this.DOM.el, this.sliderOptions())
     } else {
       this.slider = undefined
       const enableSwiper = () => {
-        this.slider = new Swiper(this.DOM.el, this.sliderOptions());
-      };
+        this.slider = new Swiper(this.DOM.el, this.sliderOptions())
+      }
       const breakpointChecker = () => {
         if (this.breakpoint.matches === true) {
           if (this.slider !== undefined) {
-            this.slider.destroy(true, true);
+            this.slider.destroy(true, true)
           }
           if (this.slidesPerColumn === 2) {
             return enableSwiper()
           }
         } else if (this.breakpoint.matches === false) {
           if (this.slider !== undefined && this.slidesPerColumn === 2) {
-            this.slider.destroy(true, true);
+            this.slider.destroy(true, true)
           }
-          return enableSwiper();
+          return enableSwiper()
         }
-        return false;
-      };
-      this.breakpoint.addListener(breakpointChecker);
-      breakpointChecker();
+        return false
+      }
+      this.breakpoint.addListener(breakpointChecker)
+      breakpointChecker()
     }
     this.btnHeight()
     window.addEventListener('resize', () => {
@@ -62,7 +62,7 @@ class PersonList {
         this.slider.update()
       }
       this.btnHeight()
-      classie.removeClass(this.DOM.wrapper, 'opacity');
+      classie.removeClass(this.DOM.wrapper, 'opacity')
     }, 200)
   }
 
@@ -114,15 +114,19 @@ class PersonList {
 }
 
 const $personListBtn = (btn, sliders) => {
-  $(btn).on('shown.bs.tab', () => sliders.forEach(item => item.update()))
+  $(btn).on('shown.bs.tab', () => sliders.forEach(item => {
+    if (item.wrapper().closest('.show') && item.wrapper().closest('.opacity')) {
+      item.update()
+    }
+  }))
 }
 
 const slidersFn = () => {
   return [...document.querySelectorAll('.js-person-list')].map((item, index) => {
-    const slider = new PersonList(item, index);
-    slider.init();
+    const slider = new PersonList(item, index)
+    slider.init()
     return slider
-  });
+  })
 }
 const personList = () => {
   if (document.querySelector('.js-person-list')) {
@@ -141,6 +145,6 @@ const personList = () => {
       }
     })
   }
-};
+}
 
-export default personList;
+export default personList

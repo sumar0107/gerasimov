@@ -1,13 +1,14 @@
-import {TweenLite} from "gsap/TweenLite";
-import 'waypoints/lib/jquery.waypoints';
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-import MaterialTabsClass from "./material-tabs-class";
-import enquire from 'enquire.js/dist/enquire';
+import { TweenLite } from 'gsap/TweenLite'
+import 'waypoints/lib/jquery.waypoints'
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
+import MaterialTabsClass from './material-tabs-class'
+import enquire from 'enquire.js/dist/enquire'
 
 export default class ScrollLink {
   constructor() {
     this.tabEl = document.querySelector('.js-mdc-tab-bar-scroll')
-    this.wpOffset = 168
+    this.wpOffsetUp = 168
+    this.wpOffsetDown = 68
   }
 
   init() {
@@ -17,13 +18,23 @@ export default class ScrollLink {
     })
     this.els = this.links.map((item, index) => {
       let el = document.querySelector(`${item.getAttribute('href')}`)
-      el.setAttribute('data-index', index);
+      el.setAttribute('data-index', index)
       return el
-    });
+    })
     this.eventTabs()
     this.eventSelect()
     this.wayPointDown()
     this.wayPointUp()
+  }
+
+  wpOffset(event, select) {
+    if (event) {
+      let elTarget = (select) ? event.target.closest('.mdc-list-item') : event.target.closest('.js-scroll-link')
+      const href = elTarget.getAttribute('href')
+      const el = document.querySelector(`${href}`)
+      return (el.getBoundingClientRect().top > 0) ? this.wpOffsetDown : this.wpOffsetUp
+    }
+    return (document.body.closest('.head-effect-up')) ? this.wpOffsetDown : this.wpOffsetUp
   }
 
   eventTabs() {
@@ -31,9 +42,9 @@ export default class ScrollLink {
     const self = this
     this.links.forEach((item, index) => {
       item.addEventListener('click', (event) => {
-        event.preventDefault();
+        event.preventDefault()
         document.body.classList.add('scrolling')
-        self.animation($(event.target.closest('.js-scroll-link')).attr('href'), self.wpOffset, self.tab, index, false)
+        self.animation($(event.target.closest('.js-scroll-link')).attr('href'), self.wpOffset(event), self.tab, index, false)
       })
     })
   }
@@ -46,14 +57,14 @@ export default class ScrollLink {
           self.selectLi = [...self.tab.getSelect().menuElement_.querySelectorAll('.mdc-list-item')]
           self.selectLi.forEach((item, index) => {
             item.addEventListener('click', (event) => {
-              event.preventDefault();
+              event.preventDefault()
               document.body.classList.add('scrolling')
-              self.animation($(event.target.closest('.mdc-list-item')).attr('href'), self.wpOffset, self.tab, event.target.closest('.mdc-list-item').dataset.value, true)
+              self.animation($(event.target.closest('.mdc-list-item')).attr('href'), self.wpOffset(event, true), self.tab, event.target.closest('.mdc-list-item').dataset.value, true)
             })
           })
         }
       }
-    });
+    })
   }
 
   initTab() {
@@ -72,11 +83,11 @@ export default class ScrollLink {
         if (select) {
           tab.getSelect().value = index
         } else {
-          tab.getTab().activateTab(+index);
+          tab.getTab().activateTab(+index)
         }
         document.body.classList.remove('scrolling')
       }
-    });
+    })
   }
 
   wayPointDown() {
@@ -84,8 +95,8 @@ export default class ScrollLink {
     $(self.els).waypoint(function (direction) {
       self.wayPoint(direction === 'down', self.tab, this.element.dataset.index)
     }, {
-      offset: self.wpOffset
-    });
+      offset: self.wpOffset()
+    })
   }
 
   wayPointUp() {
@@ -93,8 +104,8 @@ export default class ScrollLink {
     $(self.els).waypoint(function (direction) {
       self.wayPoint(direction === 'up', self.tab, this.element.dataset.index)
     }, {
-      offset: -self.wpOffset
-    });
+      offset: -self.wpOffset()
+    })
   }
 
   wayPoint(directionInner, tab, index) {
@@ -102,7 +113,7 @@ export default class ScrollLink {
       if (tab.getSelect()) {
         tab.getSelect().value = index
       } else {
-        tab.getTab().activateTab(+index);
+        tab.getTab().activateTab(+index)
       }
     }
   }
