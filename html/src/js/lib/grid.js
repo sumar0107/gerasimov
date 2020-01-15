@@ -51,7 +51,6 @@ export default class Grid {
     imgLoad.on( 'progress', function( instance, image ) {
       if(image.isLoaded){
         image.img.classList.remove('opacity')
-        console.log(image)
       }
     });
   }
