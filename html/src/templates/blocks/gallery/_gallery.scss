@@ -1,7 +1,7 @@
 .gallery {
-  margin-bottom: rem-calc(50);
+  margin-bottom: rem-calc(30);
   @include media-breakpoint-up(sm) {
-    margin-bottom: rem-calc(90);
+    margin-bottom: rem-calc(60);
   }
 
   .swiper__wrapper {

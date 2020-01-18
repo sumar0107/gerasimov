@@ -13,6 +13,7 @@
     margin-bottom: rem-calc(6);
     @include media-breakpoint-only(xs) {
       @include make-row(0px);
+      display: block;
     }
     @include media-breakpoint-up(sm) {
       flex-wrap: nowrap;
@@ -27,6 +28,7 @@
         min-width: auto;
         flex: 0 0 auto;
         padding: rem-calc(0 10 0 0);
+        display: inline;
       }
       @include media-breakpoint-up(sm) {
         @include make-col(5)
@@ -45,6 +47,7 @@
         min-width: auto;
         flex: 1 1 auto;
         padding: rem-calc(0 0 0 0);
+        display: inline;
       }
       @include media-breakpoint-up(sm) {
         @include make-col(5)
@@ -61,6 +64,7 @@
     line-height: rem-calc(24);
     @include media-breakpoint-down(xs){
       color: rgba($black, .5);
+      display: inline;
     }
 
     &:after {
@@ -74,6 +78,7 @@
     font-size: rem-calc(16);
     font-weight: 400;
     line-height: rem-calc(24);
+    display: inline;
   }
 
   &__text {

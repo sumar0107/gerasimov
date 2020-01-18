@@ -1,6 +1,6 @@
 .project-next {
   @include make-row();
-  margin-bottom: rem-calc(60);
+  margin-bottom: rem-calc(0);
   @include media-breakpoint-up(md) {
     flex-wrap: nowrap;
   }

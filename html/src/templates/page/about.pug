@@ -15,15 +15,16 @@ append preload
 block content
   include ../mixins/tabs/_tabs
   include ../mixins/header-lid/_header-lid
-  +header-lid
-    .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
-      +tabs()(class='js-mdc-tab-bar-scroll')
-        +tab-item-link('Мастерская','true')(class='js-scroll-link small-md' href='#workshop')
-        +tab-item-link('Контакты','')(class='js-scroll-link small-md' href='#contacts')
-        +tab-item-link('КОЛЛЕКТИВ','')(class='js-scroll-link small-md' href='#collective')
-        +tab-item-link('Награды','')(class='js-scroll-link small-md' href='#awards')
-        +tab-item-link('Сотрудничество','')(class='js-scroll-link small-md' href='#cooperation')
-        +tab-item-link('Вакансии','')(class='js-scroll-link small-md' href='#job-openings')
+  .d-none.d-md-block
+    +header-lid
+      .mdc-tab-bar__wrapper.mdc-tab-bar__wrapper_center
+        +tabs()(class='js-mdc-tab-bar-scroll')
+          +tab-item-link('Мастерская','true')(class='js-scroll-link small-md' href='#workshop')
+          +tab-item-link('Контакты','')(class='js-scroll-link small-md' href='#contacts')
+          +tab-item-link('КОЛЛЕКТИВ','')(class='js-scroll-link small-md' href='#collective')
+          +tab-item-link('Награды','')(class='js-scroll-link small-md' href='#awards')
+          +tab-item-link('Сотрудничество','')(class='js-scroll-link small-md' href='#cooperation')
+          +tab-item-link('Вакансии','')(class='js-scroll-link small-md' href='#job-openings')
   .mobile-menu__substrate-wrapper
     .mobile-menu__substrate.collapse
   .container

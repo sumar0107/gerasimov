@@ -17,12 +17,12 @@
   @include transition(box-shadow 0.15s, padding 0.15s, top 0.15s);
 
   &__substrate {
-    height: rem-calc(54);
+    height: rem-calc(45);
     margin-bottom: rem-calc(21);
   }
 
   &.head-effect {
-    top: 103px;
+    top: 88px;
     position: fixed;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   }
@@ -31,7 +31,7 @@
     top: 0px;
     //padding: 7px 0 13px;
     .mdc-tab-bar__wrapper {
-      margin-top: -3px;
+      margin-top: -9px;
     }
   }
 }

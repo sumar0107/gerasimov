@@ -4,7 +4,8 @@
   align-content: center;
   justify-content: flex-start;
   border-bottom: 2px solid rgba($black, .2);
-  .mdc-tab-scroller{
+
+  .mdc-tab-scroller {
     margin-bottom: -2px;
   }
 
@@ -27,6 +28,7 @@
       display: flex;
       width: 100%;
       justify-content: center;
+      margin-top: 9px;
       @media (min-width: 33.75rem) {
         display: none;
       }
