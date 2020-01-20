@@ -35,6 +35,7 @@ class Front {
     this.imgLoad()
 
     this.slider.virtual.update()
+    this.clickBtn()
   }
 
   slider() {
@@ -53,6 +54,26 @@ class Front {
     }
     this.breakpoint.addListener(breakpointChecker)
     breakpointChecker()
+  }
+
+  clickBtn() {
+
+    this.DOM.btnNext.addEventListener('click', (event) => {
+      event.preventDefault()
+      if (this.slider.activeIndex < this.slider.virtual.to) {
+        this.slider.slideNext()
+      } else {
+        this.slider.slideTo(this.slider.virtual.from)
+      }
+    })
+    this.DOM.btnPrev.addEventListener('click', (event) => {
+      event.preventDefault()
+      if (this.slider.activeIndex > this.slider.virtual.from) {
+        this.slider.slidePrev()
+      } else {
+        this.slider.slideTo(this.slider.virtual.to)
+      }
+    })
   }
 
   imgLoad() {
@@ -102,8 +123,8 @@ class Front {
         enabled: true,
       },
       navigation: {
-        nextEl: `.js-swiper-button-next-${this.counter}`,
-        prevEl: `.js-swiper-button-prev-${this.counter}`
+        // nextEl: `.js-swiper-button-next-${this.counter}`,
+        // prevEl: `.js-swiper-button-prev-${this.counter}`
       },
       virtual: {
         // slides: this.virtualSliders('desktop')

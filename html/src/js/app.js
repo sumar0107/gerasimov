@@ -16,6 +16,7 @@ import ScrollLink from "./lib/scroll-link";
 import menu from "../templates/blocks/header/mobile-menu/mobile-menu-collapse";
 import popup from "../templates/includes/popup/popup";
 import custom from "./lib/custom";
+import prImg from './lib/progressive-image'
 
 
 // kick off the polyfill!
@@ -49,7 +50,7 @@ if (document.querySelector('.js-menu-btn')) {
   menu()
 }
 
-
+prImg()
 const innitFunc = () => {
 
 };

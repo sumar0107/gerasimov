@@ -1,6 +1,9 @@
-mixin about-img(src)
+mixin about-img(src,srcMin)
   .about-img&attributes(attributes)
     .about-img__item
-      img(src=src)
+      if(srcMin !== '')
+        img(data-src=src src=srcMin class='lazy')
+      else
+        img(src=src)
 
 

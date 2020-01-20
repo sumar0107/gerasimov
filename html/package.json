@@ -107,7 +107,8 @@
     "superslide.js": "^1.0.0",
     "svgxuse": "^1.2.6",
     "swiper": "^4.5.0",
-    "waypoints": "^4.0.1"
+    "waypoints": "^4.0.1",
+    "yall-js": "^3.1.7"
   },
   "husky": {
     "hooks": {
