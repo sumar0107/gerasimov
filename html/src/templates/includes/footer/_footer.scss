@@ -20,9 +20,12 @@
     @include media-breakpoint-up(sm) {
       @include make-row();
     }
-    align-items: center;
+    align-items: flex-start;
     align-content: center;
     justify-content: center;
+    @include media-breakpoint-up(xl) {
+      align-items: center;
+    }
   }
 
   &__col {
@@ -32,13 +35,22 @@
       @include make-col-ready();
     }
     @include media-breakpoint-up(lg) {
-      @include make-col(4, 12)
+      @include make-col(5, 12)
     }
 
     &_lg {
       display: none;
       @include media-breakpoint-up(lg) {
         display: block;
+        @include make-col(2, 12)
+      }
+    }
+
+    &_pride {
+      display: flex;
+      flex-direction: column;
+      @include media-breakpoint-up(xl) {
+        flex-direction: row-reverse;
       }
     }
   }
@@ -57,10 +69,48 @@
     font-size: rem-calc(13);
     line-height: rem-calc(13);
     text-align: center;
-    color: rgba($black, .5);
+    color: $black;
     @include media-breakpoint-up(sm) {
       font-size: rem-calc(16);
       line-height: rem-calc(20);
+    }
+
+    &_pride{
+      position: relative;
+      text-align: right;
+      color: rgba($black, .4);
+      white-space: nowrap;
+      margin-top: rem-calc(40);
+      display: flex;
+      justify-content: flex-end;
+
+      a{
+        color: rgba($black, .4);
+      }
+      @include media-breakpoint-up(xl) {
+        padding-right: rem-calc(40);
+        margin-right:rem-calc(40);
+        margin-top: 0;
+        &:after {
+          content: '|';
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: rem-calc(2);
+          height: rem-calc(16);
+          font-size: rem-calc(11);
+          line-height: rem-calc(16);
+          transform: translateX(-50%);
+          color: $black;
+          @include media-breakpoint-up(sm) {
+            width: rem-calc(4);
+            height: rem-calc(20);
+            font-size: rem-calc(14);
+            line-height: rem-calc(20);
+          }
+        }
+      }
     }
   }
 
@@ -81,11 +131,11 @@
       }
 
       &:first-child {
-        margin-left: 0;
+        padding-left: 0;
       }
 
       &:last-child {
-        margin-right: 0;
+        padding-right: 0;
       }
 
       &:not(:first-child) {
