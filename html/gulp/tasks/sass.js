@@ -68,7 +68,7 @@ gulp.task('lint:sass', () => gulp
   .src(config.src.sasslint + '/**/*.scss')
 );
 const build = gulp => gulp.parallel('sass');
-const watch = gulp => () => gulp.watch(config.src.sasslint + '/**/*.{sass,scss}', gulp.parallel('sass'));
+const watch = gulp => () => gulp.watch([config.src.sasslint + '/**/*.{sass,scss}'], gulp.series('sass'));
 
 module.exports.build = build;
 module.exports.watch = watch;
