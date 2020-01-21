@@ -1,11 +1,11 @@
 const headerFixTop = () => {
-  const sticky = 7;
+  const sticky = 7
   const header = document.querySelector('header.header')
   const headerLid = document.querySelector('.header-lid')
-  let didScroll;
-  let lastScrollTop = 0;
-  const delta = 5;
-  const headerHeight = header.clientHeight;
+  let didScroll
+  let lastScrollTop = 0
+  const delta = 5
+  const headerHeight = header.clientHeight
   const btnMenu = document.querySelector('.js-menu-btn')
 
   function elFixTop(el) {
@@ -19,46 +19,46 @@ const headerFixTop = () => {
   if (headerLid) {
     document.addEventListener('DOMContentLoaded', () => {
       elFixTop(headerLid)
-    });
+    })
     window.addEventListener('scroll', () => {
       elFixTop(headerLid)
     })
   }
 
   function hasScrolled() {
-    const st = $(window).scrollTop();
+    const st = $(window).scrollTop()
     // Make scroll more than delta
-    if (Math.abs(lastScrollTop - st) <= delta){
+    if (Math.abs(lastScrollTop - st) <= delta) {
       return
     }
 
     // If scrolled down and past the navbar, add class .nav-up.
     if (st > lastScrollTop && st > headerHeight) {
       // Scroll Down
-      if(btnMenu.closest('.collapsed')){
-        document.body.classList.remove('head-effect-down');
-        document.body.classList.add('head-effect-up');
+      if (btnMenu.closest('.collapsed')) {
+        document.body.classList.remove('head-effect-down')
+        document.body.classList.add('head-effect-up')
       }
     } else if (st + $(window).height() < $(document).height()) {
       // Scroll Up
-      document.body.classList.remove('head-effect-up');
-      document.body.classList.add('head-effect-down');
+      document.body.classList.remove('head-effect-up')
+      document.body.classList.add('head-effect-down')
     }
 
-    lastScrollTop = st;
+    lastScrollTop = st
   }
 
-  window.addEventListener('scroll', (event) => {
+  window.addEventListener('scroll', () => {
     didScroll = true
-  });
-  setInterval(function () {
+  })
+  setInterval(() => {
     if (didScroll) {
-      hasScrolled();
-      didScroll = false;
+      hasScrolled()
+      didScroll = false
     }
-  }, 250);
+  }, 250)
 
-};
+}
 export default headerFixTop
 // Hide header on scroll down
 

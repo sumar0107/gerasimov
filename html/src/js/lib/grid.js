@@ -48,11 +48,11 @@ export default class Grid {
       gridFilterInit('[data-filter]', this.iso)
     }
     const imgLoad = imagesLoaded(this.el)
-    imgLoad.on( 'progress', function( instance, image ) {
-      if(image.isLoaded){
+    imgLoad.on('progress', (instance, image) => {
+      if (image.isLoaded) {
         image.img.classList.remove('opacity')
       }
-    });
+    })
   }
 
   filter(filterValue) {

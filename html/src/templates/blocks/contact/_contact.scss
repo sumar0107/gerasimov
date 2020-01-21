@@ -16,11 +16,18 @@
     font-weight: 400;
     line-height: rem-calc(24);
     display: inline;
+
+    .btn{
+      display: inherit;
+    }
   }
 
   &__text {
     @include make-col-ready();
-    margin-bottom: rem-calc(30);
+
+    @include media-breakpoint-up(sm) {
+      margin-bottom: rem-calc(30);
+    }
     @include media-breakpoint-up(md) {
       @include make-col(4);
       margin-bottom: 0;

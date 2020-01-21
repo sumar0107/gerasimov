@@ -24,8 +24,8 @@ const popup = () => {
                         </svg>
                     </button>`
       },
-      afterLoad(instance, current) {
-      }
+      // afterLoad(instance, current) {
+      // }
     })
 }
 export default popup

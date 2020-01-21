@@ -1,4 +1,4 @@
 const custom = () =>{
-  console.log('custom.js')
+  // console.log('custom.js')
 }
 export default custom
