@@ -58,23 +58,24 @@ class Front {
 
   clickBtn() {
 
-    this.DOM.btnNext.addEventListener('click', (event) => {
-      event.preventDefault()
-      if (this.slider.activeIndex < this.slider.virtual.to) {
-        this.slider.slideNext()
+    this.slider.navigation.nextEl.addEventListener('click', (event) => {
+       event.preventDefault()
+      if (event.target.closest('.swiper-button-disabled')) {
+        this.slider.slideTo(0)
       } else {
-        this.slider.slideTo(this.slider.virtual.from)
+        this.slider.slideNext()
       }
     })
-    this.DOM.btnPrev.addEventListener('click', (event) => {
+    this.slider.navigation.prevEl.addEventListener('click', (event) => {
       event.preventDefault()
-      if (this.slider.activeIndex > this.slider.virtual.from) {
-        this.slider.slidePrev()
+      if (event.target.closest('.swiper-button-disabled')) {
+        this.slider.slideTo(this.slider.virtual.slides.length)
       } else {
-        this.slider.slideTo(this.slider.virtual.to)
+        this.slider.slidePrev()
       }
     })
   }
+
 
   imgLoad() {
     // const imageSrcReplace = (src) => {
@@ -123,8 +124,8 @@ class Front {
         enabled: true,
       },
       navigation: {
-        // nextEl: `.js-swiper-button-next-${this.counter}`,
-        // prevEl: `.js-swiper-button-prev-${this.counter}`
+        nextEl: `.js-swiper-button-next-${this.counter}`,
+        prevEl: `.js-swiper-button-prev-${this.counter}`
       },
       virtual: {
         // slides: this.virtualSliders('desktop')
