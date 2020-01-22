@@ -51,12 +51,10 @@ export default class Grid {
     const imgLoad = imagesLoaded(this.el)
     imgLoad.on('progress', (instance, image) => {
       if (image.isLoaded) {
+        this.iso.layout()
         image.img.classList.remove('opacity')
       }
     })
-    setTimeout(() => {
-      this.iso.updateSortData([...this.el.querySelectorAll(`${this.itemSelector}`)])
-    }, 50)
   }
 
   filter(filterValue) {
