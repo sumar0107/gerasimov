@@ -5,6 +5,7 @@
   }
 
   &__item {
+    background-color: $white;
     @include make-col-ready(40px);
     @include make-col(10);
     padding-bottom: rem-calc(30);
