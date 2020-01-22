@@ -8,6 +8,7 @@ export default class Grid {
     this.el = document.querySelector(el)
     this.itemSelector = itemSelector
     this.columnWidth = columnWidth
+    console.log(this.itemSelector)
   }
 
   options() {
@@ -53,6 +54,9 @@ export default class Grid {
         image.img.classList.remove('opacity')
       }
     })
+    setTimeout(() => {
+      this.iso.updateSortData([...this.el.querySelectorAll(`${this.itemSelector}`)])
+    }, 50)
   }
 
   filter(filterValue) {

@@ -35,7 +35,7 @@ class Front {
     this.imgLoad()
 
     this.slider.virtual.update()
-    this.clickBtn()
+    // this.clickBtn()
   }
 
   slider() {
@@ -60,19 +60,19 @@ class Front {
 
     this.slider.navigation.nextEl.addEventListener('click', (event) => {
        event.preventDefault()
+      console.log(123)
       if (event.target.closest('.swiper-button-disabled')) {
         this.slider.slideTo(0)
-      } else {
-        this.slider.slideNext()
       }
     })
     this.slider.navigation.prevEl.addEventListener('click', (event) => {
       event.preventDefault()
-      if (event.target.closest('.swiper-button-disabled')) {
-        this.slider.slideTo(this.slider.virtual.slides.length)
-      } else {
-        this.slider.slidePrev()
-      }
+      console.log(this.slider.virtual.slides.length)
+      console.log(this.slider.activeIndex+1)
+      // if (!event.target.closest('.swiper-button-disabled')) {
+      //   return
+      // }
+      // this.slider.slideTo(this.slider.virtual.slides.length)
     })
   }
 
@@ -125,7 +125,7 @@ class Front {
       },
       navigation: {
         nextEl: `.js-swiper-button-next-${this.counter}`,
-        prevEl: `.js-swiper-button-prev-${this.counter}`
+        prevEl: `.js-swiper-button-prev-${this.counter}`,
       },
       virtual: {
         // slides: this.virtualSliders('desktop')
