@@ -8,7 +8,6 @@ export default class Grid {
     this.el = document.querySelector(el)
     this.itemSelector = itemSelector
     this.columnWidth = columnWidth
-    console.log(this.itemSelector)
   }
 
   options() {
