@@ -70,7 +70,7 @@
     font-size: rem-calc(13);
     line-height: rem-calc(13);
     text-align: center;
-    color: $black;
+    color: rgba($black, .4);
     @include media-breakpoint-up(sm) {
       font-size: rem-calc(16);
       line-height: rem-calc(20);
@@ -87,6 +87,11 @@
 
       a{
         color: rgba($black, .4);
+        @include transition(color .15s);
+
+        &:hover{
+          color: rgba($black, 1);
+        }
       }
       @include media-breakpoint-up(xl) {
         padding-right: rem-calc(40);
