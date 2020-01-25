@@ -10,6 +10,7 @@
   &__title {
     font-size: rem-calc(16);
     line-height: rem-calc(24);
+    display: inline;
     //color: rgba($black, .5);
   }
 
@@ -21,6 +22,9 @@
 
     .btn{
       display: inherit;
+      line-height: rem-calc(24);
+      border:none;
+      vertical-align: inherit;
     }
   }
 
@@ -48,7 +52,7 @@
   &__col {
     &-1 {
       padding-right: rem-calc(10);
-      display: inline-block;
+      display: inline;
     }
 
     &-2 {
