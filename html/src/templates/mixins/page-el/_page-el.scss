@@ -2,9 +2,10 @@
 
   &__row {
     @include make-row(40px);
-    margin-bottom: rem-calc(60);
+    margin-bottom: rem-calc(40);
     @include media-breakpoint-up(sm){
       @include make-row();
+      margin-bottom: rem-calc(60);
     }
     @include media-breakpoint-up(md) {
       flex-wrap: nowrap;

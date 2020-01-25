@@ -26,13 +26,14 @@
     position: fixed;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
     z-index: 12;
+    .mdc-tab-bar__wrapper {
+      margin-top: -9px;
+    }
   }
 
   .head-effect-up & {
     top: 0px;
     //padding: 7px 0 13px;
-    .mdc-tab-bar__wrapper {
-      margin-top: -9px;
-    }
+
   }
 }

@@ -16,7 +16,12 @@
 
   &__wrapper {
     display: flex;
-
+    margin-left: -20px;
+    margin-right: -20px;
+    @media (min-width: 33.75rem) {
+      margin-left: 0;
+      margin-right: 0;
+    }
     .mdc-tab-bar {
       display: none;
       @media (min-width: 33.75rem) {
@@ -31,6 +36,14 @@
       margin-top: 9px;
       @media (min-width: 33.75rem) {
         display: none;
+      }
+
+      &__menu{
+        max-width: 100%;
+      }
+      &__dropdown-icon{
+        transform: rotate(0) !important;
+        transition: none !important;
       }
     }
 

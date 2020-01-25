@@ -1,6 +1,8 @@
 .contact {
   @include make-row();
-  margin-bottom: rem-calc(6);
+  @include media-breakpoint-up(sm){
+    margin-bottom: rem-calc(6);
+  }
   @include media-breakpoint-up(md) {
     flex-wrap: nowrap;
   }
