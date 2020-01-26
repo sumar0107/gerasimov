@@ -17,6 +17,10 @@
   justify-content: center;
   @include transition(box-shadow 0.15s, top 0.15s);
 
+  &.z-i-13 {
+    z-index: 13;
+  }
+
   &:after {
     content: '';
     display: block;
@@ -29,7 +33,7 @@
     z-index: 2;
   }
 
-  .head-effect-up &{
+  .head-effect-up & {
     top: -110px;
   }
 

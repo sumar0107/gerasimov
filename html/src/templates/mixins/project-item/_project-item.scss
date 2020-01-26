@@ -1,9 +1,11 @@
 .project-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
   //background-color: #f2f4f6;
+  @media (min-width: 33.75rem) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
   @include media-breakpoint-up(sm) {
     width: 100%;
     margin: 0 auto;

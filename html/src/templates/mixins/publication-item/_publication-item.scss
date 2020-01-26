@@ -1,8 +1,10 @@
 .publication-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: flex-start;
+  @media (min-width: 33.75rem) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: flex-start;
+  }
   @include media-breakpoint-up(sm) {
     width: 100%;
     margin: 0 auto;
@@ -50,7 +52,8 @@
 
   &__link {
     width: 100%;
-    .btn{
+
+    .btn {
       font-weight: bold;
     }
   }
