@@ -150,6 +150,7 @@
   &-search {
     width: rem-calc(50);
     height: rem-calc(50);
+    border-color: $black;
 
     @include hover {
       border-color: $black;
