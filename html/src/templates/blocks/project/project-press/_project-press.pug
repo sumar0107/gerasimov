@@ -2,8 +2,9 @@ mixin project-press()
   .project-press
     block
 
-mixin project-press-item(date,title,link)
+mixin project-press-item(date,title,text,link)
   .project-press-item
     .project-press-item__date=date
     .project-press-item__title=title
+    .project-press-item__text=text
     a.project-press-item__link(href='#')=link

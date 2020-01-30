@@ -18,9 +18,9 @@ $roboto: 'Roboto', sans-serif;
 //
 // Style anchor elements.
 
-$link-color:                              $black;
+$link-color:                              rgba($black, .5);
 $link-decoration:                         none;
-$link-hover-color:                        rgba($black, .5);
+$link-hover-color:                        $black;
 $link-hover-decoration:                   none;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;

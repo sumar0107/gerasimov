@@ -20,15 +20,22 @@
   &__title {
     font-size: rem-calc(16);
     line-height: rem-calc(25);
-    margin-bottom: rem-calc(6);
+    margin-bottom: rem-calc(7);
+    font-weight: bold;
+  }
+
+  &__text{
+    font-size: rem-calc(13);
+    line-height: rem-calc(20);
+    margin-bottom: rem-calc(5);
   }
 
   &__link {
-    font-size: rem-calc(14);
-    line-height: rem-calc(16);
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
     font-weight: bold;
     padding-bottom: rem-calc(6);
-    text-transform: uppercase;
+    //text-transform: uppercase;
     border-bottom: 1px solid;
 
     &:hover {

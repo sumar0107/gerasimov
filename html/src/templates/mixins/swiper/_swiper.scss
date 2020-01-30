@@ -129,6 +129,10 @@
 
       &[aria-disabled='true'] {
         fill: rgba($black, .5);
+
+        .icon {
+          fill: rgba($black, .5);
+        }
       }
 
       &_dummy {

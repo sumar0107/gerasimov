@@ -1,6 +1,6 @@
 a {
   outline: none;
-  @include transition(color .15s border-color .15s);
+  @include transition(color .15s, border-color .15s);
 
   &:hover, &:focus, &.active, &:active {
     outline: none;

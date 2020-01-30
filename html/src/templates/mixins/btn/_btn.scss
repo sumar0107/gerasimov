@@ -2,7 +2,8 @@
   display: inline-flex;
   font-size: rem-calc(16);
   line-height: rem-calc(25);
-  text-transform: uppercase;
+  //text-transform: uppercase;
+  color: $link-color;
   border: none;
   border-bottom: $btn-border-width solid;
   padding: 0;
@@ -44,11 +45,11 @@
   }
 
   &-link {
-    color: $black;
+    color: $link-color;
     @include transition(color .15s);
 
     .icon {
-      fill: $black;
+      fill: $link-color;
       @include transition(fill .15s);
     }
 
@@ -110,6 +111,7 @@
         &-top, &-bottom, &-down {
           width: rem-calc(14);
           height: rem-calc(9);
+          margin-left: rem-calc(5);
         }
       }
     }
@@ -163,10 +165,11 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   border-bottom: none;
-  fill: $black;
-  .wysiwyg &{
+  fill: rgba($black, .5);
+
+  .wysiwyg & {
     border-bottom: none;
   }
 

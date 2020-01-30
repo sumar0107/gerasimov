@@ -71,7 +71,9 @@ class PersonList {
   }
 
   btnHeight() {
-    this.DOM.btnWrapper.style.height = `${this.DOM.imgWrapper.clientHeight}px`
+    if (!(this.slidesPerColumn > 1)){
+      this.DOM.btnWrapper.style.height = `${this.DOM.imgWrapper.clientHeight}px`
+    }
   }
 
   sliderOptions() {
@@ -93,12 +95,12 @@ class PersonList {
       breakpoints: {
         540: {
           slidesPerView: 2,
-          slidesPerColumn: 1,
+          // slidesPerColumn: 1,
           spaceBetween: 20
         },
         768: {
           slidesPerView: 3,
-          slidesPerColumn: 1,
+          // slidesPerColumn: 1,
           spaceBetween: 20
         },
         1024: {

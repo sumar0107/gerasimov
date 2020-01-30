@@ -36,6 +36,7 @@
       @include media-breakpoint-up(sm) {
         pointer-events: none;
         //border-bottom: none;
+        color: $link-hover-color;
         .icon {
           display: none;
         }

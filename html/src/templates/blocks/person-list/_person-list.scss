@@ -72,6 +72,10 @@
         height: 100% !important;
       }
     }
+
+    [data-column="2"] ~ .swiper__button .swiper__button-right {
+      margin-top: rem-calc(0);
+    }
   }
 
   &__row {

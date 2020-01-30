@@ -28,6 +28,10 @@
       font-size: rem-calc(11);
       line-height: rem-calc(16);
       text-transform: uppercase;
+      color: $link-hover-color;
+      &:hover {
+        color: $link-color;
+      }
       @include media-breakpoint-up(sm) {
         width: rem-calc(20);
         height: rem-calc(20);

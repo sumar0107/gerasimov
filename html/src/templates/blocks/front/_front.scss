@@ -162,11 +162,12 @@
     &.swiper-scrollbar {
       position: relative;
       height: rem-calc(2);
-      background-color: transparent;
+      //background-color: transparent;
+      background-color: rgba($black, .2);
       border-radius: 0;
 
       &:after {
-        content: '';
+        //content: '';
         position: absolute;
         left: 0;
         bottom: 0;

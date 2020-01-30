@@ -17,6 +17,21 @@
     &.swiper-container-initialized {
       opacity: 1;
     }
+
+    &__scrollbar {
+      max-width: 90%;
+      margin: 0 auto;
+
+      &-wrapper {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: rem-calc(232);
+        @media (min-width: 33.75rem) {
+          top: rem-calc(328);
+        }
+      }
+    }
   }
 
   .container-full {
@@ -41,11 +56,13 @@
       position: relative;
       width: 100%;
       height: rem-calc(224);
+      margin-bottom: rem-calc(25);
       @media (min-width: 33.75rem) {
         height: rem-calc(320);
       }
       @include media-breakpoint-up(sm) {
         height: rem-calc(620);
+        margin-bottom: 0;
       }
       @include media-breakpoint-up(md) {
         height: rem-calc(620);
@@ -79,6 +96,20 @@
         }
       }
     }
+
+    &__caption {
+      padding-top: 0;
+      padding-bottom: 0;
+      @include media-breakpoint-up(sm){
+        padding-top: rem-calc(15);
+        padding-bottom: rem-calc(15);
+      }
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 
   .swiper__button {
@@ -100,6 +131,7 @@
         width: rem-calc(90);
         height: rem-calc(90);
       }
+
       &_fullscreen {
         @include media-breakpoint-down(md) {
           opacity: 0;
@@ -128,6 +160,7 @@
           }
         }
       }
+
       &_dummy {
         width: rem-calc(60);
         height: rem-calc(180);
