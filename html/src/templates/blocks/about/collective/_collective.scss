@@ -1,11 +1,24 @@
 .collective {
   margin-bottom: rem-calc(10);
-  @include media-breakpoint-up(sm){
+  @include media-breakpoint-up(sm) {
     margin-bottom: rem-calc(30);
   }
 
   &__tab-container {
     padding: rem-calc(30 0);
+  }
+
+  .mdc-select {
+    margin-top: 0;
+  }
+
+  .mdc-tab-bar__wrapper {
+    margin-top: -12px;
+    margin-bottom: -12px;
+    @media (min-width: 33.75rem) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 }
 

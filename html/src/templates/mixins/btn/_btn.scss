@@ -169,6 +169,18 @@
   //text-transform: uppercase;
   border-bottom: none;
   fill: rgba($black, .5);
+  @include media-breakpoint-down(sm){
+    color: rgba($black, .5);
+    .icon{
+      fill: rgba($black, .5);
+    }
+    &:hover{
+      color: rgba($black, .5);
+      .icon{
+        fill: rgba($black, .5);
+      }
+    }
+  }
 
   .wysiwyg & {
     border-bottom: none;
