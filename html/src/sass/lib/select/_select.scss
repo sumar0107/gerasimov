@@ -834,7 +834,7 @@
   color: #000;
   /* @alternate */
   color: var(--mdc-theme-on-surface, #000);
-  //display: none;
+  display: none;
 }
 
 .mdc-select__menu .mdc-list .mdc-list-item--selected::before, .mdc-select__menu .mdc-list .mdc-list-item--selected::after {
