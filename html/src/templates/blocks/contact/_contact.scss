@@ -6,6 +6,11 @@
   @include media-breakpoint-up(md) {
     flex-wrap: nowrap;
   }
+  a{
+    &:not(.btn){
+      color:$link-hover-color;
+    }
+  }
 
   &__title {
     font-size: rem-calc(16);
