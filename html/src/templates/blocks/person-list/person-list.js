@@ -71,9 +71,9 @@ class PersonList {
   }
 
   btnHeight() {
-    if (!(this.slidesPerColumn > 1)){
+    // if (!(this.slidesPerColumn > 1)){
       this.DOM.btnWrapper.style.height = `${this.DOM.imgWrapper.clientHeight}px`
-    }
+    // }
   }
 
   sliderOptions() {

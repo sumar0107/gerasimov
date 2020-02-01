@@ -1,14 +1,15 @@
 .contact {
   @include make-row();
-  @include media-breakpoint-up(sm){
+  @include media-breakpoint-up(sm) {
     margin-bottom: rem-calc(6);
   }
   @include media-breakpoint-up(md) {
     flex-wrap: nowrap;
   }
-  a{
-    &:not(.btn){
-      color:$link-hover-color;
+
+  a {
+    &:not(.btn) {
+      color: $link-hover-color;
     }
   }
 
@@ -25,10 +26,10 @@
     line-height: rem-calc(24);
     display: inline;
 
-    .btn{
+    .btn {
       display: inherit;
       line-height: rem-calc(24);
-      border:none;
+      border: none;
       vertical-align: inherit;
     }
   }

@@ -131,6 +131,11 @@
         width: rem-calc(90);
         height: rem-calc(90);
       }
+      &[aria-disabled=true],
+      &[aria-disabled=true] .icon{
+        opacity: 0;
+        visibility: hidden;
+      }
 
       &_fullscreen {
         @include media-breakpoint-down(md) {
