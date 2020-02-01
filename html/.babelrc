@@ -1,12 +1,21 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions"]
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": "3.0.0",
+        "targets": {
+          "esmodules": true,
+          "ie": "11"
+        }
       }
-    }]
+    ]
   ],
   "parserOpts": {
-  	"plugins": ["transform-object-rest-spread", "transform-es2015-spread", "transform-es2015-destructuring"]
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-spread"
+    ]
   }
 }

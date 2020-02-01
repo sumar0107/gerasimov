@@ -11,4 +11,4 @@ const materialTabs = () => {
   }
 };
 
-module.exports = materialTabs;
+export default materialTabs;
