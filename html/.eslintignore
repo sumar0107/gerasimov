@@ -2,3 +2,4 @@ src/js/lib/materialize-css/
 src/js/lib/scroll-link.js
 src/js/lib/material-tabs-class.js
 src/js/lib/tab.js
+src/js/lib/collapse.js
