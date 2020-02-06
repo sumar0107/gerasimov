@@ -8,12 +8,14 @@
     @include make-col-ready(40px);
     @include make-col(10);
     padding-bottom: rem-calc(40);
+    padding-bottom: rem-calc(20);
     @media (min-width: 33.75rem) {
       @include make-col(5);
     }
     @include media-breakpoint-up(sm) {
       @include make-col-ready();
       padding-bottom: rem-calc(50);
+      padding-bottom: rem-calc(36);
     }
     @include media-breakpoint-up(md) {
       @include make-col(4, 12);
