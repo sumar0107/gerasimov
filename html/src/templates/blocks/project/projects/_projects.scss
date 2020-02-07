@@ -15,7 +15,7 @@
     @include media-breakpoint-up(sm) {
       @include make-col-ready();
       padding-bottom: rem-calc(50);
-      padding-bottom: rem-calc(36);
+      padding-bottom: rem-calc(30);
     }
     @include media-breakpoint-up(md) {
       @include make-col(4, 12);
