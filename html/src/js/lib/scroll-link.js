@@ -1,9 +1,11 @@
-import { TweenLite } from 'gsap/TweenLite'
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import 'waypoints/lib/jquery.waypoints'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
 import MaterialTabsClass from './material-tabs-class'
 import enquire from 'enquire.js/dist/enquire'
 
+
+gsap.registerPlugin(ScrollToPlugin)
 export default class ScrollLink {
   constructor() {
     this.tabEl = document.querySelector('.js-mdc-tab-bar-scroll')
@@ -73,7 +75,8 @@ export default class ScrollLink {
   }
 
   animation(y, offsetY, tab, index, select) {
-    TweenLite.to(window, 1, {
+    gsap.to(window, {
+      duration: 1,
       scrollTo: {
         y,
         offsetY,

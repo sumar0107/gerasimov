@@ -12,7 +12,7 @@ function createConfig(env) {
   }
 
   isProduction = env === 'production';
-
+  // isProduction =true
   webpackConfig = {
     mode: isProduction?'production':'development',
     context: path.join(__dirname, config.src.js),
