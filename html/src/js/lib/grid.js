@@ -28,14 +28,15 @@ export default class Grid {
         columnWidth: this.columnWidth,
         horizontalOrder: true
       },
-      transitionDuration: '0.45s',
+      transitionDuration: '0.15s',
       // only opacity for reveal/hide transition
       hiddenStyle: {
         opacity: 0
       },
       visibleStyle: {
         opacity: 1
-      }
+      },
+      stagger: 0
     }
   }
 

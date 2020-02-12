@@ -9,6 +9,7 @@
     @include make-col-ready(40px);
     @include make-col(10);
     padding-bottom: rem-calc(30);
+    transition-property: opacity !important;
     @media (min-width: 33.75rem) {
       @include make-col(5);
       padding-bottom: rem-calc(50);
