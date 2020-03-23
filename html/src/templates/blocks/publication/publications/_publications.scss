@@ -21,6 +21,9 @@
     @include media-breakpoint-up(md) {
       @include make-col(4, 12);
     }
+    @media (min-width: 75rem) {
+      @include make-col(3, 12);
+    }
     @include media-breakpoint-up(lg) {
       @include make-col(3, 12);
     }
