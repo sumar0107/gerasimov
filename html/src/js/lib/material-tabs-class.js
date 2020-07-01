@@ -10,13 +10,8 @@ export default class MaterialTabsClass {
 
   init() {
     this.initTabBar()
-    const self = this
-    const initSelect = function () {
-      return self.initSelect()
-    }
-    const destroyedSelect = function () {
-      return self.destroyedSelect()
-    }
+    const initSelect = () => this.initSelect()
+    const destroyedSelect = () => this.destroyedSelect()
 
     enquire.register('(max-width: 33.75rem)', {
       setup() {
@@ -78,14 +73,16 @@ export default class MaterialTabsClass {
   initSelect() {
     this.createSelect()
     this.select = new MDCSelect(this.selectEl)
-    // this.select.listen('MDCSelect:change', () => {
-    //   console.log(`Index -- ${this.select.selectedIndex}`, `Value -- "${this.select.value}"`);
-    // });
+    this.select.listen('MDCSelect:change', () => {
+      // console.log(`Index -- ${this.select.selectedIndex}`, `Value -- "${this.select.value}"`);
+      setTimeout(() => this.tabBar.activateTab(this.select.selectedIndex), 0);
+    });
   }
 
   destroyedSelect() {
     if (this.selectEl) {
       this.tabBar.activateTab(+this.select.selectedIndex)
+      this.select.destroy()
       this.selectEl.remove()
     }
   }
