@@ -5,6 +5,9 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
+    @-moz-document url-prefix() {
+      display: block;
+    }
   }
   @include media-breakpoint-up(sm) {
     width: 100%;
